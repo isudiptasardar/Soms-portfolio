@@ -1,0 +1,49 @@
+{
+  "academics": [
+    {
+      "id": 1,
+      "year": "2023 - Present",
+      "degree": "Doctor of Philosophy (PhD)",
+      "program": "Chemical and Biomolecular Engineering",
+      "institution": "Pusan National University",
+      "location": "Busan, South Korea",
+      "description": "Research focused on computational approaches to drug discovery and design targeting RNA with small molecules, and vaccine development using miRNA-based therapeutics, with emphasis on molecular modeling and simulation techniques.",
+      "achievements": [
+        "Developed novel computational methods for drug-target interaction prediction",
+        "Published research in high-impact journals in the field of computational chemistry",
+        "Collaborated with international research teams on drug discovery projects"
+      ],
+      "skills": ["Molecular Modeling", "CADD", "Machine Learning", "Python", "R", "Molecular Dynamics"]
+    },
+    {
+      "id": 2,
+      "year": "2020 - 2022",
+      "degree": "Master in Science (M.Sc.)",
+      "program": "Bioinformatics",
+      "institution": "Pondicherry Central University",
+      "location": "Puducherry, India",
+      "description": "Specialized in computational biology with focus on sequence analysis, structural bioinformatics, and biological data mining.",
+      "achievements": [
+        "Graduated with distinction (top 5% of class)",
+        "Developed tools for RNA sequence analysis and structure prediction",
+        "Received university merit scholarship for academic excellence"
+      ],
+      "skills": ["Sequence Analysis", "Structural Bioinformatics", "Database Management", "Java", "Perl", "Biopython"]
+    },
+    {
+      "id": 3,
+      "year": "2017 - 2020",
+      "degree": "Bachelors in Science (B.Sc.)",
+      "program": "Biotechnology",
+      "institution": "Vidyasagar University",
+      "location": "West Bengal, India",
+      "description": "Foundational education in biotechnology covering molecular biology, genetics, biochemistry, and basic bioinformatics.",
+      "achievements": [
+        "Graduated with First Class Honors",
+        "Completed research project on microbial biotechnology",
+        "Participated in national-level biotechnology symposium"
+      ],
+      "skills": ["Molecular Biology", "Microbiology", "Biochemistry", "Laboratory Techniques", "Basic Programming"]
+    }
+  ]
+}

@@ -1,0 +1,185 @@
+{
+  "publications": [
+    {
+      "id": 1,
+      "year": 2025,
+      "type": "journal article",
+      "authors": ["Somenath Dutta", "Shilpa Sri Pushan", "Rohan Ghosh", "Maria Jose", "Manisha Pritam"],
+      "title": "In silico Study of Antiviral Phytochemicals for the Potential Drug Development Against Wild-type and Omicron Variants of SARS-CoV-2",
+      "journal": "Current Pharmaceutical Biotechnology",
+      "paperImage": "/placeholder.svg?height=400&width=600",
+      "publicationDate": "2025-01-15"
+    },
+    {
+      "id": 2,
+      "year": 2025,
+      "type": "journal article",
+      "authors": ["Somenath Dutta", "Indrani Biswas", "Subhabrata Goswami", "Ananya Verma"],
+      "title": "Real-world application of molecular docking in drug discovery",
+      "journal": "Advances in Pharmacology",
+      "paperImage": "/placeholder.svg?height=400&width=600",
+      "publicationDate": "2025-02-20"
+    },
+    {
+      "id": 3,
+      "year": 2025,
+      "type": "journal article",
+      "authors": [
+        "Somenath Dutta",
+        "Rohan Ghosh",
+        "Ishita Dasgupta",
+        "Purbita Sikdar",
+        "Priyasa Santra",
+        "Debjit Maity",
+        "Manisha Pritam",
+        "Sun Gu Lee"
+      ],
+      "title": "Monkeypox: A comprehensive review on mutation, transmission, pathophysiology, and therapeutics",
+      "journal": "International Immunopharmacology",
+      "paperImage": "/placeholder.svg?height=400&width=600",
+      "publicationDate": "2025-03-10"
+    },
+    {
+      "id": 4,
+      "year": 2025,
+      "type": "journal article",
+      "authors": ["Manisha Pritam", "Somenath Dutta", "Rajnish Kumar"],
+      "title": "Identification of Potential Necroptosis Inhibitors using Pharmacophore Model: An In-silico Approach",
+      "journal": "Current Proteomics",
+      "paperImage": "/placeholder.svg?height=400&width=600",
+      "publicationDate": "2025-04-05"
+    },
+    {
+      "id": 5,
+      "year": 2024,
+      "type": "journal article",
+      "authors": ["Manisha Pritam", "Somenath Dutta"],
+      "title": "Development of miRNA-Based Therapeutics for Liver Cancer Using Bioinformatics Approaches",
+      "journal": "American Society of Clinical Oncology",
+      "paperImage": "/placeholder.svg?height=400&width=600",
+      "publicationDate": "2024-11-30"
+    },
+    {
+      "id": 6,
+      "year": 2024,
+      "type": "book chapter",
+      "authors": ["Sudipta Sardar", "Somenath Dutta", "Ganesh Jadav"],
+      "title": "Modeling in Reproductive Health and Treatment Outcomes",
+      "publisher": "Springer Nature",
+      "paperImage": "/placeholder.svg?height=400&width=600",
+      "publicationDate": "2024-08-15"
+    },
+    {
+      "id": 7,
+      "year": 2023,
+      "type": "journal article",
+      "authors": [
+        "Manisha Pritam",
+        "Somenath Dutta",
+        "Krishna Mohan Medicherla",
+        "Rajnish Kumar",
+        "Satarudra Prakash Singh"
+      ],
+      "title": "Computational analysis of spike protein of SARS-CoV-2 (Omicron variant) for development of peptide-based therapeutics and diagnostics",
+      "journal": "Journal of Biomolecular Structure and Dynamics",
+      "paperImage": "/placeholder.svg?height=400&width=600",
+      "publicationDate": "2023-07-22"
+    },
+    {
+      "id": 8,
+      "year": 2022,
+      "type": "journal article",
+      "authors": ["Somenath Dutta", "Debanjan Ghosh", "Rohan Ghosh", "Priyasa Santra", "Shillpa Daw"],
+      "title": "A Detailed Study of Covid-19 (Emphasizing its Genomic Variants, Pathogenicity, Phylogenetic Analysis, Epidemiology, and Clinical Measures)",
+      "journal": "International Healthcare Research Journal",
+      "paperImage": "/placeholder.svg?height=400&width=600",
+      "publicationDate": "2022-05-18"
+    },
+    {
+      "id": 9,
+      "year": 2021,
+      "type": "journal article",
+      "authors": [
+        "Somenath Dutta",
+        "Shilpa Daw",
+        "Polay Sankar Dey",
+        "Soumya Sarathi Ganguly",
+        "Dattatreya Mukherjee",
+        "Somnath De"
+      ],
+      "title": "The Causalities of Pandemic - A Study on Daily Needs",
+      "journal": "OSF Preprints",
+      "paperImage": "/placeholder.svg?height=400&width=600",
+      "publicationDate": "2021-11-10"
+    },
+    {
+      "id": 10,
+      "year": 2021,
+      "type": "book chapter",
+      "authors": ["Somenath Dutta", "Rohan Ghosh"],
+      "title": "DNA Barcoding: The Conspicuous Scan",
+      "publisher": "Compendium of Volume-3 by JPS Publication",
+      "paperImage": "/placeholder.svg?height=400&width=600",
+      "publicationDate": "2021-06-15"
+    },
+    {
+      "id": 11,
+      "year": 2020,
+      "type": "journal article",
+      "authors": [
+        "Somnath De",
+        "Somenath Dutta",
+        "Debjit Maity",
+        "Shreya Ghosh",
+        "Subhajit Bhowmik",
+        "Pritam Banerjee",
+        "Piyali Samanta",
+        "Rabindranath",
+        "Santanu Pramanik"
+      ],
+      "title": "In vitro Phytochemical analysis and Anthelmintic activity of Acacia nilotica whole plant methanolic and aqueous extract on Indian adult earthworm",
+      "journal": "Indian Journal of Medical Research and Pharmaceutical Science",
+      "paperImage": "/placeholder.svg?height=400&width=600",
+      "publicationDate": "2020-09-22"
+    },
+    {
+      "id": 12,
+      "year": 2020,
+      "type": "journal article",
+      "authors": [
+        "Somnath De",
+        "Meholy Bandyopadhyay",
+        "Madhumita Pramanik",
+        "Subham Rana",
+        "Anushka Goswami",
+        "Somenath Dutta",
+        "Adrinil Das",
+        "Dr. Dulal Chandra Das"
+      ],
+      "title": "Investigation of the antibacterial efficiency of toothpastes and their use against dental pathogen",
+      "journal": "International Journal of Applied Dental Science",
+      "paperImage": "/placeholder.svg?height=400&width=600",
+      "publicationDate": "2020-04-10"
+    },
+    {
+      "id": 13,
+      "year": 2019,
+      "type": "journal article",
+      "authors": ["Somnath De", "Somenath Dutta", "Dulal Chandra Das", "Monalisha Das"],
+      "title": "In-vitro anthelmintic activity of Akanda (Calotropis gigantea L.) whole plant methanolic extract in Indian adult earthworm",
+      "journal": "The Journal of Phytopharmacology",
+      "paperImage": "/placeholder.svg?height=400&width=600",
+      "publicationDate": "2019-11-05"
+    },
+    {
+      "id": 14,
+      "year": 2019,
+      "type": "journal article",
+      "authors": ["Somenath Dutta", "Somnath De", "Dulal Chandra Das", "Monalisha Das"],
+      "title": "Microbiological Assessment of Street Foods of Different Locations at Panskura Block, West Bengal, India",
+      "journal": "World Journal of Pharmacy and Pharmaceutical Sciences",
+      "paperImage": "/placeholder.svg?height=400&width=600",
+      "publicationDate": "2019-05-20"
+    }
+  ]
+}
