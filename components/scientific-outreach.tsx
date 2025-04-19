@@ -33,7 +33,7 @@ export default function ScientificOutreach() {
               </LinkPreview>{" "}
               and has{" "}
               <LinkPreview
-                url="/outreach/volunteer-work">
+                url="https://somenath.biomolecular.space/outreach/volunteer-work/">
                 volunteered in many organizations
               </LinkPreview>{" "}
               for the scientific growth of society. These experiences have broadened his perspective, enhanced his
