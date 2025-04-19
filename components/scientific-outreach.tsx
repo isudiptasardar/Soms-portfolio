@@ -1,5 +1,6 @@
 "use client"
 import { OutreachPreview } from "@/components/ui/outreach-preview"
+import { LinkPreview } from "@/components/ui/link-preview";
 
 export default function ScientificOutreach() {
   return (
@@ -52,7 +53,9 @@ export default function ScientificOutreach() {
                 volunteered in many organizations
               </OutreachPreview>{" "}
               for the scientific growth of society. These experiences have broadened his perspective, enhanced his
-              skills, and strengthened his involvement in the wider scientific community.
+              skills, and strengthened his involvement in the wider <LinkPreview url="https://framer.com/motion" className="font-bold">
+          Framer Motion
+        </LinkPreview>scientific community.
             </p>
           </div>
         </div>
