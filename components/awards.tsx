@@ -5,7 +5,7 @@ import { getRecentAwards } from "@/lib/awards"
 
 export default function Awards() {
   // Get recent awards using our utility function
-  const displayedAwards = getRecentAwards(6)
+  const displayedAwards = getRecentAwards(5)
 
   return (
     <section id="awards" className="py-20" aria-labelledby="awards-heading">

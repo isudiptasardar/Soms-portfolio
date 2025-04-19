@@ -28,44 +28,49 @@ export async function POST(request: Request) {
       subject: subject ? `Website Contact Form: ${subject}` : "New Contact Form Submission from Website",
       replyTo: email,
       bcc:["sudiptasbd@bicpu.edu.in"],
-      html: `<div style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 580px; margin: 0 auto; padding: 2rem; color: #333; background-color: #fff;">
-  <!-- Light/Dark Mode Compatible Container -->
-  <div style="background-color: #ffffff; color: #1a1a1a; border-radius: 0.75rem; padding: 2rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); margin-bottom: 1.5rem; overflow: hidden; border: 1px solid #eaeaea;">
-    <!-- Header Section -->
-    <div style="margin-bottom: 1.5rem; border-bottom: 1px solid #eaeaea; padding-bottom: 1rem;">
-      <h2 style="font-size: 1.25rem; font-weight: 600; margin: 0; letter-spacing: -0.01em;">New Contact Inquiry</h2>
+      html: `<div style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 650px; margin: 0 auto; padding: 1.5rem;">
+  <!-- Header with gradient accent -->
+  <div style="position: relative; padding-bottom: 1.5rem; margin-bottom: 2rem;">
+    <div style="height: 6px; background: linear-gradient(90deg, #3a7bd5, #00d2ff); border-radius: 3px; margin-bottom: 1.5rem;"></div>
+    <h1 style="font-size: 1.75rem; font-weight: 700; margin: 0; letter-spacing: -0.02em; color: #1a1a1a;">New Message</h1>
+    <p style="color: #6b7280; margin: 0.5rem 0 0 0; font-size: 0.95rem;">From your portfolio website</p>
+  </div>
+  
+  <!-- Sender Information with visual separator -->
+  <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; position: relative;">
+    <div style="display: flex; align-items: center; gap: 0.75rem;">
+      <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #00d2ff, #3a7bd5); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 1.25rem;">
+        ${name.charAt(0).toUpperCase()}
+      </div>
+      <div>
+        <h2 style="margin: 0; font-weight: 600; font-size: 1.2rem; color: #1a1a1a;">${name}</h2>
+        <p style="margin: 0; font-size: 0.9rem; color: #6b7280;">${email}</p>
+      </div>
     </div>
-    
-    <!-- Contact Info Section -->
-    <div style="margin-bottom: 1.5rem;">
-      <p style="margin: 0.5rem 0; line-height: 1.5;">
-        <span style="font-weight: 500; color: #555;">From:</span> 
-        <span style="display: inline-block; margin-left: 0.25rem;">${name}</span>
-      </p>
-      <p style="margin: 0.5rem 0; line-height: 1.5;">
-        <span style="font-weight: 500; color: #555;">Email:</span>
-        <span style="display: inline-block; margin-left: 0.25rem;">${email}</span>
-      </p>
-      ${subject ? `<p style="margin: 0.5rem 0; line-height: 1.5;">
-        <span style="font-weight: 500; color: #555;">Subject:</span>
-        <span style="display: inline-block; margin-left: 0.25rem;">${subject}</span>
-      </p>` : ""}
-    </div>
-    
-    <!-- Message Section -->
-    <div style="margin-bottom: 1.5rem;">
-      <p style="font-weight: 500; color: #555; margin: 0 0 0.5rem 0;">Message:</p>
-      <div style="background-color: #f8f9fa; border-radius: 0.5rem; padding: 1.25rem; font-size: 0.95rem; line-height: 1.6; white-space: pre-wrap; word-break: break-word;">
+    ${subject ? `<div style="margin-top: 0.25rem; padding-left: 53px;">
+      <span style="display: inline-block; background-color: #f3f4f6; color: #4b5563; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.85rem; font-weight: 500;">${subject}</span>
+    </div>` : ""}
+  </div>
+
+  <!-- Message Section with stylish background -->
+  <div style="margin-bottom: 2rem; position: relative;">
+    <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, #3a7bd5, #00d2ff); border-radius: 2px;"></div>
+    <div style="padding-left: 1.25rem;">
+      <p style="font-weight: 600; margin: 0 0 1rem 0; color: #1a1a1a; letter-spacing: -0.01em; font-size: 1.1rem;">Message</p>
+      <div style="font-size: 1rem; line-height: 1.65; color: #1f2937; white-space: pre-wrap; word-break: break-word;">
         ${message.replace(/\n/g, "<br>")}
       </div>
     </div>
   </div>
   
-  <!-- Footer Section -->
-  <div style="text-align: center; font-size: 0.8rem; color: #6b7280; padding-top: 0.5rem;">
-    <p style="margin: 0;">This message was sent from your portfolio website contact form</p>
-    <p style="margin: 0.25rem 0 0 0;">•</p>
-    <p style="margin: 0.25rem 0 0 0;">${new Date().toLocaleDateString()}</p>
+  <!-- Call to action -->
+  <div style="margin-top: 2.5rem; margin-bottom: 1.5rem; text-align: center;">
+    <a href="mailto:${email}" style="display: inline-block; padding: 0.75rem 1.5rem; background: linear-gradient(90deg, #3a7bd5, #00d2ff); color: white; text-decoration: none; border-radius: 0.5rem; font-weight: 500; letter-spacing: 0.01em;">Reply to ${name}</a>
+  </div>
+  
+  <!-- Footer with timestamp -->
+  <div style="text-align: center; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid #eaeaea;">
+    <p style="color: #6b7280; font-size: 0.85rem; margin: 0;">Received on ${new Date().toLocaleDateString()} at ${new Date().toLocaleTimeString()}</p>
   </div>
 </div>`,
     })
