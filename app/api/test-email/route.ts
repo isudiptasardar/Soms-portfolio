@@ -153,7 +153,7 @@ export async function GET() {
           <!-- Footer -->
           <tr>
             <td style="background-color: #f9fafb; border-top: 1px solid #edf2f7; padding: 20px; text-align: center; color: #8a8a8a; font-size: 14px;">
-              Message received on ${new Date().toLocaleDateString()} at ${new Date().toLocaleTimeString()}
+              Message received on ${new Date().toLocaleDateString("en-US", {timeZone: "Asia/Kolkata"})} at ${new Date().toLocaleTimeString("en-US", {timeZone: "Asia/Kolkata"})}
             </td>
           </tr>
           
@@ -164,8 +164,7 @@ export async function GET() {
   </table>
 
 </body>
-</html>
-`,
+</html>`,
     })
 
     console.log("Test email sent successfully:", data.id)
