@@ -68,7 +68,7 @@ export default function About() {
               </LinkPreview>
               , and also joined the{" "}
               <LinkPreview
-                href="https://www.iaamonline.org"
+                href="https://www.iaamonline.org/"
                 className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer font-bold"
               >
                 {" "}

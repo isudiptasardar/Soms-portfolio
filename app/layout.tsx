@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   publisher: "Pusan National University",
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "en_IN",
     url: "https://somenath.biomolecular.space",
     title: "Somenath Dutta | Bioinformatician & Computational Biology Researcher",
     description:
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     description:
       "Portfolio of Somenath Dutta, PhD researcher specializing in CADD, miRNA therapeutics and RNA biology with expertise in computational approaches to biological problems.",
     images: ["/og-image.jpg"],
-    creator: "@SomenathDutta",
+    creator: "@isudiptasardar",
   },
   alternates: {
     canonical: "https://somenath.biomolecular.space",
@@ -108,8 +108,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={inter.variable}>
       <head>
-        {/* Preload critical resources */}
-        <link rel="preload" href="/images/somenath-profile.png" as="image" />
       </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
