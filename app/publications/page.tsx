@@ -132,7 +132,7 @@ export default function PublicationsPage() {
                               {formatAuthors(publication.authors)}
                             </p>
                             <a
-                              href={publication.id}
+                              href=`https://doi.org/${publication.id}`
                               className="inline-flex items-center text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
                               aria-label={`Read ${publication.title}`}
                               itemProp="url"
