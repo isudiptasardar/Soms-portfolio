@@ -36,20 +36,46 @@ export async function POST(request: Request) {
     <p style="color: #6b7280; margin: 0.5rem 0 0 0; font-size: 0.95rem;">From your portfolio website</p>
   </div>
   
-  <!-- Sender Information with improved responsive layout -->
-  <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; position: relative;">
-    <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
-      <div style="width: 40px; height: 40px; min-width: 40px; border-radius: 50%; background: linear-gradient(135deg, #00d2ff, #3a7bd5); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 1.25rem;">
-        ${name.charAt(0).toUpperCase()}
+  <!-- Sender Information with responsive layout that changes for mobile -->
+  <div style="margin-bottom: 2rem; position: relative;">
+    <!-- Desktop: Two-column layout (contact info + subject) -->
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 1rem;">
+      <!-- Contact info container (left side on desktop) -->
+      <div style="display: flex; align-items: center; gap: 0.75rem; flex: 1; min-width: 250px;">
+        <div style="width: 40px; height: 40px; min-width: 40px; border-radius: 50%; background: linear-gradient(135deg, #00d2ff, #3a7bd5); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 1.25rem;">
+          ${name.charAt(0).toUpperCase()}
+        </div>
+        <div>
+          <h2 style="margin: 0; font-weight: 600; font-size: 1.2rem; color: #1a1a1a; word-break: break-word;">${name}</h2>
+          <p style="margin: 0; font-size: 0.9rem; color: #6b7280; word-break: break-word; overflow-wrap: break-word;">${email}</p>
+        </div>
       </div>
-      <div style="flex: 1; min-width: 200px;">
-        <h2 style="margin: 0; font-weight: 600; font-size: 1.2rem; color: #1a1a1a; word-break: break-word;">${name}</h2>
-        <p style="margin: 0; font-size: 0.9rem; color: #6b7280; word-break: break-word; overflow-wrap: break-word;">${email}</p>
+      
+      <!-- Subject container (right side on desktop, below on mobile) -->
+      ${subject ? `
+      <div style="@media screen and (min-width: 600px) { text-align: right; } @media screen and (max-width: 599px) { margin-top: 0.5rem; padding-left: 53px; } display: flex; justify-content: flex-end; align-items: center; flex: 0 0 auto;">
+        <span style="display: inline-block; background-color: #f3f4f6; color: #4b5563; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.85rem; font-weight: 500; max-width: 100%; overflow-wrap: break-word; word-break: break-word;">${subject}</span>
       </div>
+      ` : ""}
     </div>
-    ${subject ? `<div style="margin-top: 0.25rem; padding-left: min(53px, 8%);">
+    
+    <!-- Mobile-only subject placement - will be hidden on desktop and shown on mobile -->
+    ${subject ? `
+    <style>
+      @media screen and (min-width: 600px) {
+        .mobile-subject { display: none !important; }
+      }
+      @media screen and (max-width: 599px) {
+        .desktop-subject { display: none !important; }
+      }
+    </style>
+    <div class="mobile-subject" style="margin-top: 0.75rem; padding-left: 53px; display: none;">
       <span style="display: inline-block; background-color: #f3f4f6; color: #4b5563; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.85rem; font-weight: 500; max-width: 100%; overflow-wrap: break-word; word-break: break-word;">${subject}</span>
-    </div>` : ""}
+    </div>
+    <div class="desktop-subject" style="display: none;">
+      ${subject}
+    </div>
+    ` : ""}
   </div>
 
   <!-- Message Section with improved responsive layout -->
@@ -72,7 +98,37 @@ export async function POST(request: Request) {
   <div style="text-align: center; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid #eaeaea;">
     <p style="color: #6b7280; font-size: 0.85rem; margin: 0; word-break: break-word;">Received on ${new Date().toLocaleDateString()} at ${new Date().toLocaleTimeString()}</p>
   </div>
-</div>`,
+</div>
+
+<!-- Responsive styles for different devices -->
+<style type="text/css">
+  /* Since email clients have limited CSS support, we're using a hybrid approach with inline and embedded styles */
+  @media screen and (max-width: 599px) {
+    .subject-container {
+      justify-content: flex-start !important;
+      margin-top: 0.75rem !important;
+      padding-left: 53px !important;
+    }
+    .desktop-subject {
+      display: none !important;
+    }
+    .mobile-subject {
+      display: block !important;
+    }
+  }
+  
+  @media screen and (min-width: 600px) {
+    .subject-container {
+      justify-content: flex-end !important;
+    }
+    .desktop-subject {
+      display: block !important;
+    }
+    .mobile-subject {
+      display: none !important;
+    }
+  }
+</style>`,
     })
 
     console.log("Email sent successfully:", data.id)
