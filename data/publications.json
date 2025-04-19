@@ -1,15 +1,14 @@
 {
   "publications": [
     {
-      "id": 1,
+      "id": "doi.org/10.2174/0113892010251819241120050831",
       "year": 2025,
       "type": "journal article",
       "authors": ["Somenath Dutta", "Shilpa Sri Pushan", "Rohan Ghosh", "Maria Jose", "Manisha Pritam"],
       "title": "In silico Study of Antiviral Phytochemicals for the Potential Drug Development Against Wild-type and Omicron Variants of SARS-CoV-2",
       "journal": "Current Pharmaceutical Biotechnology",
       "paperImage": "/placeholder.svg?height=400&width=600",
-      "publicationDate": "2025-01-15",
-      "doi":"doi.org/10.2174/0113892010251819241120050831"
+      "publicationDate": "2025-01-15"
     },
     {
       "id": 2,
