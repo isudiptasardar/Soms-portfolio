@@ -13,7 +13,13 @@ export const metadata: Metadata = {
 }
 
 export default async function GalleryPage() {
-  const currentDirectory = process.cwd()
+  const galleryDirectory = path.join(process.cwd(),"public");
+  try{
+    const fileNames = fs.readdirSync(galleryDirectory);
+  } catch (error) {
+    console.error('Error reading gallery directory:', error);
+    return [];
+  }
   return (
     <div className="min-h-screen bg-white dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 transition-colors duration-300">
       <Header />
@@ -31,7 +37,7 @@ export default async function GalleryPage() {
           </div>
 
           <h1 className="text-3xl md:text-4xl font-bold mb-12">Gallery</h1>
-          <p>{currentDirectory}</p>
+          <p>{filenames}</p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {Array.from({ length: 16 }).map((_, index) => (
