@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 }
 
 export default async function GalleryPage() {
-  const galleryDirectory = path.join(process.cwd(),"public");
+  const galleryDirectory = path.join(process.cwd(),"public/images");
   try{
     const fileNames = fs.readdirSync(galleryDirectory);
   } catch (error) {
