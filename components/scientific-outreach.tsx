@@ -9,7 +9,7 @@ export default function ScientificOutreach() {
 
         <div className="max-w-4xl mx-auto">
           <div className="bg-white dark:bg-zinc-700 rounded-lg shadow-sm p-8 md:p-10">
-            <p className="text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
+            <div className="text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
               In addition to Mr. Dutta's academic and research pursuits, he has actively engaged in various scientific
               activities, including contributing to{" "}
               <LinkPreview
@@ -38,7 +38,7 @@ export default function ScientificOutreach() {
               </LinkPreview>{" "}
               for the scientific growth of society. These experiences have broadened his perspective, enhanced his
               skills, and strengthened his involvement in the wider scientific community.
-            </p>
+            </div>
           </div>
         </div>
       </div>
