@@ -57,9 +57,32 @@ export default function Footer() {
               Contact
             </Link>
           </nav>
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-4">
+            <Link
+              href="/publications"
+              className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
+            >
+              All Publications
+            </Link>
+            <Link
+              href="/awards"
+              className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
+            >
+              All Awards
+            </Link>
+            <Link
+              href="/gallery"
+              className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
+            >
+              Full Gallery
+            </Link>
+          </div>
           <p className="text-sm text-zinc-600 dark:text-zinc-400">
             © {currentYear} Somenath Dutta. Crafted with &hearts; by{" "}
-            <a href="https://sudipta.biomolecular.space"> Sudipta </a>
+            <a href="https://sudipta.biomolecular.space" className="hover:underline">
+              {" "}
+              Sudipta{" "}
+            </a>
           </p>
         </div>
       </div>

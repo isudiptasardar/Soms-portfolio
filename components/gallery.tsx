@@ -12,43 +12,43 @@ export default function Gallery() {
     {
       id: 1,
       src: "https://picsum.photos/seed/gallery1/800/800",
-      alt: "Gallery Image 1",
+      alt: "RNA Structure Visualization - 3D molecular model",
       caption: "RNA Structure Visualization",
     },
     {
       id: 2,
       src: "https://picsum.photos/seed/gallery2/800/800",
-      alt: "Gallery Image 2",
+      alt: "Molecular Docking Analysis - Protein-ligand interaction",
       caption: "Molecular Docking Analysis",
     },
     {
       id: 3,
       src: "https://picsum.photos/seed/gallery3/800/800",
-      alt: "Gallery Image 3",
+      alt: "miRNA Target Prediction - Computational analysis visualization",
       caption: "miRNA Target Prediction",
     },
     {
       id: 4,
       src: "https://picsum.photos/seed/gallery4/800/800",
-      alt: "Gallery Image 4",
+      alt: "Protein-RNA Interaction - Molecular binding visualization",
       caption: "Protein-RNA Interaction",
     },
     {
       id: 5,
       src: "https://picsum.photos/seed/gallery5/800/800",
-      alt: "Gallery Image 5",
+      alt: "Gene Expression Analysis - Heatmap visualization",
       caption: "Gene Expression Analysis",
     },
     {
       id: 6,
       src: "https://picsum.photos/seed/gallery6/800/800",
-      alt: "Gallery Image 6",
+      alt: "Drug-RNA Complex - Molecular structure visualization",
       caption: "Drug-RNA Complex",
     },
     {
       id: 7,
       src: "https://picsum.photos/seed/gallery7/800/800",
-      alt: "Gallery Image 7",
+      alt: "Computational Workflow - Bioinformatics pipeline diagram",
       caption: "Computational Workflow",
     },
   ]
@@ -66,7 +66,7 @@ export default function Gallery() {
   const currentImage = selectedImage !== null ? galleryImages.find((img) => img.id === selectedImage) : null
 
   return (
-    <section id="gallery" className="py-20 bg-zinc-50 dark:bg-zinc-800">
+    <section id="gallery" className="py-20 bg-zinc-50 dark:bg-zinc-800" aria-label="Research visualization gallery">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center">Gallery</h2>
 
@@ -98,6 +98,7 @@ export default function Gallery() {
           <Link
             href="/gallery"
             className="aspect-square bg-white dark:bg-zinc-700 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col justify-center items-center border-2 border-dashed border-zinc-200 dark:border-zinc-600 p-6"
+            aria-label="View more gallery images"
           >
             <div className="text-center">
               <h3 className="text-xl font-semibold mb-4">View More Images</h3>
@@ -112,7 +113,13 @@ export default function Gallery() {
 
       {/* Lightbox */}
       {selectedImage !== null && currentImage && (
-        <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4" onClick={closeLightbox}>
+        <div
+          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+          onClick={closeLightbox}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="lightbox-title"
+        >
           <button
             className="absolute top-4 right-4 text-white p-2 rounded-full bg-black/50 hover:bg-black/70 transition-colors"
             onClick={closeLightbox}
@@ -131,7 +138,9 @@ export default function Gallery() {
               priority
             />
             <div className="bg-black/70 p-4 text-white">
-              <h3 className="text-xl font-medium">{currentImage.caption}</h3>
+              <h3 id="lightbox-title" className="text-xl font-medium">
+                {currentImage.caption}
+              </h3>
             </div>
           </div>
         </div>

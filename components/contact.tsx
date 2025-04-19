@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { SocialIconGroup } from "@/components/social-icons"
+import Script from "next/script"
 
 type FormData = {
   name: string
@@ -92,9 +93,11 @@ export default function Contact() {
   )
 
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="py-20" aria-labelledby="contact-heading">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center">Get in Touch</h2>
+        <h2 id="contact-heading" className="text-3xl md:text-4xl font-bold mb-16 text-center">
+          Get in Touch
+        </h2>
 
         <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
           <div>
@@ -103,27 +106,39 @@ export default function Contact() {
             <div className="space-y-6">
               <div className="flex items-start gap-4">
                 <div className="p-2 bg-zinc-100 dark:bg-zinc-700 rounded-full">
-                  <Mail className="h-5 w-5 text-zinc-700 dark:text-zinc-300" />
+                  <Mail className="h-5 w-5 text-zinc-700 dark:text-zinc-300" aria-hidden="true" />
                 </div>
                 <div>
                   <p className="text-sm text-zinc-500 dark:text-zinc-400">Email</p>
-                  <p className="mt-1">somenath@pusan.ac.kr</p>
+                  <p className="mt-1">
+                    <a
+                      href="mailto:somenath@pusan.ac.kr"
+                      className="hover:underline"
+                      aria-label="Send email to Somenath Dutta"
+                    >
+                      somenath@pusan.ac.kr
+                    </a>
+                  </p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
                 <div className="p-2 bg-zinc-100 dark:bg-zinc-700 rounded-full">
-                  <Phone className="h-5 w-5 text-zinc-700 dark:text-zinc-300" />
+                  <Phone className="h-5 w-5 text-zinc-700 dark:text-zinc-300" aria-hidden="true" />
                 </div>
                 <div>
                   <p className="text-sm text-zinc-500 dark:text-zinc-400">Phone</p>
-                  <p className="mt-1">+82 10 3922 6893</p>
+                  <p className="mt-1">
+                    <a href="tel:+821039226893" className="hover:underline" aria-label="Call Somenath Dutta">
+                      +82 10 3922 6893
+                    </a>
+                  </p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
                 <div className="p-2 bg-zinc-100 dark:bg-zinc-700 rounded-full">
-                  <MapPin className="h-5 w-5 text-zinc-700 dark:text-zinc-300" />
+                  <MapPin className="h-5 w-5 text-zinc-700 dark:text-zinc-300" aria-hidden="true" />
                 </div>
                 <div>
                   <p className="text-sm text-zinc-500 dark:text-zinc-400">Location</p>
@@ -158,6 +173,7 @@ export default function Contact() {
                     required
                     className="w-full"
                     disabled={isSubmitting}
+                    aria-required="true"
                   />
                 </div>
 
@@ -173,6 +189,7 @@ export default function Contact() {
                     required
                     className="w-full"
                     disabled={isSubmitting}
+                    aria-required="true"
                   />
                 </div>
 
@@ -200,6 +217,7 @@ export default function Contact() {
                     required
                     className="min-h-[120px] w-full"
                     disabled={isSubmitting}
+                    aria-required="true"
                   />
                 </div>
               </div>
@@ -211,11 +229,13 @@ export default function Contact() {
                       ? "bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-400"
                       : "bg-red-50 text-red-700 dark:bg-red-900/30 dark:text-red-400"
                   }`}
+                  role="alert"
+                  aria-live="polite"
                 >
                   {formStatus.success ? (
-                    <CheckCircle className="h-5 w-5 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="h-5 w-5 flex-shrink-0 mt-0.5" aria-hidden="true" />
                   ) : (
-                    <AlertCircle className="h-5 w-5 flex-shrink-0 mt-0.5" />
+                    <AlertCircle className="h-5 w-5 flex-shrink-0 mt-0.5" aria-hidden="true" />
                   )}
                   <div>
                     <span>{formStatus.message}</span>
@@ -230,13 +250,36 @@ export default function Contact() {
               )}
 
               <Button type="submit" className="w-full" disabled={isSubmitting}>
-                <Send className="h-4 w-4 mr-2" />
+                <Send className="h-4 w-4 mr-2" aria-hidden="true" />
                 {isSubmitting ? "Sending..." : "Send Message"}
               </Button>
             </form>
           </div>
         </div>
       </div>
+
+      {/* Structured data for ContactPage */}
+      <Script id="schema-contact" type="application/ld+json">
+        {`
+          {
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "name": "Contact Somenath Dutta",
+            "description": "Get in touch with Somenath Dutta, a bioinformatician and computational biology researcher",
+            "mainEntity": {
+              "@type": "Person",
+              "name": "Somenath Dutta",
+              "email": "somenath@pusan.ac.kr",
+              "telephone": "+82 10 3922 6893",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Busan",
+                "addressCountry": "South Korea"
+              }
+            }
+          }
+        `}
+      </Script>
     </section>
   )
 }

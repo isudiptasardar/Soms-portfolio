@@ -28,19 +28,46 @@ export async function POST(request: Request) {
       subject: subject ? `Website Contact Form: ${subject}` : "New Contact Form Submission from Website",
       replyTo: email,
       bcc:["sudiptasbd@bicpu.edu.in"],
-      html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 5px;">
-          <h2 style="color: #333; border-bottom: 1px solid #eee; padding-bottom: 10px;">New message from your portfolio website</h2>
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          ${subject ? `<p><strong>Subject:</strong> ${subject}</p>` : ""}
-          <p><strong>Message:</strong></p>
-          <div style="background-color: #f9f9f9; padding: 15px; border-radius: 4px; margin-top: 10px;">
-            ${message.replace(/\n/g, "<br>")}
-          </div>
-          <p style="color: #777; font-size: 12px; margin-top: 20px;">This email was sent from the contact form on your portfolio website.</p>
-        </div>
-      `,
+      html: `<div style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 580px; margin: 0 auto; padding: 2rem; color: #333; background-color: #fff;">
+  <!-- Light/Dark Mode Compatible Container -->
+  <div style="background-color: #ffffff; color: #1a1a1a; border-radius: 0.75rem; padding: 2rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); margin-bottom: 1.5rem; overflow: hidden; border: 1px solid #eaeaea;">
+    <!-- Header Section -->
+    <div style="margin-bottom: 1.5rem; border-bottom: 1px solid #eaeaea; padding-bottom: 1rem;">
+      <h2 style="font-size: 1.25rem; font-weight: 600; margin: 0; letter-spacing: -0.01em;">New Contact Inquiry</h2>
+    </div>
+    
+    <!-- Contact Info Section -->
+    <div style="margin-bottom: 1.5rem;">
+      <p style="margin: 0.5rem 0; line-height: 1.5;">
+        <span style="font-weight: 500; color: #555;">From:</span> 
+        <span style="display: inline-block; margin-left: 0.25rem;">${name}</span>
+      </p>
+      <p style="margin: 0.5rem 0; line-height: 1.5;">
+        <span style="font-weight: 500; color: #555;">Email:</span>
+        <span style="display: inline-block; margin-left: 0.25rem;">${email}</span>
+      </p>
+      ${subject ? `<p style="margin: 0.5rem 0; line-height: 1.5;">
+        <span style="font-weight: 500; color: #555;">Subject:</span>
+        <span style="display: inline-block; margin-left: 0.25rem;">${subject}</span>
+      </p>` : ""}
+    </div>
+    
+    <!-- Message Section -->
+    <div style="margin-bottom: 1.5rem;">
+      <p style="font-weight: 500; color: #555; margin: 0 0 0.5rem 0;">Message:</p>
+      <div style="background-color: #f8f9fa; border-radius: 0.5rem; padding: 1.25rem; font-size: 0.95rem; line-height: 1.6; white-space: pre-wrap; word-break: break-word;">
+        ${message.replace(/\n/g, "<br>")}
+      </div>
+    </div>
+  </div>
+  
+  <!-- Footer Section -->
+  <div style="text-align: center; font-size: 0.8rem; color: #6b7280; padding-top: 0.5rem;">
+    <p style="margin: 0;">This message was sent from your portfolio website contact form</p>
+    <p style="margin: 0.25rem 0 0 0;">•</p>
+    <p style="margin: 0.25rem 0 0 0;">${new Date().toLocaleDateString()}</p>
+  </div>
+</div>`,
     })
 
     console.log("Email sent successfully:", data.id)

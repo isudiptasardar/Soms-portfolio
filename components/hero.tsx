@@ -13,7 +13,11 @@ const LazyBackgroundBeams = lazy(() =>
 
 export default function Hero() {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-16 pb-20 relative overflow-hidden">
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center pt-16 pb-20 relative overflow-hidden"
+      aria-label="Hero section introducing Somenath Dutta"
+    >
       <div className="container mx-auto px-4 flex flex-col items-center text-center relative z-10">
         <motion.h1
           className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6"
@@ -33,7 +37,8 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Specializing in Computer-Aided Drug Design, Vaccine Design, miRNA therapeutics, and RNA Biology with strong research experience across leading global institutions and labs.
+          Specializing in Computer-Aided Drug Design, Vaccine Design, miRNA therapeutics, and RNA Biology with strong
+          research experience across leading global institutions and labs.
         </motion.p>
 
         <motion.div
@@ -43,11 +48,8 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.4 }}
         >
           <Button asChild size="lg">
-            <a href="#publications">Curriculam Vitae</a>
+            <a href="#publications">Curriculum Vitae</a>
           </Button>
-          {/**<Button asChild variant="outline" size="lg">
-            <a href="#contact">Get in Touch</a>
-          </Button>**/}
         </motion.div>
 
         <motion.a
