@@ -19,7 +19,7 @@ export default function About() {
                 priority
                 quality={90}
                 fetchPriority="high"
-                loading="eager"
+                loading="lazy"
               />
             </div>
           </div>
@@ -35,7 +35,7 @@ export default function About() {
               in 2017 and later he earned his bachelors in Biotechnology from{" "}
               <a
                 href="https://www.panskurabanamalicollege.ac.in/"
-                className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer"
+                className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer font-bold"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visit Panskura Banamali College website"
@@ -46,7 +46,7 @@ export default function About() {
               affiliated to{" "}
               <a
                 href="http://www.vidyasagar.ac.in/"
-                className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer"
+                className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer font-bold"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visit Vidyasagar University website"
@@ -60,7 +60,7 @@ export default function About() {
               &nbsp; In 2022, Mr. Dutta completed his Master's degree in Bioinformatics from the{" "}
               <a
                 href="http://www.bicpu.edu.in/"
-                className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer"
+                className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer font-bold"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visit Department of Bioinformatics, Pondicherry Central University website"
@@ -71,7 +71,7 @@ export default function About() {
               with Distinction. After completing his master's he worked as a young research fellow at{" "}
               <a
                 href="http://www.iiit.ac.in/"
-                className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer"
+                className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer font-bold"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visit IIIT Hyderabad website"
@@ -81,7 +81,7 @@ export default function About() {
               , and also joined the{" "}
               <a
                 href="https://www.iaamonline.org/"
-                className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer"
+                className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer font-bold"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visit Institute of Advanced Materials, Sweden website"
@@ -94,7 +94,7 @@ export default function About() {
               a visiting scholar at{" "}
               <a
                 href="https://www.soka.ac.jp/en/glycan"
-                className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer"
+                className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer font-bold"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visit Soka University website"
@@ -110,7 +110,7 @@ export default function About() {
               &nbsp; Currently Mr. Dutta is working as Doctoral Fellow at the Department of{" "}
               <a
                 href="https://chemeng.pusan.ac.kr"
-                className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer"
+                className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer font-bold"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visit Chemical and Biomolecular Engineering department website"
@@ -121,7 +121,7 @@ export default function About() {
               at{" "}
               <a
                 href="https://pusan.ac.kr"
-                className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer"
+                className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer font-bold"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visit Pusan National University website"
