@@ -1,5 +1,5 @@
 "use client"
-import { LinkPreview } from "@/components/ui/link-preview";
+import { LinkPreview } from "@/components/ui/link-preview"
 
 export default function ScientificOutreach() {
   return (
@@ -12,28 +12,29 @@ export default function ScientificOutreach() {
             <div className="text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
               In addition to Mr. Dutta's academic and research pursuits, he has actively engaged in various scientific
               activities, including contributing to{" "}
-              <LinkPreview
-                url="https://somenath.biomolecular.space/outreach/research-projects" className="font-bold">
+              <LinkPreview url="https://somenath.biomolecular.space/outreach/research-projects" className="font-bold">
                 research-based projects
               </LinkPreview>
               , delivering{" "}
               <LinkPreview
-                url="https://somenath.biomolecular.space/outreach/conference-presentations" className="font-bold">
+                url="https://somenath.biomolecular.space/outreach/conference-presentations"
+                className="font-bold"
+              >
                 presentations at conferences
               </LinkPreview>
               , and attending{" "}
-              <LinkPreview
-                url="https://somenath.biomolecular.space/outreach/expert-webinars" className="font-bold">
+              <LinkPreview url="https://somenath.biomolecular.space/outreach/expert-webinars" className="font-bold">
                 expert-led webinars
               </LinkPreview>
               . He is currently associated with{" "}
               <LinkPreview
-                url="https://somenath.biomolecular.space/outreach/scientific-organizations" className="font-bold">
+                url="https://somenath.biomolecular.space/outreach/scientific-organizations"
+                className="font-bold"
+              >
                 several scientific organizations
               </LinkPreview>{" "}
               and has{" "}
-              <LinkPreview
-                url="https://somenath.biomolecular.space/outreach/volunteer-work/" className="font-bold">
+              <LinkPreview url="https://somenath.biomolecular.space/outreach/volunteer-work/" className="font-bold">
                 volunteered in many organizations
               </LinkPreview>{" "}
               for the scientific growth of society. These experiences have broadened his perspective, enhanced his

@@ -1,6 +1,6 @@
 import type React from "react"
 import "@/app/globals.css"
-import { ThemeProvider } from "next-themes"
+import { ThemeProvider } from "@/components/theme-provider"
 import GoToTop from "@/components/go-to-top"
 import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
@@ -110,16 +110,6 @@ export default function RootLayout({
       <head>
         {/* Preload critical resources */}
         <link rel="preload" href="/images/somenath-profile.png" as="image" />
-        {/* Add Google Analytics script */}
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-MEASUREMENT_ID" strategy="afterInteractive" />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-MEASUREMENT_ID');
-          `}
-        </Script>
       </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>

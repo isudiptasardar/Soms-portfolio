@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { LinkPreview } from "@/components/ui/link-preview"
 
 export default function About() {
   return (
@@ -25,112 +26,86 @@ export default function About() {
           </div>
 
           <div className="space-y-6 text-justify">
-            <p className="text-lg leading-relaxed">
+            <div className="text-lg leading-relaxed">
               &nbsp; Somenath Dutta was born in 1998 in Puncha Village, Purulia district, West Bengal, India. He
               completed his schooling at{" "}
-              <span className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent font-bold">
                 {" "}
                 Laulara Radha Charan Academy{" "}
               </span>{" "}
               in 2017 and later he earned his bachelors in Biotechnology from{" "}
-              <a
-                href="https://www.panskurabanamalicollege.ac.in/"
+              <LinkPreview
+                url="https://panskurabanamalicollege.ac.in"
                 className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer font-bold"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Visit Panskura Banamali College website"
               >
                 {" "}
                 Panskura Banamali College (Autonomous){" "}
-              </a>{" "}
+              </LinkPreview>{" "}
               affiliated to{" "}
-              <a
-                href="http://www.vidyasagar.ac.in/"
+              <LinkPreview
+                href="https://www.vidyasagar.ac.in"
                 className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer font-bold"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Visit Vidyasagar University website"
               >
                 {" "}
                 Vidyasagar University{" "}
-              </a>
+              </LinkPreview>
               , West Bengal.
-            </p>
-            <p className="text-lg leading-relaxed">
+            </div>
+            <div className="text-lg leading-relaxed">
               &nbsp; In 2022, Mr. Dutta completed his Master's degree in Bioinformatics from the{" "}
-              <a
-                href="http://www.bicpu.edu.in/"
-                className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer font-bold"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Visit Department of Bioinformatics, Pondicherry Central University website"
-              >
+              <LinkPreview
+                href="https://www.bicpu.edu.in"
+                className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer font-bold">
                 {" "}
                 Department of Bioinformatics, Pondicherry Central University{" "}
-              </a>{" "}
+              </LinkPreview>{" "}
               with Distinction. After completing his master's he worked as a young research fellow at{" "}
-              <a
-                href="http://www.iiit.ac.in/"
+              <LinkPreview
+                href="https://www.iiit.ac.in"
                 className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer font-bold"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Visit IIIT Hyderabad website"
               >
                 IIIT, Hyderabad{" "}
-              </a>
+              </LinkPreview>
               , and also joined the{" "}
-              <a
-                href="https://www.iaamonline.org/"
+              <LinkPreview
+                href="https://www.iaamonline.org"
                 className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer font-bold"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Visit Institute of Advanced Materials, Sweden website"
               >
                 {" "}
                 Institute of Advanced Materials, Sweden{" "}
-              </a>{" "}
+              </LinkPreview>{" "}
               for his pre-PhD courseworks. During his academic career, Somenath was involved in various research-based
               projects and presented his works at numerous national and international conferences. In 2023, he worked as
               a visiting scholar at{" "}
-              <a
+              <LinkPreview
                 href="https://www.soka.ac.jp/en/glycan"
-                className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer font-bold"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Visit Soka University website"
-              >
+                className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer font-bold">
                 {" "}
                 Soka University{" "}
-              </a>
+              </LinkPreview>
               , Japan. He is also a recipient of the prestigious 2024 Max-Planck Student Grant Award. He focused on Drug
               and Vaccine designing with RNA-based therapeutics and demonstrated tremendous willpower to achieve
               remarkable success in this field.
-            </p>
-            <p className="text-lg leading-relaxed">
+            </div>
+            <div className="text-lg leading-relaxed">
               &nbsp; Currently Mr. Dutta is working as Doctoral Fellow at the Department of{" "}
-              <a
+              <LinkPreview
                 href="https://chemeng.pusan.ac.kr"
                 className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer font-bold"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Visit Chemical and Biomolecular Engineering department website"
               >
                 {" "}
                 Chemical and Biomolecular Engineering{" "}
-              </a>{" "}
+              </LinkPreview>{" "}
               at{" "}
-              <a
+              <LinkPreview
                 href="https://pusan.ac.kr"
                 className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer font-bold"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Visit Pusan National University website"
               >
                 {" "}
                 Pusan National University{" "}
-              </a>{" "}
+              </LinkPreview>{" "}
               in South Korea, where he is broadening his research on computational medicines.
-            </p>
+            </div>
             <div className="pt-4">
               <h3 className="text-xl font-semibold mb-3">Research Interests</h3>
               <div className="flex flex-wrap gap-2">

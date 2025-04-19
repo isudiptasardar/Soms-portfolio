@@ -78,7 +78,7 @@ export default function Footer() {
             </Link>
           </div>
           <p className="text-sm text-zinc-600 dark:text-zinc-400">
-            © {currentYear} Somenath Dutta. Crafted with &hearts; by{" "}
+            &copy; {currentYear} Somenath Dutta. Crafted with <span className="text-red-300">&hearts; </span> by{" "}
             <a href="https://sudipta.biomolecular.space" className="hover:underline">
               {" "}
               Sudipta{" "}
