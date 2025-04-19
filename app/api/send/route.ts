@@ -23,11 +23,11 @@ export async function POST(request: Request) {
 
     // Send email using Resend
     const data = await resend.emails.send({
-      from: "Contact Form <onboarding@resend.dev>", // Update with your verified domain when available
-      to: ["somenath@pusan.ac.kr"], // Primary recipient
+      from: "Contact Form <sudipta@biomolecular.space>", // Update with your verified domain when available
+      to: ["sudipta@pusan.ac.kr", "somenath@pusan.ac.kr"], // Primary recipient
       subject: subject ? `Website Contact Form: ${subject}` : "New Contact Form Submission from Website",
       replyTo: email,
-      bcc:["somenath@pusan.ac.kr"],
+      bcc:["sudiptasbd@bicpu.edu.in"],
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 5px;">
           <h2 style="color: #333; border-bottom: 1px solid #eee; padding-bottom: 10px;">New message from your portfolio website</h2>

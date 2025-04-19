@@ -13,7 +13,6 @@ const nextConfig = {
         hostname: 'picsum.photos',
       }
     ],
-    unoptimized: true,
   },
   experimental: {
     // Removing optimizeCss which requires the critters package

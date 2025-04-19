@@ -1,6 +1,7 @@
 import type React from "react"
 import "@/app/globals.css"
-//import { ThemeProvider } from "@/components/theme-provider"
+// Remove the commented out import
+// import { ThemeProvider } from "@/components/theme-provider"
 import { ThemeProvider } from "next-themes"
 import GoToTop from "@/components/go-to-top"
 import type { Metadata, Viewport } from "next"
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
     "computational biology",
     "research",
     "Somenath Dutta",
-    "Sudipta Sardar"
+    "Sudipta Sardar",
   ],
   authors: [{ name: "Sudipta Sardar" }],
   creator: "Sudipta Sardar",
@@ -92,12 +93,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={inter.variable}>
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}
           <GoToTop />
         </ThemeProvider>

@@ -1,4 +1,5 @@
-import Link from "next/link"
+"use client"
+import { OutreachPreview } from "@/components/ui/outreach-preview"
 
 export default function ScientificOutreach() {
   return (
@@ -11,40 +12,45 @@ export default function ScientificOutreach() {
             <p className="text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
               In addition to Mr. Dutta's academic and research pursuits, he has actively engaged in various scientific
               activities, including contributing to{" "}
-              <Link
-                href="/outreach/research-projects"
-                className="font-bold text-blue-600 dark:text-blue-400 hover:underline"
+              <OutreachPreview
+                url="/outreach/research-projects"
+                title="Research-Based Projects"
+                description="Explore the various research projects Somenath has contributed to, including computational analysis of SARS-CoV-2, miRNA-based therapeutics, and more."
               >
                 research-based projects
-              </Link>
+              </OutreachPreview>
               , delivering{" "}
-              <Link
-                href="/outreach/conference-presentations"
-                className="font-bold text-blue-600 dark:text-blue-400 hover:underline"
+              <OutreachPreview
+                url="/outreach/conference-presentations"
+                title="Conference Presentations"
+                description="Learn about Somenath's presentations at various national and international conferences, showcasing his research findings to the scientific community."
               >
                 presentations at conferences
-              </Link>
+              </OutreachPreview>
               , and attending{" "}
-              <Link
-                href="/outreach/expert-webinars"
-                className="font-bold text-blue-600 dark:text-blue-400 hover:underline"
+              <OutreachPreview
+                url="/outreach/expert-webinars"
+                title="Expert-Led Webinars"
+                description="Discover the expert-led webinars Somenath has attended to stay updated with the latest developments in bioinformatics and computational biology."
               >
                 expert-led webinars
-              </Link>
+              </OutreachPreview>
               . He is currently associated with{" "}
-              <Link
-                href="/outreach/scientific-organizations"
-                className="font-bold text-blue-600 dark:text-blue-400 hover:underline"
+              <OutreachPreview
+                url="/outreach/scientific-organizations"
+                title="Scientific Organizations"
+                description="Explore the scientific organizations Somenath is affiliated with, including ISCB, APBioNET, RNA Society, and more."
               >
                 several scientific organizations
-              </Link>{" "}
+              </OutreachPreview>{" "}
               and has{" "}
-              <Link
-                href="/outreach/volunteer-work"
-                className="font-bold text-blue-600 dark:text-blue-400 hover:underline"
+              <OutreachPreview
+                url="/outreach/volunteer-work"
+                title="Volunteer Work"
+                description="Learn about Somenath's volunteer activities in various organizations that contribute to the scientific growth of society."
               >
                 volunteered in many organizations
-              </Link>{" "}
+              </OutreachPreview>{" "}
               for the scientific growth of society. These experiences have broadened his perspective, enhanced his
               skills, and strengthened his involvement in the wider scientific community.
             </p>
