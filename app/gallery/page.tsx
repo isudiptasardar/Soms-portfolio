@@ -4,22 +4,13 @@ import Link from "next/link"
 import Image from "next/image"
 import { ArrowLeft } from "lucide-react"
 import type { Metadata } from "next"
-import fs from 'fs'
-import path from 'path'
 
 export const metadata: Metadata = {
   title: "Gallery | Somenath Dutta",
   description: "A collection of images showcasing Somenath Dutta's work in bioinformatics and computational biology",
 }
 
-export default async function GalleryPage() {
-  const galleryDirectory = path.join(process.cwd(),"public/images");
-  try{
-    const fileNames = fs.readdirSync(galleryDirectory);
-  } catch (error) {
-    console.error('Error reading gallery directory:', error);
-    return [];
-  }
+export default function GalleryPage() {
   return (
     <div className="min-h-screen bg-white dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 transition-colors duration-300">
       <Header />
@@ -37,7 +28,6 @@ export default async function GalleryPage() {
           </div>
 
           <h1 className="text-3xl md:text-4xl font-bold mb-12">Gallery</h1>
-          <p>{filenames[1]}</p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {Array.from({ length: 16 }).map((_, index) => (
