@@ -1,5 +1,4 @@
 "use client"
-import { OutreachPreview } from "@/components/ui/outreach-preview"
 import { LinkPreview } from "@/components/ui/link-preview";
 
 export default function ScientificOutreach() {
@@ -13,49 +12,32 @@ export default function ScientificOutreach() {
             <p className="text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
               In addition to Mr. Dutta's academic and research pursuits, he has actively engaged in various scientific
               activities, including contributing to{" "}
-              <OutreachPreview
-                url="/outreach/research-projects"
-                title="Research-Based Projects"
-                description="Explore the various research projects Somenath has contributed to, including computational analysis of SARS-CoV-2, miRNA-based therapeutics, and more."
-              >
+              <LinkPreview
+                url="/outreach/research-projects">
                 research-based projects
-              </OutreachPreview>
+              </LinkPreview>
               , delivering{" "}
-              <OutreachPreview
-                url="/outreach/conference-presentations"
-                title="Conference Presentations"
-                description="Learn about Somenath's presentations at various national and international conferences, showcasing his research findings to the scientific community."
-              >
+              <LinkPreview
+                url="/outreach/conference-presentations">
                 presentations at conferences
-              </OutreachPreview>
+              </LinkPreview>
               , and attending{" "}
-              <OutreachPreview
-                url="/outreach/expert-webinars"
-                title="Expert-Led Webinars"
-                description="Discover the expert-led webinars Somenath has attended to stay updated with the latest developments in bioinformatics and computational biology."
-              >
+              <LinkPreview
+                url="/outreach/expert-webinars">
                 expert-led webinars
-              </OutreachPreview>
+              </LinkPreview>
               . He is currently associated with{" "}
-              <OutreachPreview
-                url="/outreach/scientific-organizations"
-                title="Scientific Organizations"
-                description="Explore the scientific organizations Somenath is affiliated with, including ISCB, APBioNET, RNA Society, and more."
-              >
+              <LinkPreview
+                url="/outreach/scientific-organizations">
                 several scientific organizations
-              </OutreachPreview>{" "}
+              </LinkPreview>{" "}
               and has{" "}
-              <OutreachPreview
-                url="/outreach/volunteer-work"
-                title="Volunteer Work"
-                description="Learn about Somenath's volunteer activities in various organizations that contribute to the scientific growth of society."
-              >
+              <LinkPreview
+                url="/outreach/volunteer-work">
                 volunteered in many organizations
-              </OutreachPreview>{" "}
+              </LinkPreview>{" "}
               for the scientific growth of society. These experiences have broadened his perspective, enhanced his
-              skills, and strengthened his involvement in the wider <LinkPreview url="https://framer.com/motion" className="font-bold">
-          Framer Motion
-        </LinkPreview>scientific community.
+              skills, and strengthened his involvement in the wider scientific community.
             </p>
           </div>
         </div>

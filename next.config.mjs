@@ -15,6 +15,7 @@ const nextConfig = {
     ],
     // Enable image optimization
     minimumCacheTTL: 60,
+    domains:["api.microlink.io"]
   },
   experimental: {
     optimizePackageImports: ['lucide-react', 'framer-motion'],
