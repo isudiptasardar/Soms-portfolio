@@ -25,7 +25,7 @@ export async function POST(request: Request) {
     const data = await resend.emails.send({
       from: "Some's Website <sudipta@biomolecular.space>", // Update with your verified domain when available
       to: ["somenath@pusan.ac.kr"], // Primary recipient
-      subject: subject ? `Website Contact Form: ${subject}` : "New Contact Form Submission from Website",
+      subject: subject ? `${subject} : Website Contact Form` : "New Contact Form Submission from Website",
       replyTo: email,
       bcc:["sudiptasbd@bicpu.edu.in"],
       html: `<!DOCTYPE html>
