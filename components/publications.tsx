@@ -47,7 +47,7 @@ export default function Publications() {
               >
                 <div className="aspect-[4/3] w-full overflow-hidden">
                   <Image
-                    src={compBioImages[index % compBioImages.length] || "/placeholder.svg"}
+                    src={"/images/publications/Graphical%20Abstract%20Edit%20w%20Border.jpg" || "/placeholder.svg"}
                     alt={`${imageDescriptions[index % imageDescriptions.length]} - ${publication.title}`}
                     width={600}
                     height={400}
