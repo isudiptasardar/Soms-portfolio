@@ -150,7 +150,7 @@ export async function POST(request: Request) {
                     <table border="0" cellpadding="0" cellspacing="0">
                       <tr>
                         <td style="background: linear-gradient(to right, #6366f1, #8b5cf6); border-radius: 6px;">
-                          <a href="mailto:${email}" style="display: inline-block; padding: 12px 25px; color: #ffffff; text-decoration: none; font-weight: 600; font-size: 16px;">Reply to ${name}</a>
+                          <a href="mailto:${email}?subject:${subject}" style="display: inline-block; padding: 12px 25px; color: #ffffff; text-decoration: none; font-weight: 600; font-size: 16px;">Reply to ${name}</a>
                         </td>
                       </tr>
                     </table>
