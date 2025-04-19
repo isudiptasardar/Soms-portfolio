@@ -98,7 +98,7 @@ export default function PublicationsPage() {
                           <div className="md:w-1/3 lg:w-1/4">
                             <div className="aspect-[4/3] w-full overflow-hidden">
                               <Image
-                                src={publication.paperImage || "/placeholder.svg"}
+                                src={publication.imgURL || "/placeholder.svg"}
                                 alt={`Visual representation of the publication: ${publication.title}`}
                                 width={600}
                                 height={400}
