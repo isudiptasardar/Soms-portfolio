@@ -15,7 +15,7 @@ export async function GET() {
     const message = "Hello from Test Mail"
     // Send a test email
     const data = await resend.emails.send({
-      from: "Test <onboarding@resend.dev>",
+      from: "Sudipta from Website <sudipta@biomolecular.space>",
       to: ["sudipta@pusan.ac.kr"],
       subject: "Test Email from Portfolio Website",
       html: `<!DOCTYPE html>
@@ -153,7 +153,7 @@ export async function GET() {
           <!-- Footer -->
           <tr>
             <td style="background-color: #f9fafb; border-top: 1px solid #edf2f7; padding: 20px; text-align: center; color: #8a8a8a; font-size: 14px;">
-              Message received on ${new Date().toLocaleDateString("en-US", {timeZone: "Asia/Kolkata"})} at ${new Date().toLocaleTimeString("en-US", {timeZone: "Asia/Kolkata"})}
+              Message received on ${new Date().toLocaleDateString("en-IN", {timeZone: "Asia/Kolkata"})} at ${new Date().toLocaleTimeString("en-IN", {timeZone: "Asia/Kolkata"})}
             </td>
           </tr>
           
@@ -167,7 +167,7 @@ export async function GET() {
 </html>`,
     })
 
-    console.log("Test email sent successfully:", data.id)
+    console.log("Email Sent Successfully", data.data.id)
     return NextResponse.json({ success: true, data })
   } catch (error) {
     console.error("Error sending test email:", error)

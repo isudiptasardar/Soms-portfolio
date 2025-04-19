@@ -163,7 +163,7 @@ export async function POST(request: Request) {
           <!-- Footer -->
           <tr>
             <td style="background-color: #f9fafb; border-top: 1px solid #edf2f7; padding: 20px; text-align: center; color: #8a8a8a; font-size: 14px;">
-              Message received on ${new Date().toLocaleDateString("en-US", {timeZone: "Asia/Kolkata"})} at ${new Date().toLocaleTimeString("en-US", {timeZone: "Asia/Kolkata"})}
+              Message received on ${new Date().toLocaleDateString("en-IN", {timeZone: "Asia/Kolkata"})} at ${new Date().toLocaleTimeString("en-IN", {timeZone: "Asia/Kolkata"})}
             </td>
           </tr>
           
