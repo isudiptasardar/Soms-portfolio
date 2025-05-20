@@ -3,28 +3,18 @@
 import { MapPin, Award, Briefcase, Calendar, GraduationCap } from "lucide-react"
 import { TracingBeam } from "@/components/ui/tracing-beam"
 import educationData from "@/data/education.json"
-import { memo, useEffect, useState } from "react"
+import { memo } from "react"
 
 // Memoize the Education component to prevent unnecessary re-renders
 const Education = memo(function Education() {
   const { academics } = educationData
-  const [mounted, setMounted] = useState(false)
-
-  // Handle hydration mismatch
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  if (!mounted) {
-    return null
-  }
 
   return (
     <section id="education" className="py-20">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center">Education</h2>
 
-        <TracingBeam className="px-0 md:px-6">
+        <TracingBeam className="px-0 lg:px-6">
           <div className="max-w-4xl mx-auto">
             {academics.map((item) => (
               <div key={item.id} className="mb-16 last:mb-0">
