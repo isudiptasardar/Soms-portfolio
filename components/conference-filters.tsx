@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useState, useEffect } from "react"
 import { Search, Filter, X } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
@@ -19,18 +18,23 @@ export default function ConferenceFilters({ types, countries }: ConferenceFilter
   const pathname = usePathname()
   const searchParams = useSearchParams()
 
-  // Get initial values from URL
-  const initialSearch = searchParams.get("search") || ""
-  const initialTypes = searchParams.get("types")?.split(",").filter(Boolean) || []
-  const initialCountries = searchParams.get("countries")?.split(",").filter(Boolean) || []
+  const [searchQuery, setSearchQuery] = useState("")
+  const [selectedTypes, setSelectedTypes] = useState<string[]>([])
+  const [selectedCountries, setSelectedCountries] = useState<string[]>([])
+  const [isInitialized, setIsInitialized] = useState(false)
 
-  // Set up state
-  const [searchQuery, setSearchQuery] = useState(initialSearch)
-  const [selectedTypes, setSelectedTypes] = useState<string[]>(initialTypes)
-  const [selectedCountries, setSelectedCountries] = useState<string[]>(initialCountries)
+  // Initialize state from URL params
+  useEffect(() => {
+    setSearchQuery(searchParams.get("search") || "")
+    setSelectedTypes(searchParams.get("types")?.split(",").filter(Boolean) || [])
+    setSelectedCountries(searchParams.get("countries")?.split(",").filter(Boolean) || [])
+    setIsInitialized(true)
+  }, [searchParams])
 
-  // Update URL when filters change
-  const updateURL = () => {
+  // Update URL with filters
+  const updateFilters = () => {
+    if (!isInitialized) return
+
     const params = new URLSearchParams()
 
     if (searchQuery) {
@@ -45,7 +49,29 @@ export default function ConferenceFilters({ types, countries }: ConferenceFilter
       params.set("countries", selectedCountries.join(","))
     }
 
-    router.push(`${pathname}?${params.toString()}`, { scroll: false })
+    router.push(`${pathname}?${params.toString()}`)
+  }
+
+  // Toggle type filter
+  const toggleTypeFilter = (type: string) => {
+    setSelectedTypes((prev) => {
+      return prev.includes(type) ? prev.filter((t) => t !== type) : [...prev, type]
+    })
+  }
+
+  // Toggle country filter
+  const toggleCountryFilter = (country: string) => {
+    setSelectedCountries((prev) => {
+      return prev.includes(country) ? prev.filter((c) => c !== country) : [...prev, country]
+    })
+  }
+
+  // Clear all filters
+  const clearFilters = () => {
+    setSearchQuery("")
+    setSelectedTypes([])
+    setSelectedCountries([])
+    router.push(pathname)
   }
 
   // Handle search input change
@@ -56,37 +82,15 @@ export default function ConferenceFilters({ types, countries }: ConferenceFilter
   // Handle search form submission
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    updateURL()
+    updateFilters()
   }
 
-  // Toggle type filter
-  const handleTypeToggle = (type: string) => {
-    setSelectedTypes((prev) => (prev.includes(type) ? prev.filter((t) => t !== type) : [...prev, type]))
-  }
-
-  // Toggle country filter
-  const handleCountryToggle = (country: string) => {
-    setSelectedCountries((prev) => (prev.includes(country) ? prev.filter((c) => c !== country) : [...prev, country]))
-  }
-
-  // Clear all filters
-  const clearFilters = () => {
-    setSearchQuery("")
-    setSelectedTypes([])
-    setSelectedCountries([])
-    router.push(pathname, { scroll: false })
-  }
-
-  // Update URL when badge filters change
+  // Update URL when filters change
   useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      if (selectedTypes !== initialTypes || selectedCountries !== initialCountries) {
-        updateURL()
-      }
-    }, 100)
-
-    return () => clearTimeout(timeoutId)
-  }, [selectedTypes, selectedCountries])
+    if (isInitialized) {
+      updateFilters()
+    }
+  }, [selectedTypes, selectedCountries, isInitialized])
 
   return (
     <div className="bg-zinc-50 dark:bg-zinc-800 rounded-lg p-6 mb-12">
@@ -100,20 +104,13 @@ export default function ConferenceFilters({ types, countries }: ConferenceFilter
               value={searchQuery}
               onChange={handleSearchChange}
               className="pl-10"
-              aria-label="Search presentations"
             />
           </div>
         </div>
         <div className="flex gap-2">
           <Button type="submit">Search</Button>
           {(selectedTypes.length > 0 || selectedCountries.length > 0 || searchQuery) && (
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={clearFilters}
-              className="whitespace-nowrap"
-              aria-label="Clear filters"
-            >
+            <Button variant="outline" size="sm" onClick={clearFilters} className="whitespace-nowrap">
               <X className="h-4 w-4 mr-2" />
               Clear Filters
             </Button>
@@ -122,53 +119,47 @@ export default function ConferenceFilters({ types, countries }: ConferenceFilter
       </form>
 
       <div className="space-y-4">
-        {types.length > 0 && (
-          <div>
-            <h3 className="text-sm font-medium mb-2 flex items-center">
-              <Filter className="h-4 w-4 mr-2" />
-              Filter by Type
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {types.map((type) => (
-                <Badge
-                  key={type}
-                  variant={selectedTypes.includes(type) ? "default" : "outline"}
-                  className={`cursor-pointer ${
-                    selectedTypes.includes(type) ? "" : "hover:bg-zinc-100 dark:hover:bg-zinc-700"
-                  }`}
-                  onClick={() => handleTypeToggle(type)}
-                  aria-pressed={selectedTypes.includes(type)}
-                >
-                  {type}
-                </Badge>
-              ))}
-            </div>
+        <div>
+          <h3 className="text-sm font-medium mb-2 flex items-center">
+            <Filter className="h-4 w-4 mr-2" />
+            Filter by Type
+          </h3>
+          <div className="flex flex-wrap gap-2">
+            {types.map((type) => (
+              <Badge
+                key={type}
+                variant={selectedTypes.includes(type) ? "default" : "outline"}
+                className={`cursor-pointer ${
+                  selectedTypes.includes(type) ? "" : "hover:bg-zinc-100 dark:hover:bg-zinc-700"
+                }`}
+                onClick={() => toggleTypeFilter(type)}
+              >
+                {type}
+              </Badge>
+            ))}
           </div>
-        )}
+        </div>
 
-        {countries.length > 0 && (
-          <div>
-            <h3 className="text-sm font-medium mb-2 flex items-center">
-              <Filter className="h-4 w-4 mr-2" />
-              Filter by Country
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {countries.map((country) => (
-                <Badge
-                  key={country}
-                  variant={selectedCountries.includes(country) ? "default" : "outline"}
-                  className={`cursor-pointer ${
-                    selectedCountries.includes(country) ? "" : "hover:bg-zinc-100 dark:hover:bg-zinc-700"
-                  }`}
-                  onClick={() => handleCountryToggle(country)}
-                  aria-pressed={selectedCountries.includes(country)}
-                >
-                  {country}
-                </Badge>
-              ))}
-            </div>
+        <div>
+          <h3 className="text-sm font-medium mb-2 flex items-center">
+            <Filter className="h-4 w-4 mr-2" />
+            Filter by Country
+          </h3>
+          <div className="flex flex-wrap gap-2">
+            {countries.map((country) => (
+              <Badge
+                key={country}
+                variant={selectedCountries.includes(country) ? "default" : "outline"}
+                className={`cursor-pointer ${
+                  selectedCountries.includes(country) ? "" : "hover:bg-zinc-100 dark:hover:bg-zinc-700"
+                }`}
+                onClick={() => toggleCountryFilter(country)}
+              >
+                {country}
+              </Badge>
+            ))}
           </div>
-        )}
+        </div>
       </div>
     </div>
   )

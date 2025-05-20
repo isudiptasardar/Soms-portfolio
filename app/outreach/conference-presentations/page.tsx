@@ -4,12 +4,7 @@ import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 import type { Metadata } from "next"
 import BreadcrumbNavigation from "@/components/breadcrumb-navigation"
-import {
-  getConferencesByYear,
-  getConferenceTypes,
-  getConferenceCountries,
-  getYears,
-} from "@/lib/conference-presentations"
+import { getConferencesByYear, getConferenceTypes, getConferenceCountries } from "@/lib/conference-presentations"
 import { Suspense } from "react"
 import ConferenceFilters from "@/components/conference-filters"
 import ConferenceList from "@/components/conference-list"
@@ -36,7 +31,10 @@ export const metadata: Metadata = {
 
 export default function ConferencePresentationsPage() {
   const conferencesByYear = getConferencesByYear()
-  const years = getYears()
+  const years = Object.keys(conferencesByYear)
+    .map(Number)
+    .sort((a, b) => b - a) // Sort years in descending order
+
   const conferenceTypes = getConferenceTypes()
   const conferenceCountries = getConferenceCountries()
 
@@ -72,11 +70,11 @@ export default function ConferencePresentationsPage() {
             </p>
           </div>
 
-          <Suspense fallback={<div className="p-4 text-center">Loading filters...</div>}>
+          <Suspense fallback={<div>Loading filters...</div>}>
             <ConferenceFilters types={conferenceTypes} countries={conferenceCountries} />
           </Suspense>
 
-          <Suspense fallback={<div className="p-4 text-center">Loading conferences...</div>}>
+          <Suspense fallback={<div>Loading conferences...</div>}>
             <ConferenceList conferencesByYear={conferencesByYear} years={years} />
           </Suspense>
 

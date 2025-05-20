@@ -10,7 +10,7 @@ const nextConfig = {
     unoptimized: true,
   },
   experimental: {
-    // Remove optimizeCss which requires critters
+    optimizeCss: true,
     scrollRestoration: true,
     serverActions: {
       bodySizeLimit: '2mb',
