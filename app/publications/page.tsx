@@ -98,7 +98,7 @@ export default function PublicationsPage() {
                           <div className="md:w-1/3 lg:w-1/4">
                             <div className="aspect-[4/3] w-full overflow-hidden">
                               <Image
-                                src={publication.imgURL || "/placeholder.svg"}
+                                src={publication.paperImage || "/placeholder.svg"}
                                 alt={`Visual representation of the publication: ${publication.title}`}
                                 width={600}
                                 height={400}
@@ -132,7 +132,7 @@ export default function PublicationsPage() {
                               {formatAuthors(publication.authors)}
                             </p>
                             <a
-                              href={`https://doi.org/${publication.id}`}
+                              href="#"
                               className="inline-flex items-center text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
                               aria-label={`Read ${publication.title}`}
                               itemProp="url"
