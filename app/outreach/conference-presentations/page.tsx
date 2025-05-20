@@ -3,13 +3,48 @@ import Footer from "@/components/footer"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 import type { Metadata } from "next"
+import BreadcrumbNavigation from "@/components/breadcrumb-navigation"
+import {
+  getConferencesByYear,
+  getConferenceTypes,
+  getConferenceCountries,
+  getYears,
+} from "@/lib/conference-presentations"
+import { Suspense } from "react"
+import ConferenceFilters from "@/components/conference-filters"
+import ConferenceList from "@/components/conference-list"
 
 export const metadata: Metadata = {
   title: "Conference Presentations | Scientific Outreach",
   description: "Presentations delivered by Somenath Dutta at various scientific conferences and symposiums",
+  keywords: [
+    "conference presentations",
+    "scientific talks",
+    "poster presentations",
+    "research presentations",
+    "academic conferences",
+    "Somenath Dutta presentations",
+    "bioinformatics conferences",
+    "computational biology symposiums",
+  ],
+  openGraph: {
+    title: "Conference Presentations | Scientific Outreach | Somenath Dutta",
+    description: "Explore Somenath Dutta's presentations at various national and international conferences",
+    url: "https://somenath.biomolecular.space/outreach/conference-presentations",
+  },
 }
 
 export default function ConferencePresentationsPage() {
+  const conferencesByYear = getConferencesByYear()
+  const years = getYears()
+  const conferenceTypes = getConferenceTypes()
+  const conferenceCountries = getConferenceCountries()
+
+  const breadcrumbItems = [
+    { label: "Scientific Outreach", href: "/#scientific-outreach" },
+    { label: "Conference Presentations", href: "/outreach/conference-presentations", isCurrent: true },
+  ]
+
   return (
     <div className="min-h-screen bg-white dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 transition-colors duration-300">
       <Header />
@@ -17,6 +52,7 @@ export default function ConferencePresentationsPage() {
       <main className="container mx-auto px-4 py-20">
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
+            <BreadcrumbNavigation items={breadcrumbItems} />
             <Link
               href="/#scientific-outreach"
               className="inline-flex items-center text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
@@ -28,75 +64,25 @@ export default function ConferencePresentationsPage() {
 
           <h1 className="text-3xl md:text-4xl font-bold mb-8">Conference Presentations</h1>
 
-          <div className="prose prose-zinc dark:prose-invert max-w-none">
+          <div className="prose prose-zinc dark:prose-invert max-w-none mb-8">
             <p>
               Somenath Dutta has presented his research findings at various national and international conferences,
               showcasing his work to the scientific community and engaging in valuable discussions with peers and
               experts in the field.
             </p>
+          </div>
 
-            <h2>Notable Conference Presentations</h2>
+          <Suspense fallback={<div className="p-4 text-center">Loading filters...</div>}>
+            <ConferenceFilters types={conferenceTypes} countries={conferenceCountries} />
+          </Suspense>
 
-            <div className="space-y-8 mt-6">
-              <div className="bg-zinc-50 dark:bg-zinc-800 p-6 rounded-lg">
-                <h3 className="text-xl font-semibold mb-2">Asia & Pacific Bioinformatics Joint Conference 2024</h3>
-                <p className="text-zinc-600 dark:text-zinc-400 mb-4">Okinawa, Japan | March 2024</p>
-                <p className="mb-2">
-                  <strong>Presentation Title:</strong> Computational Approaches for RNA-Targeted Drug Discovery
-                </p>
-                <p>
-                  Presented novel computational methods for identifying small molecules that can target specific RNA
-                  structures, with applications in developing therapeutics for RNA-related diseases.
-                </p>
-              </div>
+          <Suspense fallback={<div className="p-4 text-center">Loading conferences...</div>}>
+            <ConferenceList conferencesByYear={conferencesByYear} years={years} />
+          </Suspense>
 
-              <div className="bg-zinc-50 dark:bg-zinc-800 p-6 rounded-lg">
-                <h3 className="text-xl font-semibold mb-2">
-                  International Society for Computational Biology (ISCB) Asian Student Council Symposium
-                </h3>
-                <p className="text-zinc-600 dark:text-zinc-400 mb-4">Virtual Event | November 2023</p>
-                <p className="mb-2">
-                  <strong>Presentation Title:</strong> miRNA-Based Therapeutics for Liver Cancer: A Bioinformatics
-                  Approach
-                </p>
-                <p>
-                  Presented research on identifying miRNA targets for liver cancer treatment using computational
-                  methods, which was recognized with the First Prize in the Quiz Competition.
-                </p>
-              </div>
-
-              <div className="bg-zinc-50 dark:bg-zinc-800 p-6 rounded-lg">
-                <h3 className="text-xl font-semibold mb-2">CompBio-2023 Conference</h3>
-                <p className="text-zinc-600 dark:text-zinc-400 mb-4">National University of Singapore | July 2023</p>
-                <p className="mb-2">
-                  <strong>Presentation Title:</strong> In Silico Analysis of SARS-CoV-2 Variants for Vaccine Development
-                </p>
-                <p>
-                  Presented computational analysis of SARS-CoV-2 variants to identify conserved epitopes for potential
-                  vaccine candidates, which received positive feedback from the scientific community.
-                </p>
-              </div>
-
-              <div className="bg-zinc-50 dark:bg-zinc-800 p-6 rounded-lg">
-                <h3 className="text-xl font-semibold mb-2">
-                  National Seminar on Bioinformatics and Computational Biology
-                </h3>
-                <p className="text-zinc-600 dark:text-zinc-400 mb-4">
-                  Pondicherry Central University, India | February 2022
-                </p>
-                <p className="mb-2">
-                  <strong>Presentation Title:</strong> Molecular Docking Studies of Phytochemicals Against SARS-CoV-2
-                  Main Protease
-                </p>
-                <p>
-                  Presented findings on the potential of natural compounds as inhibitors of the SARS-CoV-2 main
-                  protease, contributing to the search for COVID-19 therapeutics.
-                </p>
-              </div>
-            </div>
-
-            <h2 className="mt-8">Impact and Recognition</h2>
-            <p>
+          <div className="mt-16 bg-zinc-50 dark:bg-zinc-800 rounded-lg p-6">
+            <h2 className="text-xl font-semibold mb-4">Impact and Recognition</h2>
+            <p className="text-zinc-600 dark:text-zinc-400">
               These conference presentations have not only allowed Somenath to share his research with the scientific
               community but have also led to valuable collaborations and recognition. The feedback and discussions from
               these presentations have significantly contributed to refining his research methodologies and expanding
