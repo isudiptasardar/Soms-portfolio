@@ -9,11 +9,9 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     unoptimized: true,
   },
-  // Configure CSS optimization properly
-  optimizeFonts: true,
+  // Remove optimizeCss completely
   experimental: {
-    // Configure CSS optimization with proper options
-    optimizeCss: true,
+    // Remove optimizeCss option
     scrollRestoration: true,
     serverActions: {
       bodySizeLimit: '2mb',
