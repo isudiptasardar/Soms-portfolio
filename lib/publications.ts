@@ -1,7 +1,8 @@
 import publicationsData from "@/data/publications.json"
+import { cache } from "react"
 
 export type Publication = {
-  id: number
+  id: string | number
   year: number
   type: string
   authors: string[]
@@ -12,18 +13,19 @@ export type Publication = {
   publicationDate: string
 }
 
-export function getAllPublications(): Publication[] {
+// Cache the publications data to avoid redundant processing
+export const getAllPublications = cache((): Publication[] => {
   return publicationsData.publications
-}
+})
 
-export function getRecentPublications(count = 5): Publication[] {
-  return [...publicationsData.publications]
+export const getRecentPublications = cache((count = 5): Publication[] => {
+  return [...getAllPublications()]
     .sort((a, b) => new Date(b.publicationDate).getTime() - new Date(a.publicationDate).getTime())
     .slice(0, count)
-}
+})
 
-export function getPublicationsByYear(): Record<string, Publication[]> {
-  return publicationsData.publications.reduce(
+export const getPublicationsByYear = cache((): Record<string, Publication[]> => {
+  return getAllPublications().reduce(
     (acc, publication) => {
       const year = publication.year.toString()
       if (!acc[year]) {
@@ -34,11 +36,15 @@ export function getPublicationsByYear(): Record<string, Publication[]> {
     },
     {} as Record<string, Publication[]>,
   )
-}
+})
+
+export const getPublicationById = cache((id: string | number): Publication | undefined => {
+  return getAllPublications().find((pub) => pub.id === id)
+})
 
 export function formatDate(dateString: string): string {
   const date = new Date(dateString)
-  return date.toLocaleDateString("en-US", { year: "numeric", month: "long" })
+  return date.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })
 }
 
 export function formatAuthors(authors: string[], short = false): string {

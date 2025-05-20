@@ -1,5 +1,5 @@
 "use client"
-import { LinkPreview } from "@/components/ui/link-preview"
+import { OutreachPreview } from "@/components/ui/outreach-preview"
 
 export default function ScientificOutreach() {
   return (
@@ -12,31 +12,50 @@ export default function ScientificOutreach() {
             <div className="text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
               In addition to Mr. Dutta's academic and research pursuits, he has actively engaged in various scientific
               activities, including contributing to{" "}
-              <LinkPreview url="https://somenath.biomolecular.space/outreach/research-projects" className="font-bold">
+              <OutreachPreview
+                url="/outreach/research-projects"
+                className="font-bold text-zinc-900 dark:text-zinc-100 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+                title="Research-Based Projects"
+                description="Explore the various research projects Somenath has contributed to, including computational analysis of SARS-CoV-2, miRNA-based therapeutics, and more."
+              >
                 research-based projects
-              </LinkPreview>
+              </OutreachPreview>
               , delivering{" "}
-              <LinkPreview
-                url="https://somenath.biomolecular.space/outreach/conference-presentations"
-                className="font-bold"
+              <OutreachPreview
+                url="/outreach/conference-presentations"
+                className="font-bold text-zinc-900 dark:text-zinc-100 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+                title="Conference Presentations"
+                description="Learn about Somenath's presentations at various national and international conferences, showcasing his research findings to the scientific community."
               >
                 presentations at conferences
-              </LinkPreview>
+              </OutreachPreview>
               , and attending{" "}
-              <LinkPreview url="https://somenath.biomolecular.space/outreach/expert-webinars" className="font-bold">
+              <OutreachPreview
+                url="/outreach/expert-webinars"
+                className="font-bold text-zinc-900 dark:text-zinc-100 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+                title="Expert-Led Webinars"
+                description="Explore the various workshops, webinars, and academic programs attended by Somenath Dutta to enhance his knowledge and expertise in bioinformatics and computational biology."
+              >
                 expert-led webinars
-              </LinkPreview>
+              </OutreachPreview>
               . He is currently associated with{" "}
-              <LinkPreview
-                url="https://somenath.biomolecular.space/outreach/scientific-organizations"
-                className="font-bold"
+              <OutreachPreview
+                url="/outreach/scientific-organizations"
+                className="font-bold text-zinc-900 dark:text-zinc-100 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+                title="Scientific Organizations"
+                description="Discover the scientific organizations that Somenath Dutta is affiliated with, providing him networking opportunities and professional development in the field of bioinformatics."
               >
                 several scientific organizations
-              </LinkPreview>{" "}
+              </OutreachPreview>{" "}
               and has{" "}
-              <LinkPreview url="https://somenath.biomolecular.space/outreach/volunteer-work/" className="font-bold">
+              <OutreachPreview
+                url="/outreach/volunteer-work"
+                className="font-bold text-zinc-900 dark:text-zinc-100 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+                title="Volunteer Work"
+                description="Learn about Somenath Dutta's volunteer work and contributions to various scientific organizations and communities."
+              >
                 volunteered in many organizations
-              </LinkPreview>{" "}
+              </OutreachPreview>{" "}
               for the scientific growth of society. These experiences have broadened his perspective, enhanced his
               skills, and strengthened his involvement in the wider scientific community.
             </div>
