@@ -1,54 +1,33 @@
 import { Resend } from "resend"
 import { NextResponse } from "next/server"
-import { z } from "zod"
 
 // Initialize Resend with the environment variable
 const resend = new Resend(process.env.RESEND_API_KEY)
 
-// Define a schema for form validation
-const contactFormSchema = z.object({
-  name: z.string().min(1, "Name is required").max(100),
-  email: z.string().email("Invalid email address"),
-  subject: z.string().optional(),
-  message: z.string().min(10, "Message must be at least 10 characters long").max(5000),
-})
-
 export async function POST(request: Request) {
+  // Add debugging to track execution and environment variables
+  console.log("Email sending endpoint called")
+  console.log("API Key defined:", !!process.env.RESEND_API_KEY)
+
   try {
     // Parse the request body
-    const body = await request.json()
+    const { name, email, subject, message } = await request.json()
 
-    // Validate the form data
-    const result = contactFormSchema.safeParse(body)
+    console.log("Form data received:", { name, email, subject: subject || "(no subject)" })
 
-    if (!result.success) {
-      // Return validation errors
-      return NextResponse.json(
-        {
-          error: "Validation failed",
-          details: result.error.format(),
-        },
-        { status: 400 },
-      )
+    // Validate required fields
+    if (!name || !email || !message) {
+      console.log("Validation failed - missing required fields")
+      return NextResponse.json({ error: "Name, email, and message are required" }, { status: 400 })
     }
-
-    const { name, email, subject, message } = result.data
-
-    // Rate limiting check (simple implementation)
-    const ipAddress = request.headers.get("x-forwarded-for") || "unknown"
-    const rateLimitKey = `contact-form:${ipAddress}`
-
-    // In a real implementation, you would use Redis or another store
-    // For now, we'll just log it
-    console.log(`Rate limit check for ${rateLimitKey}`)
 
     // Send email using Resend
     const data = await resend.emails.send({
-      from: "Some's Website <sudipta@biomolecular.space>", // Update with your verified domain
+      from: "Some's Website <sudipta@biomolecular.space>", // Update with your verified domain when available
       to: ["somenath@pusan.ac.kr"], // Primary recipient
       subject: subject ? `${subject} : Website Contact Form` : "New Contact Form Submission from Website",
       replyTo: email,
-      bcc: ["sudiptasbd@bicpu.edu.in"],
+      bcc:["sudiptasbd@bicpu.edu.in"],
       html: `<!DOCTYPE html>
 <html>
 <head>
@@ -135,7 +114,7 @@ export async function POST(request: Request) {
                             <tr>
                               <td>
                                 <p style="margin: 0; font-size: 14px; color: #636363; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Subject</p>
-                                <p style="margin: 8px 0 0 0; font-size: 16px; color: #252525; padding: 8px 12px; background-color: rgba(99, 102, 241, 0.1); border-radius: 4px; display: inline-block;">${subject || "No subject specified"}</p>
+                                <p style="margin: 8px 0 0 0; font-size: 16px; color: #252525; padding: 8px 12px; background-color: rgba(99, 102, 241, 0.1); border-radius: 4px; display: inline-block;">${subject || 'No subject specified'}</p>
                               </td>
                             </tr>
                           </table>
@@ -184,7 +163,7 @@ export async function POST(request: Request) {
           <!-- Footer -->
           <tr>
             <td style="background-color: #f9fafb; border-top: 1px solid #edf2f7; padding: 20px; text-align: center; color: #8a8a8a; font-size: 14px;">
-              Message received on ${new Date().toLocaleDateString("en-IN", { timeZone: "Asia/Kolkata" })} at ${new Date().toLocaleTimeString("en-IN", { timeZone: "Asia/Kolkata" })}
+              Message received on ${new Date().toLocaleDateString("en-IN", {timeZone: "Asia/Kolkata"})} at ${new Date().toLocaleTimeString("en-IN", {timeZone: "Asia/Kolkata"})}
             </td>
           </tr>
           
@@ -195,13 +174,14 @@ export async function POST(request: Request) {
   </table>
 
 </body>
-</html>`,
+</html>
+`,
     })
 
+    console.log("Email sent successfully:", data.id)
     return NextResponse.json({ success: true, data })
   } catch (error) {
     console.error("Error sending email:", error)
-
     // More detailed error logging
     if (error instanceof Error) {
       console.error("Error name:", error.name)
@@ -209,12 +189,6 @@ export async function POST(request: Request) {
       console.error("Error stack:", error.stack)
     }
 
-    return NextResponse.json(
-      {
-        error: "Failed to send email. Please try again later.",
-        details: error instanceof Error ? error.message : "Unknown error",
-      },
-      { status: 500 },
-    )
+    return NextResponse.json({ error: "Failed to send email. Please try again later." }, { status: 500 })
   }
 }

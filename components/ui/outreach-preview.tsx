@@ -1,40 +1,83 @@
 "use client"
-
-import type React from "react"
-
-import { useState } from "react"
-import Link from "next/link"
+import * as HoverCardPrimitive from "@radix-ui/react-hover-card"
+import React from "react"
+import { AnimatePresence, motion, useMotionValue, useSpring } from "framer-motion"
 import { cn } from "@/lib/utils"
 
-interface OutreachPreviewProps {
+type OutreachPreviewProps = {
+  children: React.ReactNode
   url: string
+  className?: string
   title: string
   description: string
-  children: React.ReactNode
-  className?: string
 }
 
-export function OutreachPreview({ url, title, description, children, className }: OutreachPreviewProps) {
-  const [isHovered, setIsHovered] = useState(false)
+export const OutreachPreview = ({ children, url, className, title, description }: OutreachPreviewProps) => {
+  const [isOpen, setOpen] = React.useState(false)
+  const springConfig = { stiffness: 100, damping: 15 }
+  const x = useMotionValue(0)
+  const translateX = useSpring(x, springConfig)
+
+  const handleMouseMove = (event: React.MouseEvent) => {
+    const targetRect = event.currentTarget.getBoundingClientRect()
+    const eventOffsetX = event.clientX - targetRect.left
+    const offsetFromCenter = (eventOffsetX - targetRect.width / 2) / 2
+    x.set(offsetFromCenter)
+  }
 
   return (
-    <span
-      className="relative inline-block"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      onFocus={() => setIsHovered(true)}
-      onBlur={() => setIsHovered(false)}
+    <HoverCardPrimitive.Root
+      openDelay={50}
+      closeDelay={100}
+      onOpenChange={(open) => {
+        setOpen(open)
+      }}
     >
-      <Link href={url} className={cn("cursor-pointer", className)}>
+      <HoverCardPrimitive.Trigger
+        onMouseMove={handleMouseMove}
+        className={cn("text-blue-600 dark:text-blue-400 hover:underline font-bold", className)}
+        href={url}
+      >
         {children}
-      </Link>
-      {isHovered && (
-        <div className="absolute z-50 left-1/2 transform -translate-x-1/2 mt-2 w-72 bg-white dark:bg-zinc-800 rounded-lg shadow-lg p-4 text-sm border border-zinc-200 dark:border-zinc-700">
-          <div className="font-semibold text-zinc-900 dark:text-zinc-100 mb-1">{title}</div>
-          <div className="text-zinc-600 dark:text-zinc-400">{description}</div>
-          <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 rotate-45 bg-white dark:bg-zinc-800 border-t border-l border-zinc-200 dark:border-zinc-700"></div>
-        </div>
-      )}
-    </span>
+      </HoverCardPrimitive.Trigger>
+
+      <HoverCardPrimitive.Content
+        className="[transform-origin:var(--radix-hover-card-content-transform-origin)] z-50"
+        side="top"
+        align="center"
+        sideOffset={10}
+      >
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: 20, scale: 0.6 }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                transition: {
+                  type: "spring",
+                  stiffness: 260,
+                  damping: 20,
+                },
+              }}
+              exit={{ opacity: 0, y: 20, scale: 0.6 }}
+              className="shadow-xl rounded-xl max-w-sm"
+              style={{
+                x: translateX,
+              }}
+            >
+              <div className="p-4 bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-xl shadow-lg">
+                {/* Using div instead of h3 */}
+                <div className="font-semibold text-lg mb-2">{title}</div>
+                {/* Changed p to div with the same styling */}
+                <div className="text-sm text-zinc-600 dark:text-zinc-300">{description}</div>
+                <div className="mt-3 text-xs text-blue-600 dark:text-blue-400">Click to learn more</div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </HoverCardPrimitive.Content>
+    </HoverCardPrimitive.Root>
   )
 }
