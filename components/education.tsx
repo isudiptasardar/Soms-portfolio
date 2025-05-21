@@ -25,7 +25,7 @@ const Education = memo(function Education() {
     <div className="max-w-4xl mx-auto">
       {academics.map((item) => (
         <div key={item.id} className="mb-16 last:mb-0">
-          <div className="bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 rounded-lg p-1 w-fit mb-4">
+          <div className="bg-zinc-300 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 rounded-lg p-1 w-fit mb-4">
             <span className="px-3 py-1 text-sm font-medium flex items-center">
               <Calendar className="h-4 w-4 mr-2" />
               {item.year}

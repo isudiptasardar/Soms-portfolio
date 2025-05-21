@@ -1,5 +1,5 @@
-import fs from "fs"
 import path from "path"
+import { getFilesFromDirectory, filePathToUrlPath } from "./file-utils"
 
 export type GalleryImage = {
   id: string
@@ -11,29 +11,28 @@ export type GalleryImage = {
 
 export async function getGalleryImages(): Promise<GalleryImage[]> {
   try {
-    const galleryDir = path.join(process.cwd(), "public/images/gallery")
+    const galleryDir = path.join(process.cwd(), "public", "images", "gallery")
 
-    // Check if directory exists
-    if (!fs.existsSync(galleryDir)) {
-      console.warn("Gallery directory does not exist:", galleryDir)
-      return []
-    }
-
-    // Read all files in the directory
-    const files = fs.readdirSync(galleryDir)
+    // Get all files from the gallery directory
+    const filePaths = getFilesFromDirectory(galleryDir)
 
     // Filter for image files
-    const imageFiles = files.filter((file) => {
-      const ext = path.extname(file).toLowerCase()
+    const imageFilePaths = filePaths.filter((filePath) => {
+      const ext = path.extname(filePath).toLowerCase()
       return [".jpg", ".jpeg", ".png", ".webp", ".avif", ".gif"].includes(ext)
     })
 
     // Create image objects
-    const images: GalleryImage[] = imageFiles.map((file, index) => {
-      const id = path.parse(file).name
+    const images: GalleryImage[] = imageFilePaths.map((filePath) => {
+      const fileName = path.basename(filePath)
+      const id = path.parse(fileName).name
+
+      // Convert server-side file path to client-side URL path
+      const src = filePathToUrlPath(filePath)
+
       return {
         id,
-        src: `/images/gallery/${file}`,
+        src,
         alt: `Gallery Image - ${id}`,
         width: 800, // Default width
         height: 800, // Default height

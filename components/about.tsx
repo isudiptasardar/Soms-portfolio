@@ -10,7 +10,7 @@ export default function About() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="flex justify-center">
             {/* Responsive image container with dynamic sizing and optimization */}
-            <div className="relative w-[200px] h-[200px] sm:w-[280px] sm:h-[280px] md:w-[320px] md:h-[320px] lg:w-[380px] lg:h-[380px] overflow-hidden rounded-full border-4 border-zinc-200 dark:border-zinc-700 shadow-md">
+            <div className="relative w-[200px] h-[200px] sm:w-[280px] sm:h-[280px] md:w-[320px] md:h-[320px] lg:w-[380px] lg:w-[380px] overflow-hidden rounded-full border-4 border-zinc-200 dark:border-zinc-700 shadow-md">
               <Image
                 src="/images/somenath-profile.png"
                 alt="Somenath Dutta - Bioinformatician and Computational Biology Researcher"
@@ -55,7 +55,8 @@ export default function About() {
               &nbsp; In 2022, Mr. Dutta completed his Master's degree in Bioinformatics from the{" "}
               <LinkPreview
                 href="https://www.bicpu.edu.in"
-                className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer font-bold">
+                className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer font-bold"
+              >
                 {" "}
                 Department of Bioinformatics, Pondicherry Central University{" "}
               </LinkPreview>{" "}
@@ -79,7 +80,8 @@ export default function About() {
               a visiting scholar at{" "}
               <LinkPreview
                 href="https://www.soka.ac.jp/en/glycan"
-                className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer font-bold">
+                className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer font-bold"
+              >
                 {" "}
                 Soka University{" "}
               </LinkPreview>

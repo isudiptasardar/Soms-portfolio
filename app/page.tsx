@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     siteName: "Somenath Dutta - Bioinformatics Portfolio",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-image.jpg", // Make sure this file exists
         width: 1200,
         height: 630,
         alt: "Somenath Dutta - Bioinformatician & Computational Biologist",

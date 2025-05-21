@@ -3,6 +3,7 @@
 import Image, { type ImageProps } from "next/image"
 import { useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
+import PlaceholderImage from "./placeholder-image"
 
 type OptimizedImageProps = Omit<ImageProps, "onLoadingComplete"> & {
   fallback?: string
@@ -16,6 +17,8 @@ export default function OptimizedImage({
   fallback = "/placeholder.svg",
   lowQuality = false,
   priority = false,
+  width = 800,
+  height = 800,
   ...props
 }: OptimizedImageProps) {
   const [isLoading, setIsLoading] = useState(true)
@@ -53,6 +56,18 @@ export default function OptimizedImage({
     )
   }
 
+  // If there's an error and no fallback, show placeholder
+  if (error && (!fallback || fallback === "/placeholder.svg")) {
+    return (
+      <PlaceholderImage
+        className={className}
+        width={typeof width === "number" ? width : undefined}
+        height={typeof height === "number" ? height : undefined}
+        text={alt as string}
+      />
+    )
+  }
+
   return (
     <div className={cn("relative overflow-hidden", className)}>
       {isLoading && (
@@ -72,6 +87,8 @@ export default function OptimizedImage({
         onError={handleError}
         loading={priority ? "eager" : "lazy"}
         fetchPriority={priority ? "high" : "auto"}
+        width={width}
+        height={height}
         {...props}
       />
     </div>
