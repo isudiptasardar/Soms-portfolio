@@ -1,4 +1,5 @@
 "use client"
+
 import type React from "react"
 import { useEffect, useRef, useState } from "react"
 import { motion, useTransform, useScroll, useSpring } from "framer-motion"
@@ -25,15 +26,28 @@ export const TracingBeam = ({
       setSvgHeight(contentRef.current.offsetHeight)
     }
 
-    // Update SVG height on window resize
-    const handleResize = () => {
+    // Update height on resize
+    const updateHeight = () => {
       if (contentRef.current) {
         setSvgHeight(contentRef.current.offsetHeight)
       }
     }
 
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
+    window.addEventListener("resize", updateHeight)
+
+    // Use ResizeObserver for more accurate height tracking
+    const resizeObserver = new ResizeObserver(updateHeight)
+    if (contentRef.current) {
+      resizeObserver.observe(contentRef.current)
+    }
+
+    return () => {
+      window.removeEventListener("resize", updateHeight)
+      if (contentRef.current) {
+        resizeObserver.unobserve(contentRef.current)
+      }
+      resizeObserver.disconnect()
+    }
   }, [])
 
   const y1 = useSpring(useTransform(scrollYProgress, [0, 0.8], [50, svgHeight]), {
@@ -47,8 +61,7 @@ export const TracingBeam = ({
 
   return (
     <motion.div ref={ref} className={cn("relative mx-auto h-full w-full max-w-4xl", className)}>
-      {/* Tracing beam container - only visible on desktop (lg screens and up) */}
-      <div className="absolute left-0 top-3 hidden lg:block lg:left-[-60px]">
+      <div className="absolute top-3 -left-4 md:-left-20">
         <motion.div
           transition={{
             duration: 0.2,
@@ -57,7 +70,7 @@ export const TracingBeam = ({
           animate={{
             boxShadow: scrollYProgress.get() > 0 ? "none" : "rgba(0, 0, 0, 0.24) 0px 3px 8px",
           }}
-          className="ml-[27px] flex h-4 w-4 items-center justify-center rounded-full border border-neutral-200 dark:border-neutral-700 shadow-sm"
+          className="border-neutral-200 dark:border-neutral-700 ml-[27px] flex h-4 w-4 items-center justify-center rounded-full border shadow-sm"
         >
           <motion.div
             transition={{
@@ -114,11 +127,7 @@ export const TracingBeam = ({
           </defs>
         </svg>
       </div>
-
-      {/* Content with appropriate padding based on screen size */}
-      <div ref={contentRef} className="lg:pl-6">
-        {children}
-      </div>
+      <div ref={contentRef}>{children}</div>
     </motion.div>
   )
 }

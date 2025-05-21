@@ -1,58 +1,47 @@
 import type { MetadataRoute } from "next"
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://somenath.biomolecular.space"
-  const lastModified = new Date()
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://somenath.biomolecular.space"
 
-  // Main pages
-  const mainPages = [
+const lastModified = new Date()
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  return [
     {
       url: baseUrl,
       lastModified,
-      changeFrequency: "monthly" as const,
+      changeFrequency: "yearly",
       priority: 1,
     },
     {
-      url: `${baseUrl}/publications`,
+      url: `${baseUrl}/publications/`,
       lastModified,
-      changeFrequency: "weekly" as const,
+      changeFrequency: "monthly",
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/awards`,
+      url: `${baseUrl}/awards/`,
       lastModified,
-      changeFrequency: "monthly" as const,
+      changeFrequency: "monthly",
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/gallery`,
+      url: `${baseUrl}/gallery/`,
       lastModified,
-      changeFrequency: "monthly" as const,
+      changeFrequency: "monthly",
       priority: 0.8,
     },
+    // Outreach pages
+    ...[
+      "research-projects",
+      "conference-presentations",
+      "expert-webinars",
+      "scientific-organizations",
+      "volunteer-work",
+    ].map((slug) => ({
+      url: `${baseUrl}/outreach/${slug}/`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
   ]
-
-  // Outreach pages
-  const outreachPages = [
-    "research-projects",
-    "conference-presentations",
-    "expert-webinars",
-    "scientific-organizations",
-    "volunteer-work",
-  ].map((slug) => ({
-    url: `${baseUrl}/outreach/${slug}`,
-    lastModified,
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-  }))
-
-  // Demo page
-  const demoPage = {
-    url: `${baseUrl}/demo`,
-    lastModified,
-    changeFrequency: "monthly" as const,
-    priority: 0.5,
-  }
-
-  return [...mainPages, ...outreachPages, demoPage]
 }

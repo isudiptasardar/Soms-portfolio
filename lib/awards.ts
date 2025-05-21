@@ -1,4 +1,5 @@
 import awardsData from "@/data/awards.json"
+import { cache } from "react"
 
 export type Award = {
   id: number
@@ -8,11 +9,12 @@ export type Award = {
   description: string
 }
 
-export function getAllAwards(): Award[] {
+// Cache the awards data to avoid redundant processing
+export const getAllAwards = cache((): Award[] => {
   return awardsData.awards
-}
+})
 
-export function getRecentAwards(count = 6): Award[] {
+export const getRecentAwards = cache((count = 6): Award[] => {
   // Sort by year (descending) and then by id (descending) for awards in the same year
   return [...awardsData.awards]
     .sort((a, b) => {
@@ -22,9 +24,9 @@ export function getRecentAwards(count = 6): Award[] {
       return b.id - a.id
     })
     .slice(0, count)
-}
+})
 
-export function getAwardsByYear(): Record<string, Award[]> {
+export const getAwardsByYear = cache((): Record<string, Award[]> => {
   return awardsData.awards.reduce(
     (acc, award) => {
       const year = award.year
@@ -36,4 +38,4 @@ export function getAwardsByYear(): Record<string, Award[]> {
     },
     {} as Record<string, Award[]>,
   )
-}
+})

@@ -1,0 +1,54 @@
+{
+  "ScientificProjects": [
+    {
+      "year": 2023,
+      "title": "3D Glycan Movement Emulation",
+      "status": "Ongoing",
+      "supervisor": "Prof. Kiyoko F. Aoki-Kinoshita",
+      "institution": "Soka University, Japan"
+    },
+    {
+      "year": 2022,
+      "title": "Machine Learning and Artificial Intelligence in Drug Discovery",
+      "supervisor": "Prof. Deva Priyakumar",
+      "institution": "International Institute of Information Technology (IIIT) Hyderabad, India"
+    },
+    {
+      "year": 2022,
+      "title": "In silico study of anti-viral phytochemicals for potential drug development against wild and Omicron mutant sites of SARS-CoV-2",
+      "note": "M.Sc. Thesis",
+      "supervisor": "Prof. Amutha Ramaswamy",
+      "institution": "Department of Bioinformatics, Pondicherry Central University, Puducherry, India"
+    },
+    {
+      "year": 2021,
+      "title": "Computational Analysis of Spike Protein of SARS-CoV-2 (Omicron variant) for Development of Peptide-Based Therapeutics and Diagnostics",
+      "supervisor": "Dr. M. Krishnamohan",
+      "institution": "Birla Institute of Scientific Research (BISR), Rajasthan, India"
+    },
+    {
+      "year": 2021,
+      "title": "Proteomics Analysis on Therapeutic Protein Identification present in Mesenchymal Stem Cell Derived Exosomes",
+      "supervisor": "Prof. Sujata Mohanty",
+      "institution": "All India Institute of Medical Science (AIIMS), New Delhi, India"
+    },
+    {
+      "year": 2020,
+      "title": "In-vitro Anthelmintic Activity of Akanda (Calotropis gigantea L.) Whole Plant Methanolic Extract in Indian Adult Earthworm",
+      "supervisors": ["Dr. Snigdha Pattnaik", "Dr. Taraprasanna Dash"],
+      "institution": "CSIR–NEIST, Jorhat, Assam, India"
+    },
+    {
+      "year": 2020,
+      "title": "In vitro Phytochemical analysis and Anthelmintic activity of Acacia nilotica whole plant methanolic and aqueous extract on Indian adult earthworm",
+      "note": "B.Sc. Thesis",
+      "supervisor": "Dr. Somnath De",
+      "institution": "Department of Biotechnology, Panskura Banamali College, Vidyasagar University, West Bengal, India"
+    },
+    {
+      "year": 2019,
+      "title": "Search for Reasons Behind Asymmetric Global Distribution of M. Lepromatosis as Causative Agent of Leprosy and Comparison of Lipid Metabolism in M. Lepre Complex Bacteria by Genomics",
+      "institution": "Jointly organised by Amity University Kolkata, Pine Biotech, and Tauber Bioinformatics Research Center, Israel"
+    }
+  ]
+}

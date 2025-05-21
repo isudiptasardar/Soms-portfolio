@@ -11,48 +11,56 @@ export default function Footer() {
             <Link
               href="#home"
               className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
+              scroll={true}
             >
               Home
             </Link>
             <Link
               href="#about"
               className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
+              scroll={true}
             >
               About
             </Link>
             <Link
               href="#education"
               className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
+              scroll={true}
             >
               Education
             </Link>
             <Link
               href="#publications"
               className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
+              scroll={true}
             >
               Publications
             </Link>
             <Link
               href="#scientific-outreach"
               className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
+              scroll={true}
             >
               Scientific Outreach
             </Link>
             <Link
               href="#awards"
               className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
+              scroll={true}
             >
               Awards
             </Link>
             <Link
               href="#gallery"
               className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
+              scroll={true}
             >
               Gallery
             </Link>
             <Link
               href="#contact"
               className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
+              scroll={true}
             >
               Contact
             </Link>
@@ -61,18 +69,21 @@ export default function Footer() {
             <Link
               href="/publications"
               className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
+              prefetch={true}
             >
               All Publications
             </Link>
             <Link
               href="/awards"
               className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
+              prefetch={true}
             >
               All Awards
             </Link>
             <Link
               href="/gallery"
               className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
+              prefetch={true}
             >
               Full Gallery
             </Link>

@@ -2,6 +2,7 @@ import type React from "react"
 import "@/app/globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import GoToTop from "@/components/go-to-top"
+import PerformanceMonitor from "@/components/performance-monitor"
 import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
 import Script from "next/script"
@@ -24,7 +25,7 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://somenath.biomolecular.space"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://somenath.biomolecular.space"),
   title: {
     template: "%s | Somenath Dutta - Bioinformatician & Computational Biologist",
     default: "Somenath Dutta | Expert in CADD, miRNA Therapeutics & RNA Biology",
@@ -45,16 +46,13 @@ export const metadata: Metadata = {
     "Somenath Dutta",
     "PhD researcher",
     "Pusan National University",
-    "scientific awards",
-    "research recognition",
-    "academic achievements",
   ],
   authors: [{ name: "Somenath Dutta", url: "https://somenath.biomolecular.space" }],
   creator: "Somenath Dutta",
   publisher: "Pusan National University",
   openGraph: {
     type: "website",
-    locale: "en_IN",
+    locale: "en_US",
     url: "https://somenath.biomolecular.space",
     title: "Somenath Dutta | Bioinformatician & Computational Biology Researcher",
     description:
@@ -95,7 +93,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "google-site-verification-code", // Replace with actual verification code when available
+    google: process.env.GOOGLE_VERIFICATION || "", // Use environment variable for verification
   },
     generator: 'v0.dev'
 }
@@ -107,16 +105,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning className={inter.variable}>
-      <head>
-      </head>
+      <head />
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}
           <GoToTop />
+          <PerformanceMonitor />
         </ThemeProvider>
 
         {/* Structured data for Person */}
-        <Script id="schema-person" type="application/ld+json">
+        <Script id="schema-person" type="application/ld+json" strategy="afterInteractive">
           {`
             {
               "@context": "https://schema.org",
@@ -149,11 +147,6 @@ export default function RootLayout({
                 "https://www.researchgate.net/profile/Somenath-Dutta-3",
                 "https://orcid.org/0000-0002-9580-6386",
                 "https://scholar.google.com/citations?user=C-KFr7IAAAAJ"
-              ],
-              "award": [
-                "Max Planck Travel and Accommodation Grant for the 2024 Horizons Symposium",
-                "First Prize in Quiz Competition at the 2nd Asian Student Council Symposium",
-                "Merit-cum-Means Scholarship (Top Performer)"
               ]
             }
           `}

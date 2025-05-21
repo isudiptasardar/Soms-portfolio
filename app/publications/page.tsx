@@ -2,7 +2,7 @@ import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { ArrowLeft, ExternalLink, BookOpen, FileText } from "lucide-react"
 import Link from "next/link"
-import Image from "next/image"
+import OptimizedImage from "@/components/ui/optimized-image"
 import type { Metadata } from "next"
 import { Badge } from "@/components/ui/badge"
 import { getPublicationsByYear, formatDate } from "@/lib/publications"
@@ -97,13 +97,12 @@ export default function PublicationsPage() {
                         <div className="md:flex">
                           <div className="md:w-1/3 lg:w-1/4">
                             <div className="aspect-[4/3] w-full overflow-hidden">
-                              <Image
+                              <OptimizedImage
                                 src={publication.paperImage || "/placeholder.svg"}
                                 alt={`Visual representation of the publication: ${publication.title}`}
                                 width={600}
                                 height={400}
                                 className="h-full w-full object-cover"
-                                loading="lazy"
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
                               />
                             </div>
@@ -131,14 +130,15 @@ export default function PublicationsPage() {
                             <p className="text-zinc-600 dark:text-zinc-400 mb-4 text-sm">
                               {formatAuthors(publication.authors)}
                             </p>
-                            <a
-                              href="#"
+                            <Link
+                              href={`/publications/${publication.id}`}
                               className="inline-flex items-center text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
                               aria-label={`Read ${publication.title}`}
                               itemProp="url"
+                              prefetch={true}
                             >
                               View Publication <ExternalLink className="h-4 w-4 ml-2" />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -154,7 +154,7 @@ export default function PublicationsPage() {
       </div>
 
       {/* Structured data for CollectionPage */}
-      <Script id="schema-collectionpage" type="application/ld+json">
+      <Script id="schema-collectionpage" type="application/ld+json" strategy="afterInteractive">
         {`
           {
             "@context": "https://schema.org",

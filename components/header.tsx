@@ -5,6 +5,7 @@ import { useTheme } from "next-themes"
 import { Moon, Sun, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { usePathname } from "next/navigation"
+import Link from "next/link"
 
 export default function Header() {
   const [mounted, setMounted] = useState(false)
@@ -40,20 +41,21 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm border-b border-zinc-200 dark:border-zinc-800">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <a href="/" className="text-xl font-medium">
+        <Link href="/" className="text-xl font-medium">
           Somenath Dutta
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           {menuItems.map((item) => (
-            <a
+            <Link
               key={item.name}
               href={item.href}
               className="text-sm font-medium text-zinc-600 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-white transition-colors"
+              scroll={item.href.includes("#")}
             >
               {item.name}
-            </a>
+            </Link>
           ))}
 
           {mounted && (
@@ -94,14 +96,15 @@ export default function Header() {
           <div className="container mx-auto px-4 py-4">
             <nav className="flex flex-col space-y-4">
               {menuItems.map((item) => (
-                <a
+                <Link
                   key={item.name}
                   href={item.href}
                   className="text-sm font-medium py-2 text-zinc-600 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-white transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
+                  scroll={item.href.includes("#")}
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
             </nav>
           </div>
