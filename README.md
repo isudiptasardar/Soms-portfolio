@@ -1,30 +1,73 @@
-# Next.js Portfolio Website
+# 🌟 Somenath Dutta's Portfolio
 
-*Automatically synced with your [v0.dev](https://v0.dev) deployments*
+Welcome to the official portfolio of **Somenath Dutta**, a passionate developer dedicated to crafting innovative digital solutions. This portfolio showcases a collection of projects, skills, and experiences that reflect a journey through the dynamic world of software development.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/sudipta-sardars-projects/v0-next-js-portfolio-website)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/HmmBpPVlRkp)
+## 🚀 Live Demo
 
-## Overview
+Experience the portfolio live: [somenath.biomolecular.space](https://somenath.biomolecular.space)
 
-This repository will stay in sync with your deployed chats on [v0.dev](https://v0.dev).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.dev](https://v0.dev).
+## 🛠️ Built With
 
-## Deployment
+- **Framework**: [Next.js](https://nextjs.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Deployment**: [Vercel](https://vercel.com/)
+- **Package Manager**: [pnpm](https://pnpm.io/)
 
-Your project is live at:
+## 📁 Project Structure
 
-**[https://vercel.com/sudipta-sardars-projects/v0-next-js-portfolio-website](https://vercel.com/sudipta-sardars-projects/v0-next-js-portfolio-website)**
+```
+├── app/               # Application routes and pages
+├── components/        # Reusable UI components
+├── data/              # Static data and content
+├── hooks/             # Custom React hooks
+├── lib/               # Utility functions and libraries
+├── public/            # Static assets (images, fonts, etc.)
+├── styles/            # Global and component-specific styles
+├── middleware.ts      # Middleware configurations
+├── next.config.mjs    # Next.js configuration
+├── package.json       # Project metadata and dependencies
+├── tailwind.config.ts # Tailwind CSS configuration
+└── tsconfig.json      # TypeScript configuration
+```
 
-## Build your app
+## 📸 Features
 
-Continue building your app on:
+- **Responsive Design**: Optimized for all devices to ensure a seamless user experience.
+- **Dynamic Content**: Showcases projects, skills, and experiences dynamically.
+- **Fast Performance**: Leveraging Next.js for server-side rendering and optimized loading.
+- **Modern UI/UX**: Clean and intuitive design with Tailwind CSS.
 
-**[https://v0.dev/chat/projects/HmmBpPVlRkp](https://v0.dev/chat/projects/HmmBpPVlRkp)**
+## 🧑‍💻 Getting Started
 
-## How It Works
+To run this project locally:
 
-1. Create and modify your project using [v0.dev](https://v0.dev)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/isudiptasardar/Soms-portfolio.git
+   cd Soms-portfolio
+   ```
+
+2. **Install dependencies:**
+
+   ```bash
+   pnpm install
+   ```
+
+3. **Start the development server:**
+
+   ```bash
+   pnpm dev
+   ```
+
+4. **Open in browser:**
+
+   Navigate to `http://localhost:3000` to view the portfolio.
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+Feel free to explore, fork, and contribute to this project. For any inquiries or feedback, please contact [Somenath Dutta](mailto:somenath@example.com).
