@@ -5,53 +5,54 @@ import { X, ArrowRight } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
+// Define gallery images directly in the component
+const galleryImages = [
+  {
+    id: 1,
+    src: "/placeholder.svg?height=800&width=800",
+    alt: "RNA Structure Visualization - 3D molecular model",
+    caption: "RNA Structure Visualization",
+  },
+  {
+    id: 2,
+    src: "/placeholder.svg?height=800&width=800",
+    alt: "Molecular Docking Analysis - Protein-ligand interaction",
+    caption: "Molecular Docking Analysis",
+  },
+  {
+    id: 3,
+    src: "/placeholder.svg?height=800&width=800",
+    alt: "miRNA Target Prediction - Computational analysis visualization",
+    caption: "miRNA Target Prediction",
+  },
+  {
+    id: 4,
+    src: "/placeholder.svg?height=800&width=800",
+    alt: "Protein-RNA Interaction - Molecular binding visualization",
+    caption: "Protein-RNA Interaction",
+  },
+  {
+    id: 5,
+    src: "/placeholder.svg?height=800&width=800",
+    alt: "Gene Expression Analysis - Heatmap visualization",
+    caption: "Gene Expression Analysis",
+  },
+  {
+    id: 6,
+    src: "/placeholder.svg?height=800&width=800",
+    alt: "Drug-RNA Complex - Molecular structure visualization",
+    caption: "Drug-RNA Complex",
+  },
+  {
+    id: 7,
+    src: "/placeholder.svg?height=800&width=800",
+    alt: "Computational Workflow - Bioinformatics pipeline diagram",
+    caption: "Computational Workflow",
+  },
+]
+
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null)
-
-  const galleryImages = [
-    {
-      id: 1,
-      src: "https://picsum.photos/seed/gallery1/800/800",
-      alt: "RNA Structure Visualization - 3D molecular model",
-      caption: "RNA Structure Visualization",
-    },
-    {
-      id: 2,
-      src: "https://picsum.photos/seed/gallery2/800/800",
-      alt: "Molecular Docking Analysis - Protein-ligand interaction",
-      caption: "Molecular Docking Analysis",
-    },
-    {
-      id: 3,
-      src: "https://picsum.photos/seed/gallery3/800/800",
-      alt: "miRNA Target Prediction - Computational analysis visualization",
-      caption: "miRNA Target Prediction",
-    },
-    {
-      id: 4,
-      src: "https://picsum.photos/seed/gallery4/800/800",
-      alt: "Protein-RNA Interaction - Molecular binding visualization",
-      caption: "Protein-RNA Interaction",
-    },
-    {
-      id: 5,
-      src: "https://picsum.photos/seed/gallery5/800/800",
-      alt: "Gene Expression Analysis - Heatmap visualization",
-      caption: "Gene Expression Analysis",
-    },
-    {
-      id: 6,
-      src: "https://picsum.photos/seed/gallery6/800/800",
-      alt: "Drug-RNA Complex - Molecular structure visualization",
-      caption: "Drug-RNA Complex",
-    },
-    {
-      id: 7,
-      src: "https://picsum.photos/seed/gallery7/800/800",
-      alt: "Computational Workflow - Bioinformatics pipeline diagram",
-      caption: "Computational Workflow",
-    },
-  ]
 
   const openLightbox = (id: number) => {
     setSelectedImage(id)

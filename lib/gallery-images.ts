@@ -1,5 +1,4 @@
-import path from "path"
-import { getFilesFromDirectory, filePathToUrlPath } from "./file-utils"
+import fs from "fs"
 
 export type GalleryImage = {
   id: string
@@ -9,39 +8,73 @@ export type GalleryImage = {
   height: number
 }
 
+// Safe function to check if a file exists
+function fileExists(filePath: string): boolean {
+  try {
+    return fs.existsSync(filePath) && fs.statSync(filePath).isFile()
+  } catch (error) {
+    return false
+  }
+}
+
 export async function getGalleryImages(): Promise<GalleryImage[]> {
   try {
-    const galleryDir = path.join(process.cwd(), "public", "images", "gallery")
+    // Use a hardcoded list of gallery images instead of reading from the file system
+    const galleryImages: GalleryImage[] = [
+      {
+        id: "rna-structure",
+        src: "/images/gallery/rna-structure.jpg",
+        alt: "RNA Structure Visualization - 3D molecular model",
+        width: 800,
+        height: 800,
+      },
+      {
+        id: "molecular-docking",
+        src: "/images/gallery/molecular-docking.jpg",
+        alt: "Molecular Docking Analysis - Protein-ligand interaction",
+        width: 800,
+        height: 800,
+      },
+      {
+        id: "mirna-target",
+        src: "/images/gallery/mirna-target.jpg",
+        alt: "miRNA Target Prediction - Computational analysis visualization",
+        width: 800,
+        height: 800,
+      },
+      {
+        id: "protein-rna",
+        src: "/images/gallery/protein-rna.jpg",
+        alt: "Protein-RNA Interaction - Molecular binding visualization",
+        width: 800,
+        height: 800,
+      },
+      {
+        id: "gene-expression",
+        src: "/images/gallery/gene-expression.jpg",
+        alt: "Gene Expression Analysis - Heatmap visualization",
+        width: 800,
+        height: 800,
+      },
+      {
+        id: "drug-rna",
+        src: "/images/gallery/drug-rna.jpg",
+        alt: "Drug-RNA Complex - Molecular structure visualization",
+        width: 800,
+        height: 800,
+      },
+      {
+        id: "computational-workflow",
+        src: "/images/gallery/computational-workflow.jpg",
+        alt: "Computational Workflow - Bioinformatics pipeline diagram",
+        width: 800,
+        height: 800,
+      },
+    ]
 
-    // Get all files from the gallery directory
-    const filePaths = getFilesFromDirectory(galleryDir)
-
-    // Filter for image files
-    const imageFilePaths = filePaths.filter((filePath) => {
-      const ext = path.extname(filePath).toLowerCase()
-      return [".jpg", ".jpeg", ".png", ".webp", ".avif", ".gif"].includes(ext)
-    })
-
-    // Create image objects
-    const images: GalleryImage[] = imageFilePaths.map((filePath) => {
-      const fileName = path.basename(filePath)
-      const id = path.parse(fileName).name
-
-      // Convert server-side file path to client-side URL path
-      const src = filePathToUrlPath(filePath)
-
-      return {
-        id,
-        src,
-        alt: `Gallery Image - ${id}`,
-        width: 800, // Default width
-        height: 800, // Default height
-      }
-    })
-
-    return images
+    return galleryImages
   } catch (error) {
-    console.error("Error reading gallery images:", error)
+    console.error("Error with gallery images:", error)
     return []
   }
 }

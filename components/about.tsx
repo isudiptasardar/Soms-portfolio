@@ -1,7 +1,12 @@
+"use client"
+import { useState } from "react"
 import Image from "next/image"
 import { LinkPreview } from "@/components/ui/link-preview"
+import ProfilePlaceholder from "@/components/ui/profile-placeholder"
 
 export default function About() {
+  const [imageError, setImageError] = useState(false)
+
   return (
     <section id="about" className="py-20 bg-zinc-50 dark:bg-zinc-800">
       <div className="container mx-auto px-4">
@@ -10,18 +15,22 @@ export default function About() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="flex justify-center">
             {/* Responsive image container with dynamic sizing and optimization */}
-            <div className="relative w-[200px] h-[200px] sm:w-[280px] sm:h-[280px] md:w-[320px] md:h-[320px] lg:w-[380px] lg:w-[380px] overflow-hidden rounded-full border-4 border-zinc-200 dark:border-zinc-700 shadow-md">
-              <Image
-                src="/images/somenath-profile.png"
-                alt="Somenath Dutta - Bioinformatician and Computational Biology Researcher"
-                fill
-                sizes="(max-width: 640px) 200px, (max-width: 768px) 280px, (max-width: 1024px) 320px, 380px"
-                className="object-cover object-center"
-                priority
-                quality={90}
-                fetchPriority="high"
-                loading="lazy"
-              />
+            <div className="relative w-[200px] h-[200px] sm:w-[280px] sm:h-[280px] md:w-[320px] md:h-[320px] lg:w-[380px] lg:h-[380px] overflow-hidden rounded-full border-4 border-zinc-200 dark:border-zinc-700 shadow-md">
+              {imageError ? (
+                <ProfilePlaceholder className="w-full h-full" />
+              ) : (
+                <Image
+                  src="/images/somenath-profile.png"
+                  alt="Somenath Dutta - Bioinformatician and Computational Biology Researcher"
+                  fill
+                  sizes="(max-width: 640px) 200px, (max-width: 768px) 280px, (max-width: 1024px) 320px, 380px"
+                  className="object-cover object-center"
+                  priority
+                  quality={90}
+                  fetchPriority="high"
+                  onError={() => setImageError(true)}
+                />
+              )}
             </div>
           </div>
 

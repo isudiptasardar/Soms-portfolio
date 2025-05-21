@@ -41,7 +41,7 @@ export default function Publications() {
             {recentPublications.map((publication, index) => (
               <div
                 key={publication.id}
-                className="bg-white dark:bg-zinc-700 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col h-full overflow-hidden"
+                className="bg-white border dark:bg-zinc-700 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col h-full overflow-hidden"
                 itemScope
                 itemType="https://schema.org/ScholarlyArticle"
               >
