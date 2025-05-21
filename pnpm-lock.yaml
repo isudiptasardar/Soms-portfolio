@@ -166,7 +166,7 @@ importers:
         version: 0.9.6(@types/react-dom@19.0.0)(@types/react@19.0.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       zod:
         specifier: latest
-        version: 3.25.13
+        version: 3.25.14
     devDependencies:
       '@types/node':
         specifier: ^22
@@ -2134,8 +2134,8 @@ packages:
     engines: {node: '>= 14.6'}
     hasBin: true
 
-  zod@3.25.13:
-    resolution: {integrity: sha512-Q8mvk2iWi7rTDfpQBsu4ziE7A6AxgzJ5hzRyRYQkoV3A3niYsXVwDaP1Kbz3nWav6S+VZ6k2OznFn8ZyDHvIrg==}
+  zod@3.25.14:
+    resolution: {integrity: sha512-nbRgRYFj2CFRd3c9KZcch5TG96cBnSGj84AfXUCIoTHKu3+cix1c0mTymtC1s8QPuXdvlnqsks96dPQXt2um4Q==}
 
 snapshots:
 
@@ -4046,4 +4046,4 @@ snapshots:
 
   yaml@2.8.0: {}
 
-  zod@3.25.13: {}
+  zod@3.25.14: {}

@@ -8,11 +8,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: [
-          "/api/",
-          "/_next/",
-          "/demo/", // Disallow demo pages from indexing
-        ],
+        disallow: ["/api/", "/_next/"],
       },
       {
         userAgent: "Googlebot",

@@ -7,7 +7,6 @@ import { cn } from "@/lib/utils"
 type OptimizedImageProps = Omit<ImageProps, "onLoadingComplete"> & {
   fallback?: string
   lowQuality?: boolean
-  lazyBoundary?: string
 }
 
 export default function OptimizedImage({
@@ -16,7 +15,6 @@ export default function OptimizedImage({
   className,
   fallback = "/placeholder.svg",
   lowQuality = false,
-  lazyBoundary = "200px",
   priority = false,
   ...props
 }: OptimizedImageProps) {

@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
+  // Remove swcMinify as it's now enabled by default in Next.js 15
   images: {
     domains: ['placeholder.com', 'via.placeholder.com', 'picsum.photos'],
     formats: ['image/avif', 'image/webp'],
@@ -19,14 +19,13 @@ const nextConfig = {
       }
     ],
   },
-  // Remove optimizeCss completely
   experimental: {
-    // Remove optimizeCss option
+    // Remove streamingMetadata as it's no longer needed in Next.js 15
+    // It's now enabled by default
     scrollRestoration: true,
     serverActions: {
       bodySizeLimit: '2mb',
     },
-    streamingMetadata: true,
     optimizePackageImports: ['lucide-react', 'framer-motion'],
   },
   eslint: {
