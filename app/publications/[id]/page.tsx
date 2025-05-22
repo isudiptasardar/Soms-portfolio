@@ -54,6 +54,12 @@ export default function PublicationPage({ params }: { params: { id: string } }) 
     { label: publication.title.substring(0, 30) + "...", href: `/publications/${publication.id}`, isCurrent: true },
   ]
 
+  // Generate the dynamic image URL based on the publication ID
+  const imageUrl =
+    typeof publication.id === "string" && publication.id.startsWith("10.")
+      ? `https://api.microlink.io/?url=https://doi.org/${publication.id}&screenshot=true&meta=false&embed=screenshot.url`
+      : "/placeholder.svg"
+
   return (
     <>
       <div className="min-h-screen bg-white dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 transition-colors duration-300">
@@ -73,13 +79,18 @@ export default function PublicationPage({ params }: { params: { id: string } }) 
             </div>
 
             <article className="bg-white dark:bg-zinc-800 rounded-lg shadow-sm overflow-hidden">
-              <div className="aspect-video w-full relative">
+              <div className="aspect-video w-full relative bg-zinc-100 dark:bg-zinc-700">
                 <Image
-                  src={publication.paperImage || "/placeholder.svg"}
+                  src={imageUrl || "/placeholder.svg"}
                   alt={`Visual representation of the publication: ${publication.title}`}
                   fill
                   className="object-cover"
                   priority
+                  unoptimized
+                  onError={(e) => {
+                    // Fallback to placeholder if image fails to load
+                    ;(e.target as HTMLImageElement).src = "/placeholder.svg"
+                  }}
                 />
               </div>
 

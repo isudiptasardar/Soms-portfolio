@@ -1,33 +1,13 @@
 import { ArrowRight } from "lucide-react"
 import Link from "next/link"
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { getRecentPublications, formatAuthors } from "@/lib/publications"
+import PublicationImage from "@/components/ui/publication-image"
 
 export default function Publications() {
   // Get recent publications using our optimized function
   const recentPublications = getRecentPublications(5)
-
-  // Computational biology related images
-  const compBioImages = [
-    "https://picsum.photos/seed/rna-structure/600/400", // RNA structure
-    "https://picsum.photos/seed/protein-folding/600/400", // Protein folding
-    "https://picsum.photos/seed/molecular-dynamics/600/400", // Molecular dynamics
-    "https://picsum.photos/seed/gene-expression/600/400", // Gene expression
-    "https://picsum.photos/seed/dna-sequencing/600/400", // DNA sequencing
-    "https://picsum.photos/seed/bioinformatics/600/400", // Bioinformatics
-  ]
-
-  // Image alt text descriptions
-  const imageDescriptions = [
-    "RNA structure visualization and analysis",
-    "Protein folding simulation and prediction",
-    "Molecular dynamics simulation of biomolecules",
-    "Gene expression analysis and visualization",
-    "DNA sequencing and genomic data analysis",
-    "Bioinformatics computational methods and tools",
-  ]
 
   return (
     <section id="publications" className="py-20 bg-zinc-50 dark:bg-zinc-800" aria-labelledby="publications-heading">
@@ -38,22 +18,20 @@ export default function Publications() {
 
         <div className="max-w-6xl mx-auto">
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {recentPublications.map((publication, index) => (
+            {recentPublications.map((publication) => (
               <div
                 key={publication.id}
                 className="bg-white border dark:bg-zinc-700 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col h-full overflow-hidden"
                 itemScope
                 itemType="https://schema.org/ScholarlyArticle"
               >
-                <div className="aspect-[4/3] w-full overflow-hidden">
-                  <Image
-                    src={compBioImages[index % compBioImages.length] || "/placeholder.svg"}
-                    alt={`${imageDescriptions[index % imageDescriptions.length]} - ${publication.title}`}
+                <div className="aspect-[4/3] w-full overflow-hidden bg-zinc-100 dark:bg-zinc-800">
+                  <PublicationImage
+                    publicationId={publication.id}
+                    title={publication.title}
                     width={600}
                     height={400}
-                    className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
-                    loading="lazy"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="transition-transform duration-300 hover:scale-105"
                   />
                 </div>
                 <div className="p-6 flex-1 flex flex-col">
@@ -77,7 +55,7 @@ export default function Publications() {
                   </div>
                   <div className="mt-4 pt-4 border-t border-zinc-100 dark:border-zinc-600">
                     <Link
-                      href={`https://doi.org/${publication.id}`}
+                      href={`/publications/${publication.id}`}
                       className="inline-flex items-center text-zinc-600 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-white transition-colors"
                       aria-label={`Read details about ${publication.title}`}
                     >

@@ -1,96 +1,26 @@
 "use client"
 
+import { useState } from "react"
 import Image, { type ImageProps } from "next/image"
-import { useState, useEffect } from "react"
-import { cn } from "@/lib/utils"
 import PlaceholderImage from "./placeholder-image"
 
-type OptimizedImageProps = Omit<ImageProps, "onLoadingComplete"> & {
-  fallback?: string
-  lowQuality?: boolean
+interface OptimizedImageProps extends Omit<ImageProps, "onError"> {
+  fallbackSrc?: string
 }
 
-export default function OptimizedImage({
-  src,
-  alt,
-  className,
-  fallback = "/placeholder.svg",
-  lowQuality = false,
-  priority = false,
-  width = 800,
-  height = 800,
-  ...props
-}: OptimizedImageProps) {
-  const [isLoading, setIsLoading] = useState(true)
+export default function OptimizedImage({ src, alt, fallbackSrc = "/placeholder.svg", ...props }: OptimizedImageProps) {
   const [error, setError] = useState(false)
-  const [mounted, setMounted] = useState(false)
 
-  useEffect(() => {
-    setMounted(true)
-    // Reset states when src changes
-    setIsLoading(true)
-    setError(false)
-  }, [src])
-
-  // Handle image loading
-  const handleLoad = () => {
-    setIsLoading(false)
-  }
-
-  // Handle image error
   const handleError = () => {
+    console.warn(`Failed to load image: ${src}`)
     setError(true)
-    setIsLoading(false)
   }
 
-  // Determine the source to use
-  const sourceToUse = error ? fallback : src
-
-  if (!mounted) {
-    return (
-      <div className={cn("relative overflow-hidden bg-zinc-100 dark:bg-zinc-800", className)}>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span className="sr-only">Loading image...</span>
-        </div>
-      </div>
-    )
+  // If there's an error loading the image, show a placeholder
+  if (error) {
+    return <PlaceholderImage alt={alt} {...props} />
   }
 
-  // If there's an error and no fallback, show placeholder
-  if (error && (!fallback || fallback === "/placeholder.svg")) {
-    return (
-      <PlaceholderImage
-        className={className}
-        width={typeof width === "number" ? width : undefined}
-        height={typeof height === "number" ? height : undefined}
-        text={alt as string}
-      />
-    )
-  }
-
-  return (
-    <div className={cn("relative overflow-hidden", className)}>
-      {isLoading && (
-        <div className="absolute inset-0 flex items-center justify-center bg-zinc-100 dark:bg-zinc-800 animate-pulse">
-          <span className="sr-only">Loading image...</span>
-        </div>
-      )}
-      <Image
-        src={sourceToUse || "/placeholder.svg"}
-        alt={alt}
-        className={cn(
-          "transition-opacity duration-300",
-          isLoading ? "opacity-0" : "opacity-100",
-          lowQuality ? "filter blur-[1px]" : "",
-        )}
-        onLoad={handleLoad}
-        onError={handleError}
-        loading={priority ? "eager" : "lazy"}
-        fetchPriority={priority ? "high" : "auto"}
-        width={width}
-        height={height}
-        {...props}
-      />
-    </div>
-  )
+  // Otherwise, render the image with error handling
+  return <Image src={src || "/placeholder.svg"} alt={alt} {...props} onError={handleError} />
 }

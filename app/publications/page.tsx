@@ -2,11 +2,11 @@ import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { ArrowLeft, ExternalLink, BookOpen, FileText } from "lucide-react"
 import Link from "next/link"
-import OptimizedImage from "@/components/ui/optimized-image"
 import type { Metadata } from "next"
 import { Badge } from "@/components/ui/badge"
 import { getPublicationsByYear, formatDate } from "@/lib/publications"
 import Script from "next/script"
+import PublicationImage from "@/components/ui/publication-image"
 
 export const metadata: Metadata = {
   title: "Scientific Publications",
@@ -96,14 +96,12 @@ export default function PublicationsPage() {
                         )}
                         <div className="md:flex">
                           <div className="md:w-1/3 lg:w-1/4">
-                            <div className="aspect-[4/3] w-full overflow-hidden">
-                              <OptimizedImage
-                                src={publication.paperImage || "/placeholder.svg"}
-                                alt={`Visual representation of the publication: ${publication.title}`}
+                            <div className="aspect-[4/3] w-full overflow-hidden bg-zinc-100 dark:bg-zinc-700">
+                              <PublicationImage
+                                publicationId={publication.id}
+                                title={publication.title}
                                 width={600}
                                 height={400}
-                                className="h-full w-full object-cover"
-                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
                               />
                             </div>
                           </div>
