@@ -63,7 +63,7 @@ export default function About() {
             <div className="text-lg leading-relaxed">
               &nbsp; In 2022, Mr. Dutta completed his Master's degree in Bioinformatics from the{" "}
               <LinkPreview
-                url="https://www.bicpu.edu.in"
+                url="https://bicpu.edu.in"
                 className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer font-bold"
               >
                 {" "}
