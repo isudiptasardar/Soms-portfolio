@@ -52,7 +52,7 @@ export default function About() {
               </LinkPreview>{" "}
               affiliated to{" "}
               <LinkPreview
-                href="https://www.vidyasagar.ac.in"
+                url="https://www.vidyasagar.ac.in"
                 className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer font-bold"
               >
                 {" "}
@@ -63,7 +63,7 @@ export default function About() {
             <div className="text-lg leading-relaxed">
               &nbsp; In 2022, Mr. Dutta completed his Master's degree in Bioinformatics from the{" "}
               <LinkPreview
-                href="https://www.bicpu.edu.in"
+                url="https://www.bicpu.edu.in"
                 className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer font-bold"
               >
                 {" "}
@@ -71,14 +71,14 @@ export default function About() {
               </LinkPreview>{" "}
               with Distinction. After completing his master's he worked as a young research fellow at{" "}
               <LinkPreview
-                href="https://www.iiit.ac.in"
+                url="https://www.iiit.ac.in"
                 className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer font-bold"
               >
                 IIIT, Hyderabad{" "}
               </LinkPreview>
               , and also joined the{" "}
               <LinkPreview
-                href="https://www.iaamonline.org/"
+                url="https://www.iaamonline.org/"
                 className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer font-bold"
               >
                 {" "}
@@ -88,7 +88,7 @@ export default function About() {
               projects and presented his works at numerous national and international conferences. In 2023, he worked as
               a visiting scholar at{" "}
               <LinkPreview
-                href="https://www.soka.ac.jp/en/glycan"
+                url="https://www.soka.ac.jp/en/glycan"
                 className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer font-bold"
               >
                 {" "}
@@ -101,7 +101,7 @@ export default function About() {
             <div className="text-lg leading-relaxed">
               &nbsp; Currently Mr. Dutta is working as Doctoral Fellow at the Department of{" "}
               <LinkPreview
-                href="https://chemeng.pusan.ac.kr"
+                url="https://chemeng.pusan.ac.kr"
                 className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer font-bold"
               >
                 {" "}
@@ -109,7 +109,7 @@ export default function About() {
               </LinkPreview>{" "}
               at{" "}
               <LinkPreview
-                href="https://pusan.ac.kr"
+                url="https://pusan.ac.kr"
                 className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer font-bold"
               >
                 {" "}

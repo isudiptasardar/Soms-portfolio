@@ -9,7 +9,8 @@ import { cn } from "@/lib/utils"
 
 type LinkPreviewProps = {
   children: React.ReactNode
-  url: string
+  url?: string
+  href?: string
   className?: string
   width?: number
   height?: number
@@ -20,6 +21,7 @@ type LinkPreviewProps = {
 export const LinkPreview = ({
   children,
   url,
+  href,
   className,
   width = 200,
   height = 125,
@@ -28,10 +30,13 @@ export const LinkPreview = ({
   isStatic = false,
   imageSrc = "",
 }: LinkPreviewProps) => {
+  // Use url or href, with url taking precedence
+  const linkUrl = url || href || ""
+
   let src
   if (!isStatic) {
     const params = encode({
-      url,
+      url: linkUrl,
       screenshot: true,
       meta: false,
       embed: "screenshot.url",
@@ -47,8 +52,8 @@ export const LinkPreview = ({
   }
 
   const [isOpen, setOpen] = React.useState(false)
-
   const [isMounted, setIsMounted] = React.useState(false)
+  const [previewError, setPreviewError] = React.useState(false)
 
   React.useEffect(() => {
     setIsMounted(true)
@@ -66,11 +71,27 @@ export const LinkPreview = ({
     x.set(offsetFromCenter)
   }
 
+  // Handle image error
+  const handleImageError = () => {
+    setPreviewError(true)
+  }
+
+  // If no URL is provided, just render the children without preview
+  if (!linkUrl) {
+    return <span className={className}>{children}</span>
+  }
+
   return (
     <>
-      {isMounted ? (
+      {isMounted && !previewError ? (
         <div className="hidden">
-          <img src={src || "/placeholder.svg"} width={width} height={height} alt="hidden image" />
+          <img
+            src={src || "/placeholder.svg"}
+            width={width}
+            height={height}
+            alt="hidden image"
+            onError={handleImageError}
+          />
         </div>
       ) : null}
 
@@ -84,7 +105,8 @@ export const LinkPreview = ({
         <HoverCardPrimitive.Trigger
           onMouseMove={handleMouseMove}
           className={cn("text-black dark:text-white", className)}
-          href={url}
+          href={linkUrl}
+          as="a"
         >
           {children}
         </HoverCardPrimitive.Trigger>
@@ -96,7 +118,7 @@ export const LinkPreview = ({
           sideOffset={10}
         >
           <AnimatePresence>
-            {isOpen && (
+            {isOpen && !previewError && (
               <motion.div
                 initial={{ opacity: 0, y: 20, scale: 0.6 }}
                 animate={{
@@ -116,7 +138,7 @@ export const LinkPreview = ({
                 }}
               >
                 <a
-                  href={url}
+                  href={linkUrl}
                   className="block p-1 bg-white border-2 border-transparent shadow rounded-xl hover:border-neutral-200 dark:hover:border-neutral-800"
                   style={{ fontSize: 0 }}
                 >
@@ -126,6 +148,7 @@ export const LinkPreview = ({
                     height={height}
                     className="rounded-lg"
                     alt="preview image"
+                    onError={handleImageError}
                   />
                 </a>
               </motion.div>
