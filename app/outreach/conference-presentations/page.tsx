@@ -5,9 +5,10 @@ import { ArrowLeft } from "lucide-react"
 import type { Metadata } from "next"
 import BreadcrumbNavigation from "@/components/breadcrumb-navigation"
 import {
-  getConferencesByYear,
-  getConferenceTypes,
-  getConferenceCountries,
+  getPresentationsByYear,
+  getPresentationTypes,
+  getPresentationFormats,
+  getPresentationOrganizers,
   getYears,
 } from "@/lib/conference-presentations"
 import { Suspense } from "react"
@@ -35,15 +36,22 @@ export const metadata: Metadata = {
 }
 
 export default function ConferencePresentationsPage() {
-  const conferencesByYear = getConferencesByYear()
+  const presentationsByYear = getPresentationsByYear()
   const years = getYears()
-  const conferenceTypes = getConferenceTypes()
-  const conferenceCountries = getConferenceCountries()
+  const presentationTypes = getPresentationTypes()
+  const presentationFormats = getPresentationFormats()
+  const presentationOrganizers = getPresentationOrganizers()
 
   const breadcrumbItems = [
     { label: "Scientific Outreach", href: "/#scientific-outreach" },
     { label: "Conference Presentations", href: "/outreach/conference-presentations", isCurrent: true },
   ]
+
+  // Calculate total presentations
+  const totalPresentations = Object.values(presentationsByYear).reduce(
+    (sum, presentations) => sum + presentations.length,
+    0,
+  )
 
   return (
     <div className="min-h-screen bg-white dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 transition-colors duration-300">
@@ -62,31 +70,55 @@ export default function ConferencePresentationsPage() {
             </Link>
           </div>
 
-          <h1 className="text-3xl md:text-4xl font-bold mb-8">Conference Presentations</h1>
+          <div className="mb-8">
+            <h1 className="text-3xl md:text-4xl font-bold mb-4">Conference Presentations</h1>
+            <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-4">
+              A comprehensive collection of {totalPresentations} presentations delivered at various national and
+              international conferences, symposiums, and academic events.
+            </p>
+          </div>
 
           <div className="prose prose-zinc dark:prose-invert max-w-none mb-8">
             <p>
-              Somenath Dutta has presented his research findings at various national and international conferences,
-              showcasing his work to the scientific community and engaging in valuable discussions with peers and
-              experts in the field.
+              Somenath Dutta has presented his research findings at various prestigious conferences and symposiums,
+              showcasing his work in computational biology, bioinformatics, and drug discovery. These presentations span
+              multiple years and cover diverse topics from antiviral research to therapeutic development.
             </p>
           </div>
 
           <Suspense fallback={<div className="p-4 text-center">Loading filters...</div>}>
-            <ConferenceFilters types={conferenceTypes} countries={conferenceCountries} />
+            <ConferenceFilters
+              types={presentationTypes}
+              formats={presentationFormats}
+              organizers={presentationOrganizers}
+            />
           </Suspense>
 
-          <Suspense fallback={<div className="p-4 text-center">Loading conferences...</div>}>
-            <ConferenceList conferencesByYear={conferencesByYear} years={years} />
+          <Suspense fallback={<div className="p-4 text-center">Loading presentations...</div>}>
+            <ConferenceList presentationsByYear={presentationsByYear} years={years} />
           </Suspense>
 
           <div className="mt-16 bg-zinc-50 dark:bg-zinc-800 rounded-lg p-6">
             <h2 className="text-xl font-semibold mb-4">Impact and Recognition</h2>
-            <p className="text-zinc-600 dark:text-zinc-400">
+            <p className="text-zinc-600 dark:text-zinc-400 mb-4">
               These conference presentations have not only allowed Somenath to share his research with the scientific
-              community but have also led to valuable collaborations and recognition. The feedback and discussions from
-              these presentations have significantly contributed to refining his research methodologies and expanding
-              his scientific network.
+              community but have also led to valuable collaborations and recognition. The presentations cover a wide
+              range of formats including:
+            </p>
+            <ul className="list-disc list-inside text-zinc-600 dark:text-zinc-400 space-y-1">
+              <li>
+                <strong>Oral Presentations:</strong> In-depth talks on research findings and methodologies
+              </li>
+              <li>
+                <strong>Poster Presentations:</strong> Visual displays of research results and conclusions
+              </li>
+              <li>
+                <strong>Paper Presentations:</strong> Formal academic presentations of published work
+              </li>
+            </ul>
+            <p className="text-zinc-600 dark:text-zinc-400 mt-4">
+              The feedback and discussions from these presentations have significantly contributed to refining research
+              methodologies and expanding scientific networks across the global research community.
             </p>
           </div>
         </div>

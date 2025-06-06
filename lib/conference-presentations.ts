@@ -1,56 +1,67 @@
 import conferencesData from "@/data/conference-presentations.json"
 import { cache } from "react"
 
-export type Conference = {
-  year: number
+export type ConferencePresentation = {
+  id: number
   title: string
-  type?: string
-  event: string
-  location: string
-  country: string
+  organizer: string
+  date: string
+  type: string
+  format: string
+  skills: string[]
 }
 
 // Cache the conferences data to avoid redundant processing
-export const getAllConferences = cache((): Conference[] => {
-  return conferencesData.ScientificConferences
+export const getAllPresentations = cache((): ConferencePresentation[] => {
+  return conferencesData.webinars
 })
 
-export const getConferencesByYear = cache((): Record<number, Conference[]> => {
-  return getAllConferences().reduce(
-    (acc, conference) => {
-      const year = conference.year
+export const getPresentationsByYear = cache((): Record<number, ConferencePresentation[]> => {
+  return getAllPresentations().reduce(
+    (acc, presentation) => {
+      const year = new Date(presentation.date).getFullYear()
       if (!acc[year]) {
         acc[year] = []
       }
-      acc[year].push(conference)
+      acc[year].push(presentation)
       return acc
     },
-    {} as Record<number, Conference[]>,
+    {} as Record<number, ConferencePresentation[]>,
   )
 })
 
-export const getConferenceTypes = cache((): string[] => {
+export const getPresentationTypes = cache((): string[] => {
   const types = new Set<string>()
-  getAllConferences().forEach((conference) => {
-    if (conference.type) {
-      types.add(conference.type)
+  getAllPresentations().forEach((presentation) => {
+    if (presentation.type) {
+      types.add(presentation.type)
     }
   })
   return Array.from(types).sort()
 })
 
-export const getConferenceCountries = cache((): string[] => {
-  const countries = new Set<string>()
-  getAllConferences().forEach((conference) => {
-    countries.add(conference.country)
+export const getPresentationFormats = cache((): string[] => {
+  const formats = new Set<string>()
+  getAllPresentations().forEach((presentation) => {
+    if (presentation.format) {
+      formats.add(presentation.format)
+    }
   })
-  return Array.from(countries).sort()
+  return Array.from(formats).sort()
+})
+
+export const getPresentationOrganizers = cache((): string[] => {
+  const organizers = new Set<string>()
+  getAllPresentations().forEach((presentation) => {
+    organizers.add(presentation.organizer)
+  })
+  return Array.from(organizers).sort()
 })
 
 export const getYears = cache((): number[] => {
   const years = new Set<number>()
-  getAllConferences().forEach((conference) => {
-    years.add(conference.year)
+  getAllPresentations().forEach((presentation) => {
+    years.add(new Date(presentation.date).getFullYear())
   })
   return Array.from(years).sort((a, b) => b - a) // Sort in descending order
 })

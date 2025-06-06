@@ -1,637 +1,157 @@
 {
-  "ScientificConferences": [
-  {
-    "year": 2024,
-    "title": "Single-Cell Omics Computational and Experimental Workshop",
-    "type": "Workshop",
-    "event": "Human Cell Atlas",
-    "location": "Mahidol University",
-    "country": "Thailand"
-  },
-  {
-    "year": 2024,
-    "title": "In Silico Drug Discovery Workshop",
-    "type": "Workshop",
-    "event": "The National Institutes of Health",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2024,
-    "title": "NAN Virtual NMR Metabolomics Workshop",
-    "type": "Workshop",
-    "event": "University of Georgia Complex Carbohydrate Research Center",
-    "location": "Georgia",
-    "country": "Georgia"
-  },
-  {
-    "year": 2024,
-    "title": "Curious2024",
-    "type": "Conference",
-    "event": "Future Insight\u2122",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2024,
-    "title": "Mini-Fellowship Program on Molecular Imaging",
-    "type": "Program",
-    "event": "School of Medicine",
-    "location": "Stanford University",
-    "country": "Stanford University"
-  },
-  {
-    "year": 2023,
-    "title": "CompBio-2023",
-    "type": "Workshop",
-    "event": "National University of Singapore",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2023,
-    "title": "Online International Workshop on 'Generative AI in Bioinformatics'",
-    "type": "Workshop",
-    "event": "Dollar Education",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2023,
-    "title": "7th International Symposium on Bioinformatics 2023",
-    "type": "Symposium",
-    "event": "Asia Pacific Bioinformatics Network (APBioNET)",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2023,
-    "title": "2nd Asian Student Council Symposium",
-    "type": "Symposium",
-    "event": "ISCB - International Society for Computational Biology",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2023,
-    "title": "Certificate Course on 'Introduction to Data and Data Science'",
-    "type": "Course",
-    "event": "Certified by 365 Data Science",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2022,
-    "title": "Machine Learning for Biomarkers and Drug Discovery",
-    "type": "Workshop",
-    "event": "National Institute of Technology",
-    "location": "Durgapur",
-    "country": "India"
-  },
-  {
-    "year": 2022,
-    "title": "Computational Biology and Biomedical Informatics",
-    "type": "Workshop",
-    "event": "National Institute of Technology",
-    "location": "Silchar",
-    "country": "India"
-  },
-  {
-    "year": 2022,
-    "title": "Computational Structure-Based Screening and Molecular Dynamics",
-    "type": "Workshop",
-    "event": "Pondicherry Central University & Schr\u00f6dinger",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2022,
-    "title": "Online International Workshop on 'NGS || Epigenomics Analysis'",
-    "type": "Workshop",
-    "event": "Dollar Education",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2022,
-    "title": "Online International Workshop on 'Computational Applications in Mass Spectrometry'",
-    "type": "Workshop",
-    "event": "Dollar Education",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2022,
-    "title": "Online International Workshop on 'NGS || Whole Genome/Exome Sequencing Analysis'",
-    "type": "Workshop",
-    "event": "Dollar Education",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2022,
-    "title": "Online Workshop on 'Bulk and Single Cell RNA Sequencing Analysis'",
-    "type": "Workshop",
-    "event": "Dollar Education",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2022,
-    "title": "High-End Workshop on 'Next Generation Medical Devices'",
-    "type": "Workshop",
-    "event": "National Institute of Technology Rourkela",
-    "location": "India",
-    "country": "India"
-  },
-  {
-    "year": 2022,
-    "title": "Virtual Seminar on 'Molecular Perspective SARS-CoV-2, Drug Targets, Drug Designing and Research'",
-    "type": "Webinar",
-    "event": "Paavai Engineering College",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2022,
-    "title": "International Conference on 'Advances in Pharmaceutical Medicinal Chemistry-2022'",
-    "type": "Conference",
-    "event": "D Y Patil Deemed University",
-    "location": "Maharashtra",
-    "country": "India"
-  },
-  {
-    "year": 2022,
-    "title": "Indo-Chinese Virtual Conference on 'Oral Submucous Fibrosis'",
-    "type": "Conference",
-    "event": "Sri Ramachandra Institute of Higher Education and Research",
-    "location": "India",
-    "country": "India"
-  },
-  {
-    "year": 2022,
-    "title": "National Science Day Symposium (NSDS 2022)",
-    "type": "Symposium",
-    "event": "Jaypee University of Information Technology",
-    "location": "Himachal Pradesh",
-    "country": "Himachal Pradesh"
-  },
-  {
-    "year": 2022,
-    "title": "Symposium on 'Biotechnology and Bioinformatics in Healthcare'",
-    "type": "Symposium",
-    "event": "CHeST",
-    "location": "JISIASR Kolkata",
-    "country": "India"
-  },
-  {
-    "year": 2022,
-    "title": "Intellectual Property Awareness Mission",
-    "type": "Course",
-    "event": "Kurukshetra University",
-    "location": "Haryana",
-    "country": "India"
-  },
-  {
-    "year": 2022,
-    "title": "23rd BOLOGNA WINTER SCHOOL: 'Structural Bioinformatics in the Era of AlphaFold2'",
-    "type": "Course",
-    "event": "Universit\u00e0 di Bologna",
-    "location": "Italy",
-    "country": "Italy"
-  },
-  {
-    "year": 2022,
-    "title": "Skill Training: 'Analytical Instrumentation Techniques'",
-    "type": "Training",
-    "event": "CSIR-NEERI",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2022,
-    "title": "Training: 'Application of Biostatistics in Health Research'",
-    "type": "Training",
-    "event": "ICMR-NIREH",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2021,
-    "title": "Cloud Workshop: 'Structure-Based Screening & Molecular Dynamics'",
-    "type": "Workshop",
-    "event": "RCB & Schr\u00f6dinger",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2021,
-    "title": "Workshop: 'HPC & AI in Computational Biology'",
-    "type": "Workshop",
-    "event": "IIT Kharagpur & Tezpur University",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2021,
-    "title": "Workshop: 'Advanced Experimental Methods in Biological Research'",
-    "type": "Workshop",
-    "event": "M.S. Ramaiah College",
-    "location": "Bengaluru",
-    "country": "Bengaluru"
-  },
-  {
-    "year": 2021,
-    "title": "Workshop: 'Science Communication'",
-    "type": "Workshop",
-    "event": "IIT Bombay",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2021,
-    "title": "7-Day Workshop: 'Fundamentals of Bioinformatics'",
-    "type": "Workshop",
-    "event": "University of Jammu",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2021,
-    "title": "SERB Workshop: 'Transmission Electron Microscopy in Life Sciences'",
-    "type": "Workshop",
-    "event": "SGPGIMS",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2021,
-    "title": "SERB Workshop: 'Transmission Electron Microscope'",
-    "type": "Workshop",
-    "event": "SGPGIMS",
-    "location": "Lucknow",
-    "country": "Lucknow"
-  },
-  {
-    "year": 2021,
-    "title": "27th International Conference on 'Mathematical Modelling in Biological Sciences'",
-    "type": "Conference",
-    "event": "NIT Silchar & IAPS",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2021,
-    "title": "1st National Conference on 'CRISPR/Cas: From Biology to Technology'",
-    "type": "Conference",
-    "event": "SRM University & IBAB",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2021,
-    "title": "Health Informatics Summit 2021",
-    "type": "Conference",
-    "event": "IIIT-Delhi",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2021,
-    "title": "Summer School: 'Machine Learning in Bioinformatics'",
-    "type": "Course",
-    "event": "HSE University",
-    "location": "Russia",
-    "country": "Russia"
-  },
-  {
-    "year": 2021,
-    "title": "Certificate Course: 'Biomedical Research Data Management'",
-    "type": "Course",
-    "event": "Harvard Medical School & NIH",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2021,
-    "title": "e-STC: 'Epidemiology: Basic Science of Public Health'",
-    "type": "Course",
-    "event": "UNC",
-    "location": "USA",
-    "country": "USA"
-  },
-  {
-    "year": 2021,
-    "title": "e-STC: 'Ensembl Browser'",
-    "type": "Course",
-    "event": "EMBL-EBI",
-    "location": "Europe",
-    "country": "Europe"
-  },
-  {
-    "year": 2021,
-    "title": "Short-Term Course: 'Data Analytics & Predictive Technologies'",
-    "type": "Course",
-    "event": "IIT (BHU)",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2021,
-    "title": "Certified Course in 'Advanced Excel'",
-    "type": "Course",
-    "event": "Elearnmarkets",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2021,
-    "title": "e-STC: 'Plant Propagation and Nursery Management'",
-    "type": "Course",
-    "event": "Shri Shivaji College",
-    "location": "India",
-    "country": "India"
-  },
-  {
-    "year": 2021,
-    "title": "Online Certificate Course: 'Basic Techniques in Microbiology'",
-    "type": "Course",
-    "event": "Sacred Heart College & UEZO",
-    "location": "Brazil",
-    "country": "Brazil"
-  },
-  {
-    "year": 2021,
-    "title": "Computed Assisted Drug Design (CADD)",
-    "type": "Course",
-    "event": "BISR",
-    "location": "DIC",
-    "country": "India"
-  },
-  {
-    "year": 2021,
-    "title": "Webinar: 'Telomerase as Cardiovascular Therapeutic Target'",
-    "type": "Webinar",
-    "event": "Biosetup Lifesciences",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2021,
-    "title": "Webinar: 'Genome Annotation Bioinformatics Project'",
-    "type": "Webinar",
-    "event": "Biosetup Lifesciences",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2021,
-    "title": "International Symposium: 'Chronomedicine in Covid Times'",
-    "type": "Symposium",
-    "event": "AIIMS Raipur",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2021,
-    "title": "International Seminar on 'Sickle Cell Disease'",
-    "type": "Symposium",
-    "event": "ICMR-NIRRH",
-    "location": "India",
-    "country": "India"
-  },
-  {
-    "year": 2021,
-    "title": "Training: 'NGS Data Analysis in Bioinformatics'",
-    "type": "Training",
-    "event": "DYJ Life Sciences Pvt. Ltd",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2021,
-    "title": "3-Month Virtual Training: 'Genomics4Health'",
-    "type": "Training",
-    "event": "ICMR-NIRTH",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2021,
-    "title": "Training: 'Maintaining Biological Data'",
-    "type": "Training",
-    "event": "RGPV",
-    "location": "Bhopal",
-    "country": "Bhopal"
-  },
-  {
-    "year": 2021,
-    "title": "POSTIED Training",
-    "type": "Training",
-    "event": "Sidho-Kanho Birsa University",
-    "location": "West Bengal",
-    "country": "West Bengal"
-  },
-  {
-    "year": 2021,
-    "title": "Training: 'Genes to Pathway: Second Edition'",
-    "type": "Training",
-    "event": "DE code LIFE",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2020,
-    "title": "E-Workshop on Bioinformatics",
-    "type": "Workshop",
-    "event": "Delhi Technological University",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2020,
-    "title": "Workshop on 'DNA Barcoding'",
-    "type": "Workshop",
-    "event": "Islamiah College",
-    "location": "Tamil Nadu",
-    "country": "Tamil Nadu"
-  },
-  {
-    "year": 2020,
-    "title": "Workshop on 'Immunoinformatics'",
-    "type": "Workshop",
-    "event": "DE code LIFE India",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2020,
-    "title": "Workshop: 'SPARC-INDO-US Immunology'",
-    "type": "Workshop",
-    "event": "IIT Ropar & George Washington University",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2020,
-    "title": "Workshop: 'COVID-19: RT-PCR Diagnostics & Therapeutics'",
-    "type": "Workshop",
-    "event": "University of Kalyani & College of Medicine-JNMH",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2020,
-    "title": "Workshop: 'Prominence of Animals in Research'",
-    "type": "Workshop",
-    "event": "IIT Ropar",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2020,
-    "title": "Workshop: 'Omics in Climate Smart Agriculture'",
-    "type": "Workshop",
-    "event": "ICAR-NAHEP",
-    "location": "MPKV Rahuri",
-    "country": "MPKV Rahuri"
-  },
-  {
-    "year": 2020,
-    "title": "Green Skill Development Program (GSDP-2020)",
-    "type": "Workshop",
-    "event": "Centre for Ecological Sciences",
-    "location": "IISC Bengaluru",
-    "country": "India"
-  },
-  {
-    "year": 2020,
-    "title": "INBIX'20: Indian Conference on Bioinformatics",
-    "type": "Conference",
-    "event": "NEHU Shillong & Bioclues",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2020,
-    "title": "Digital Marketing Fundamentals Course",
-    "type": "Course",
-    "event": "Google Digital Garage",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2020,
-    "title": "Webinar: 'Molecular Methods for Genetic Disorders'",
-    "type": "Webinar",
-    "event": "RBVRR College",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2020,
-    "title": "Webinar: 'Power of Biotechnology in Pandemic'",
-    "type": "Webinar",
-    "event": "Dr. B. Lal Institute",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2020,
-    "title": "Skill Training: 'General Microbiology'",
-    "type": "Training",
-    "event": "Keshav Memorial Institute",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2020,
-    "title": "International E-Quiz on 'Bioinformatics'",
-    "type": "Other Academic Activitie",
-    "event": "Holy Cross College",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2020,
-    "title": "Biotech E-Quiz Programme",
-    "type": "Other Academic Activitie",
-    "event": "Karpagam Academy",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2020,
-    "title": "Career Workshop: 'Life Science Careers Post Pandemic'",
-    "type": "Other Academic Activitie",
-    "event": "Panskura Banamali College",
-    "location": "West Bengal",
-    "country": "West Bengal"
-  },
-  {
-    "year": 2020,
-    "title": "Online Essay Writing Event",
-    "type": "Other Academic Activitie",
-    "event": "Panskura Banamali College",
-    "location": "West Bengal",
-    "country": "West Bengal"
-  },
-  {
-    "year": 2020,
-    "title": "Online Quiz",
-    "type": "Other Academic Activitie",
-    "event": "Panskura Banamali College",
-    "location": "West Bengal",
-    "country": "West Bengal"
-  },
-  {
-    "year": 2020,
-    "title": "Quiz: 'Covid-19 Awareness'",
-    "type": "Other Academic Activitie",
-    "event": "J.K.K.Nattraja College",
-    "location": "",
-    "country": ""
-  },
-  {
-    "year": 2019,
-    "title": "Introduction to Bioinformatics",
-    "type": "Workshop",
-    "event": "Amity University",
-    "location": "Kolkata",
-    "country": "Israel"
-  },
-  {
-    "year": 2019,
-    "title": "DNA Barcoding",
-    "type": "Workshop",
-    "event": "P.G. Department of Zoology",
-    "location": "Egra S.S.B. College",
-    "country": "India"
-  },
-  {
-    "year": 2019,
-    "title": "Basic Spanish Language (Certified)",
-    "type": "Course",
-    "event": "Rabindra Bharati University",
-    "location": "West Bengal",
-    "country": "India"
-  },
-  {
-    "year": 2018,
-    "title": "Quantum Computing Knowledge",
-    "type": "Workshop",
-    "event": "Department of IT & Electronics",
-    "location": "Government of West Bengal",
-    "country": "India"
-  },
-  {
-    "year": 2016,
-    "title": "Diploma in Computer Application",
-    "type": "Course",
-    "event": "Mahatma Gandhi National Youth",
-    "location": "West Bengal",
-    "country": "India"
-  }
-]
-    
+  "webinars": [
+    {
+      "id": 1,
+      "title": "Computational Discovery of RNA-Specific Small Molecule Inhibitors Targeting the Conserved SL4 Region in SARS-CoV-2 Genome: A Comprehensive Virtual Screening and Molecular Dynamics Approach",
+      "organizer": "29th Annual International Conference on Research in Computational Molecular Biology (RECOMB-2025)",
+      "date": "2025-01-01",
+      "type": "Poster and Oral Talk",
+      "format": "In-Person",
+      "skills": []
+    },
+    {
+      "id": 2,
+      "title": "In Silico Investigation of Antiviral Phytochemicals for Potential Drug Development Against Wild-Type and Omicron Variants of SARS-CoV-2 Using Virtual Screening and Molecular Dynamics Studies",
+      "organizer": "1st Symposium on Emerging Frontiers of Biotechnology",
+      "date": "2025-01-01",
+      "type": "Poster Presentation",
+      "format": "In-Person",
+      "skills": []
+    },
+    {
+      "id": 3,
+      "title": "From Local to Global Navigating Funding and Building a Worldwide Research Network",
+      "organizer": "2nd International Colloquium on Bioinformatics Learning, Education, and Training (iCOBLET2024)",
+      "date": "2024-01-01",
+      "type": "Presentation",
+      "format": "In-Person",
+      "skills": []
+    },
+    {
+      "id": 4,
+      "title": "Development of miRNA-based Therapeutics against Zika Virus using Bioinformatics",
+      "organizer": "1st Asia & Pacific Bioinformatics Joint Conference, ISCB - International Society for Computational Biology",
+      "date": "2024-01-01",
+      "type": "Poster Presentation",
+      "format": "In-Person",
+      "skills": []
+    },
+    {
+      "id": 5,
+      "title": "VaxiDB: A Database for Potential Antigens of Different Pathogens to Develop Novel Vaccines and Diagnostics",
+      "organizer": "Indian Immunology Society (IMMUNOCON-2024)",
+      "date": "2024-01-01",
+      "type": "Poster Presentation",
+      "format": "In-Person",
+      "skills": []
+    },
+    {
+      "id": 6,
+      "title": "Development of miRNA-based Therapeutics against Zika Virus using Bioinformatics",
+      "organizer": "Horizons in Molecular Biology 2024",
+      "date": "2024-01-01",
+      "type": "Oral Presentation",
+      "format": "In-Person",
+      "skills": []
+    },
+    {
+      "id": 7,
+      "title": "Identification of Potential Phytochemicals as Immune Checkpoint Inhibitors for PD-1 and PDL-1 Interaction using In Silico Approaches",
+      "organizer": "Past, Present, and Future of Cellular Immunotherapy",
+      "date": "2024-01-01",
+      "type": "Poster Presentation",
+      "format": "In-Person",
+      "skills": []
+    },
+    {
+      "id": 8,
+      "title": "Development of miRNA-Based Therapeutics for Liver Cancer Using Bioinformatics Approaches",
+      "organizer": "12th Annual Symposium on Global Cancer Research",
+      "date": "2024-01-01",
+      "type": "Poster Presentation",
+      "format": "In-Person",
+      "skills": []
+    },
+    {
+      "id": 9,
+      "title": "Development of miRNA-based Therapeutics against Zika Virus using Bioinformatics",
+      "organizer": "International Conference on Advances in Biotechnology (ICAB-2023)",
+      "date": "2023-01-01",
+      "type": "Poster Presentation",
+      "format": "In-Person",
+      "skills": []
+    },
+    {
+      "id": 10,
+      "title": "In Silico Study of Antiviral Phytochemicals for SARS CoV2",
+      "organizer": "International Conference on Nutrition, Medical Genomics, and Drug Discovery",
+      "date": "2022-01-01",
+      "type": "Oral Presentation",
+      "format": "In-Person",
+      "skills": []
+    },
+    {
+      "id": 11,
+      "title": "Beta-Coronavirus Genotyping for Armenian WGS isolates",
+      "organizer": "Bioinformatica Indica 2022",
+      "date": "2022-01-01",
+      "type": "Oral Presentation",
+      "format": "In-Person",
+      "skills": []
+    },
+    {
+      "id": 12,
+      "title": "International Conference cum Workshop on Translational Sciences in Drug Discovery and Development",
+      "organizer": "Indian Science Congress Association & Department of Bioinformatics",
+      "date": "2021-01-01",
+      "type": "Presentation",
+      "format": "In-Person",
+      "skills": []
+    },
+    {
+      "id": 13,
+      "title": "Evaluation of Phytochemical and Antibacterial Properties of Andrographis Echiodies (L.). Nees",
+      "organizer": "DST Sponsored National Seminar",
+      "date": "2019-01-01",
+      "type": "Oral Presentation",
+      "format": "In-Person",
+      "skills": []
+    },
+    {
+      "id": 14,
+      "title": "Studies on Probiotic Application in Growth and Intestinal Flora of Cat Fish",
+      "organizer": "MCCCON-2019, DST & DBT Sponsored National Conference",
+      "date": "2019-01-01",
+      "type": "Paper Presentation",
+      "format": "In-Person",
+      "skills": []
+    },
+    {
+      "id": 15,
+      "title": "Controlling Environmental Pollution Using Bio-Plastic",
+      "organizer": "Emerging Environmental Issues",
+      "date": "2019-01-01",
+      "type": "Paper Presentation",
+      "format": "In-Person",
+      "skills": []
+    },
+    {
+      "id": 16,
+      "title": "Isolation of Lactobacillus sp. from Curd and Its Application in Probiotic Chocolate",
+      "organizer": "CSIR-INDIA International Conference, Biospectrum-2018",
+      "date": "2018-01-01",
+      "type": "Poster Presentation",
+      "format": "In-Person",
+      "skills": []
+    },
+    {
+      "id": 17,
+      "title": "Bioremediation: A Green Approach to Pollution Control",
+      "organizer": "National Seminar on Health and Ecology",
+      "date": "2017-01-01",
+      "type": "Poster Presentation",
+      "format": "In-Person",
+      "skills": []
+    }
+  ]
 }
