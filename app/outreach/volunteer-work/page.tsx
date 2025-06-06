@@ -1,114 +1,39 @@
-import Header from "@/components/header"
-import Footer from "@/components/footer"
+import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
-import { ArrowLeft, Calendar, Users } from "lucide-react"
-import type { Metadata } from "next"
-import BreadcrumbNavigation from "@/components/breadcrumb-navigation"
-import { getVolunteerRolesByYear, processMarkdownText } from "@/lib/volunteer-work"
 
-export const metadata: Metadata = {
-  title: "Volunteer Work | Scientific Outreach",
-  description: "Volunteer work undertaken by Somenath Dutta to contribute to the scientific community and society",
-  keywords: [
-    "volunteer work",
-    "scientific volunteering",
-    "community service",
-    "academic volunteering",
-    "scientific outreach",
-    "Somenath Dutta volunteering",
-    "scientific community contribution",
-  ],
-  openGraph: {
-    title: "Volunteer Work | Scientific Outreach | Somenath Dutta",
-    description: "Learn about Somenath Dutta's volunteer work and contributions to various scientific organizations",
-    url: "https://somenath.biomolecular.space/outreach/volunteer-work",
-  },
-}
-
-export default function VolunteerWorkPage() {
-  const volunteerRolesByYear = getVolunteerRolesByYear()
-  const years = Object.keys(volunteerRolesByYear)
-    .map(Number)
-    .sort((a, b) => b - a) // Sort years in descending order
-
-  const breadcrumbItems = [
-    { label: "Scientific Outreach", href: "/#scientific-outreach" },
-    { label: "Volunteer Work", href: "/outreach/volunteer-work", isCurrent: true },
-  ]
-
+const VolunteerWorkPage = () => {
   return (
-    <div className="min-h-screen bg-white dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 transition-colors duration-300">
-      <Header />
+    <div className="container mx-auto py-8">
+      <h1 className="text-3xl font-bold mb-4 text-center">Volunteer Work Opportunities</h1>
+      <p className="mb-4 text-center">Explore various volunteer opportunities related to scientific outreach.</p>
 
-      <main className="container mx-auto px-4 py-20">
-        <div className="max-w-4xl mx-auto">
-          <div className="mb-8">
-            <BreadcrumbNavigation items={breadcrumbItems} />
-          </div>
-
-          <h1 className="text-3xl md:text-4xl font-bold mb-8">Volunteer Work</h1>
-
-          <div className="prose prose-zinc dark:prose-invert max-w-none mb-8">
-            <p>
-              Somenath Dutta has actively volunteered in various organizations to contribute to the scientific growth of
-              society. These volunteer experiences have not only allowed him to give back to the community but have also
-              enriched his understanding of the broader impact of science on society.
-            </p>
-          </div>
-
-          <div className="space-y-12">
-            {years.map((year) => (
-              <div key={year} className="bg-white dark:bg-zinc-800 rounded-lg shadow-sm p-6">
-                <div className="flex items-center mb-6">
-                  <Calendar className="h-5 w-5 mr-2 text-blue-500" />
-                  <h2 className="text-2xl font-bold">{year}</h2>
-                </div>
-
-                <div className="space-y-4">
-                  {volunteerRolesByYear[year].map((role, index) => {
-                    const processedRole = processMarkdownText(role)
-                    const [roleName, location] = processedRole.split(" - ")
-
-                    return (
-                      <div key={index} className="flex items-start">
-                        <Users className="h-5 w-5 mr-3 mt-1 text-zinc-500" />
-                        <div>
-                          <p className="font-medium">{roleName}</p>
-                          {location && <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-1">{location}</p>}
-                        </div>
-                      </div>
-                    )
-                  })}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-16 bg-zinc-50 dark:bg-zinc-800 rounded-lg p-6">
-            <h2 className="text-xl font-semibold mb-4">Impact and Learning</h2>
-            <p className="text-zinc-600 dark:text-zinc-400">
-              These volunteer experiences have had a profound impact on Somenath's personal and professional
-              development. They have enhanced his communication and leadership skills, broadened his understanding of
-              the societal impact of scientific research, provided opportunities to apply his knowledge in diverse
-              contexts, connected him with a wider network of scientists and science enthusiasts, and reinforced his
-              commitment to making science accessible and beneficial to society.
-            </p>
-          </div>
-
-          {/* Back to Scientific Outreach Button - Moved to Bottom */}
-          <div className="mt-12 mb-8 flex justify-center">
-            <Link
-              href="/#scientific-outreach"
-              className="inline-flex items-center px-6 py-3 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 rounded-lg transition-colors duration-200 font-medium"
-            >
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Scientific Outreach
-            </Link>
-          </div>
+      {/* Placeholder for volunteer opportunities list */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="bg-white rounded-lg shadow-md p-4">
+          <h2 className="text-xl font-semibold mb-2">Opportunity 1</h2>
+          <p>Description of opportunity 1.</p>
         </div>
-      </main>
+        <div className="bg-white rounded-lg shadow-md p-4">
+          <h2 className="text-xl font-semibold mb-2">Opportunity 2</h2>
+          <p>Description of opportunity 2.</p>
+        </div>
+        <div className="bg-white rounded-lg shadow-md p-4">
+          <h2 className="text-xl font-semibold mb-2">Opportunity 3</h2>
+          <p>Description of opportunity 3.</p>
+        </div>
+      </div>
 
-      <Footer />
+      <div className="flex justify-center mt-12 mb-8">
+        <Link
+          href="/outreach"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-lg font-medium transition-colors duration-200"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          Back to Scientific Outreach
+        </Link>
+      </div>
     </div>
   )
 }
+
+export default VolunteerWorkPage
