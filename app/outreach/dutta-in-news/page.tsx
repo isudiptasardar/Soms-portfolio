@@ -7,6 +7,16 @@ import Link from "next/link"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import BreadcrumbNavigation from "@/components/breadcrumb-navigation"
+import { Noto_Serif_Bengali } from "next/font/google"
+
+// Load Bengali font with proper configuration
+const notoSerifBengali = Noto_Serif_Bengali({
+  subsets: ["bengali"],
+  display: "swap",
+  preload: true,
+  variable: "--font-noto-serif-bengali",
+  fallback: ["serif"],
+})
 
 export const metadata: Metadata = {
   title: "Dutta in News - Media Coverage & Recognition",
@@ -54,6 +64,21 @@ function getTypeBadgeColor(type: string) {
   }
 }
 
+// Function to detect Bengali text
+function isBengaliText(text: string): boolean {
+  // Bengali Unicode range: \u0980-\u09FF
+  const bengaliRegex = /[\u0980-\u09FF]/
+  return bengaliRegex.test(text)
+}
+
+// Component for rendering text with appropriate font
+function TextWithFont({ children, className = "" }: { children: string; className?: string }) {
+  const isBengali = isBengaliText(children)
+  const fontClass = isBengali ? notoSerifBengali.className : ""
+
+  return <span className={`${fontClass} ${className}`}>{children}</span>
+}
+
 export default function DuttaInNewsPage() {
   const newsItems = getAllNewsItems()
   const years = getNewsYears()
@@ -75,7 +100,7 @@ export default function DuttaInNewsPage() {
   ]
 
   return (
-    <>
+    <div className={notoSerifBengali.variable}>
       <Header />
       <main className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800">
         <div className="container mx-auto px-4 py-8">
@@ -124,17 +149,17 @@ export default function DuttaInNewsPage() {
                           <Badge className={`text-xs px-2 py-1 ${getTypeBadgeColor(item.type)}`}>
                             <div className="flex items-center gap-1">
                               {getTypeIcon(item.type)}
-                              <span>{item.type}</span>
+                              <TextWithFont>{item.type}</TextWithFont>
                             </div>
                           </Badge>
                         </div>
                         <CardTitle className="text-lg leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                          {item.title}
+                          <TextWithFont className="block">{item.title}</TextWithFont>
                         </CardTitle>
                       </CardHeader>
                       <CardContent className="pt-0">
                         <CardDescription className="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
-                          {item.description}
+                          <TextWithFont>{item.description}</TextWithFont>
                         </CardDescription>
                         <Link
                           href={item.link}
@@ -178,6 +203,6 @@ export default function DuttaInNewsPage() {
         </div>
       </main>
       <Footer />
-    </>
+    </div>
   )
 }
