@@ -142,7 +142,7 @@ export default function DuttaInNewsPage() {
                   {newsItemsByYear[year].map((item, index) => (
                     <Card
                       key={index}
-                      className="group hover:shadow-lg transition-all duration-300 border-0 shadow-md bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm"
+                      className="group hover:shadow-lg transition-all duration-300 border-0 shadow-md bg-white/80 dark:bg-zinc-800/80 backdrop-blur-sm"
                     >
                       <CardHeader className="pb-3">
                         <div className="flex items-start justify-between gap-2 mb-2">
