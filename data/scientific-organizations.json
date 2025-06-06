@@ -3,33 +3,61 @@
     {
       "year": 2025,
       "memberships": [
-        "[**Member of International Society for Computational Biology (ISCB)**](https://www.iscb.org)",
-        "[**Member of Human Cell Atlas**](https://www.humancellatlas.org)"
+        {
+          "organization": "Member of International Society for Computational Biology (ISCB)",
+          "website": "https://www.iscb.org"
+        },
+        {
+          "organization": "Member of Human Cell Atlas",
+          "website": "https://www.humancellatlas.org"
+        }
       ]
     },
     {
       "year": 2024,
       "memberships": [
-        "[**Member of American Society for Clinical Pharmacology and Therapeutics**](https://www.ascpt.org)",
-        "[**Member of Human Genome Organisation (HUGO-USA)**](https://www.hugo-international.org)",
-        "[**Member of The Antibody Society**](https://www.antibodysociety.org)",
-        "[**Member of American Academy of Neurology (AAN)**](https://www.aan.com)"
+        {
+          "organization": "Member of American Society for Clinical Pharmacology and Therapeutics",
+          "website": "https://www.ascpt.org"
+        },
+        {
+          "organization": "Member of Human Genome Organisation (HUGO-USA)",
+          "website": "https://www.hugo-international.org"
+        },
+        {
+          "organization": "Member of The Antibody Society",
+          "website": "https://www.antibodysociety.org"
+        },
+        {
+          "organization": "Member of American Academy of Neurology (AAN)",
+          "website": "https://www.aan.com"
+        }
       ]
     },
     {
       "year": 2023,
       "memberships": [
-        "[**Member of American Society of Clinical Oncology (ASCO)**](https://www.asco.org)",
-        "[**Global Outreach - Student Member of American Society for Microbiology (ASM)**](https://www.asm.org)",
-        "[**Member of Asia-Pacific Bioinformatics Network (APBioNET)**](https://www.apbionet.org)",
-        "[**Student Ambassador Fellow of Asia-Pacific Bioinformatics Network (APBioNET)**](https://www.apbionet.org)"
+        {
+          "organization": "Member of American Society of Clinical Oncology (ASCO)",
+          "website": "https://www.asco.org"
+        },
+        {
+          "organization": "Member of Asia-Pacific Bioinformatics Network (APBioNET)",
+          "website": "https://www.apbionet.org"
+        }
       ]
     },
     {
       "year": 2022,
       "memberships": [
-        "[**Associate Member at Progressive Regional Association of Youth for Advancement of Sciences (PRAYAS)**](https://prayasgroup.org)",
-        "[**Student Chapter Chair (Core Member) in BIOinformatics CLUb for Experimenting Scientists (BIOCLUES)**](https://www.bioclues.org)"
+        {
+          "organization": "Associate Member at Progressive Regional Association of Youth for Advancement of Sciences (PRAYAS)",
+          "website": "https://prayasgroup.org"
+        },
+        {
+          "organization": "Life Member of BIOinformatics CLUb for Experimenting Scientists (BIOCLUES)",
+          "website": "https://www.bioclues.org"
+        }
       ]
     }
   ]

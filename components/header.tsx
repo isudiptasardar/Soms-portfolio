@@ -19,7 +19,7 @@ export default function Header() {
   }, [])
 
   const menuItems = [
-    { name: "Home", href: "/#home" },
+    { name: "Home", href: "/" },
     { name: "About", href: "/#about" },
     { name: "Education", href: "/#education" },
     { name: "Publications", href: "/#publications" },
