@@ -188,7 +188,7 @@ export default function PublicationsPage() {
                             </p>
 
                             <Link
-                              href={`/publications/${publication.id}`}
+                              href={`https://doi.org/${publication.id}`}
                               className="inline-flex items-center text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
                               aria-label={`Read more about ${publication.title}`}
                               itemProp="url"
