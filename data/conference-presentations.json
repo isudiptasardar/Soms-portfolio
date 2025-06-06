@@ -6,8 +6,7 @@
       "organizer": "29th Annual International Conference on Research in Computational Molecular Biology (RECOMB-2025)",
       "date": "2025-01-01",
       "type": "Poster and Oral Talk",
-      "format": "In-Person",
-      "skills": []
+      "format": "In-Person"
     },
     {
       "id": 2,
@@ -15,8 +14,7 @@
       "organizer": "1st Symposium on Emerging Frontiers of Biotechnology",
       "date": "2025-01-01",
       "type": "Poster Presentation",
-      "format": "In-Person",
-      "skills": []
+      "format": "In-Person"
     },
     {
       "id": 3,
@@ -24,8 +22,7 @@
       "organizer": "2nd International Colloquium on Bioinformatics Learning, Education, and Training (iCOBLET2024)",
       "date": "2024-01-01",
       "type": "Presentation",
-      "format": "In-Person",
-      "skills": []
+      "format": "In-Person"
     },
     {
       "id": 4,
@@ -33,8 +30,7 @@
       "organizer": "1st Asia & Pacific Bioinformatics Joint Conference, ISCB - International Society for Computational Biology",
       "date": "2024-01-01",
       "type": "Poster Presentation",
-      "format": "In-Person",
-      "skills": []
+      "format": "In-Person"
     },
     {
       "id": 5,
@@ -42,8 +38,7 @@
       "organizer": "Indian Immunology Society (IMMUNOCON-2024)",
       "date": "2024-01-01",
       "type": "Poster Presentation",
-      "format": "In-Person",
-      "skills": []
+      "format": "In-Person"
     },
     {
       "id": 6,
@@ -51,8 +46,7 @@
       "organizer": "Horizons in Molecular Biology 2024",
       "date": "2024-01-01",
       "type": "Oral Presentation",
-      "format": "In-Person",
-      "skills": []
+      "format": "In-Person"
     },
     {
       "id": 7,
@@ -60,8 +54,7 @@
       "organizer": "Past, Present, and Future of Cellular Immunotherapy",
       "date": "2024-01-01",
       "type": "Poster Presentation",
-      "format": "In-Person",
-      "skills": []
+      "format": "In-Person"
     },
     {
       "id": 8,
@@ -69,8 +62,7 @@
       "organizer": "12th Annual Symposium on Global Cancer Research",
       "date": "2024-01-01",
       "type": "Poster Presentation",
-      "format": "In-Person",
-      "skills": []
+      "format": "In-Person"
     },
     {
       "id": 9,
@@ -78,8 +70,7 @@
       "organizer": "International Conference on Advances in Biotechnology (ICAB-2023)",
       "date": "2023-01-01",
       "type": "Poster Presentation",
-      "format": "In-Person",
-      "skills": []
+      "format": "In-Person"
     },
     {
       "id": 10,
@@ -87,8 +78,7 @@
       "organizer": "International Conference on Nutrition, Medical Genomics, and Drug Discovery",
       "date": "2022-01-01",
       "type": "Oral Presentation",
-      "format": "In-Person",
-      "skills": []
+      "format": "In-Person"
     },
     {
       "id": 11,
@@ -96,8 +86,7 @@
       "organizer": "Bioinformatica Indica 2022",
       "date": "2022-01-01",
       "type": "Oral Presentation",
-      "format": "In-Person",
-      "skills": []
+      "format": "In-Person"
     },
     {
       "id": 12,
@@ -105,8 +94,7 @@
       "organizer": "Indian Science Congress Association & Department of Bioinformatics",
       "date": "2021-01-01",
       "type": "Presentation",
-      "format": "In-Person",
-      "skills": []
+      "format": "In-Person"
     },
     {
       "id": 13,
@@ -114,8 +102,7 @@
       "organizer": "DST Sponsored National Seminar",
       "date": "2019-01-01",
       "type": "Oral Presentation",
-      "format": "In-Person",
-      "skills": []
+      "format": "In-Person"
     },
     {
       "id": 14,
@@ -123,8 +110,7 @@
       "organizer": "MCCCON-2019, DST & DBT Sponsored National Conference",
       "date": "2019-01-01",
       "type": "Paper Presentation",
-      "format": "In-Person",
-      "skills": []
+      "format": "In-Person"
     },
     {
       "id": 15,
@@ -132,8 +118,7 @@
       "organizer": "Emerging Environmental Issues",
       "date": "2019-01-01",
       "type": "Paper Presentation",
-      "format": "In-Person",
-      "skills": []
+      "format": "In-Person"
     },
     {
       "id": 16,
@@ -141,8 +126,7 @@
       "organizer": "CSIR-INDIA International Conference, Biospectrum-2018",
       "date": "2018-01-01",
       "type": "Poster Presentation",
-      "format": "In-Person",
-      "skills": []
+      "format": "In-Person"
     },
     {
       "id": 17,
@@ -150,8 +134,7 @@
       "organizer": "National Seminar on Health and Ecology",
       "date": "2017-01-01",
       "type": "Poster Presentation",
-      "format": "In-Person",
-      "skills": []
+      "format": "In-Person"
     }
   ]
 }

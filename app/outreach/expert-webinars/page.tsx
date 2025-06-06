@@ -4,50 +4,75 @@ import { useState, useEffect } from "react"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import Link from "next/link"
-import { ArrowLeft, Calendar, Users, Tag, Search, Filter, X } from "lucide-react"
+import { ArrowLeft, Calendar, Search, Filter, X, MapPin } from "lucide-react"
 import BreadcrumbNavigation from "@/components/breadcrumb-navigation"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import webinarsData from "@/data/webinars.json"
 
-// Helper function to format dates
-function formatDate(dateString: string): string {
-  const options: Intl.DateTimeFormatOptions = { year: "numeric", month: "long", day: "numeric" }
-  return new Date(dateString).toLocaleDateString("en-US", options)
+// Define the webinar type based on the actual JSON structure
+interface Webinar {
+  category: string
+  mode: string
+  title: string
 }
 
-// Helper function to get badge color based on type
-function getBadgeVariant(type: string): "default" | "secondary" | "outline" {
-  switch (type) {
-    case "Workshop":
+// Helper function to get badge color based on category
+function getBadgeVariant(category: string): "default" | "secondary" | "outline" | "destructive" {
+  switch (category) {
+    case "Workshops":
       return "default"
-    case "Webinar":
+    case "Conferences":
       return "secondary"
+    case "Webinars":
+      return "destructive"
     default:
       return "outline"
   }
 }
 
-// Helper function to get badge color based on format
-function getFormatBadgeClass(format: string): string {
-  return format === "In-Person"
+// Helper function to get badge color based on mode
+function getModeBadgeClass(mode: string): string {
+  return mode === "In-Person"
     ? "bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-300"
     : "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300"
 }
 
 export default function ExpertWebinarsPage() {
-  // Get all unique types and formats for filters
-  const allTypes = Array.from(new Set(webinarsData.webinars.map((webinar) => webinar.type)))
-  const allFormats = Array.from(new Set(webinarsData.webinars.map((webinar) => webinar.format)))
+  // Process the webinars data to flatten the structure
+  const processWebinars = () => {
+    const result: Array<Webinar & { year: string }> = []
+
+    // Loop through each year in the webinars data
+    Object.entries(webinarsData).forEach(([year, webinars]) => {
+      // Add each webinar with its year
+      webinars.forEach((webinar: Webinar) => {
+        result.push({
+          ...webinar,
+          year,
+        })
+      })
+    })
+
+    return result
+  }
+
+  const allWebinars = processWebinars()
+
+  // Get all unique categories and modes for filters
+  const allCategories = Array.from(new Set(allWebinars.map((webinar) => webinar.category)))
+  const allModes = Array.from(new Set(allWebinars.map((webinar) => webinar.mode)))
+  const allYears = Object.keys(webinarsData).sort((a, b) => Number(b) - Number(a))
 
   // State for filters and search
-  const [selectedTypes, setSelectedTypes] = useState<string[]>([])
-  const [selectedFormats, setSelectedFormats] = useState<string[]>([])
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([])
+  const [selectedModes, setSelectedModes] = useState<string[]>([])
+  const [selectedYears, setSelectedYears] = useState<string[]>([])
   const [searchQuery, setSearchQuery] = useState("")
-  const [filteredWebinars, setFilteredWebinars] = useState(webinarsData.webinars)
-  const [webinarsByYear, setWebinarsByYear] = useState<Record<string, typeof webinarsData.webinars>>({})
-  const [years, setYears] = useState<string[]>([])
+  const [filteredWebinars, setFilteredWebinars] = useState(allWebinars)
+  const [webinarsByYear, setWebinarsByYear] = useState<Record<string, Array<Webinar & { year: string }>>>({})
+  const [years, setYears] = useState<string[]>(allYears)
   const [isClient, setIsClient] = useState(false)
 
   // Handle hydration mismatch
@@ -57,16 +82,21 @@ export default function ExpertWebinarsPage() {
 
   // Apply filters and search
   useEffect(() => {
-    let result = [...webinarsData.webinars]
+    let result = [...allWebinars]
 
-    // Apply type filter
-    if (selectedTypes.length > 0) {
-      result = result.filter((webinar) => selectedTypes.includes(webinar.type))
+    // Apply category filter
+    if (selectedCategories.length > 0) {
+      result = result.filter((webinar) => selectedCategories.includes(webinar.category))
     }
 
-    // Apply format filter
-    if (selectedFormats.length > 0) {
-      result = result.filter((webinar) => selectedFormats.includes(webinar.format))
+    // Apply mode filter
+    if (selectedModes.length > 0) {
+      result = result.filter((webinar) => selectedModes.includes(webinar.mode))
+    }
+
+    // Apply year filter
+    if (selectedYears.length > 0) {
+      result = result.filter((webinar) => selectedYears.includes(webinar.year))
     }
 
     // Apply search
@@ -75,51 +105,55 @@ export default function ExpertWebinarsPage() {
       result = result.filter(
         (webinar) =>
           webinar.title.toLowerCase().includes(query) ||
-          webinar.organizer.toLowerCase().includes(query) ||
-          webinar.description.toLowerCase().includes(query) ||
-          webinar.skills.some((skill) => skill.toLowerCase().includes(query)),
+          webinar.category.toLowerCase().includes(query) ||
+          webinar.mode.toLowerCase().includes(query),
       )
     }
-
-    // Sort by date (most recent first)
-    result.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 
     setFilteredWebinars(result)
 
     // Group by year
     const groupedByYear = result.reduce(
       (acc, webinar) => {
-        const year = new Date(webinar.date).getFullYear().toString()
+        const year = webinar.year
         if (!acc[year]) {
           acc[year] = []
         }
         acc[year].push(webinar)
         return acc
       },
-      {} as Record<string, typeof webinarsData.webinars>,
+      {} as Record<string, Array<Webinar & { year: string }>>,
     )
 
     setWebinarsByYear(groupedByYear)
 
     // Get years in descending order
-    const yearsList = Object.keys(groupedByYear).sort((a, b) => Number.parseInt(b) - Number.parseInt(a))
+    const yearsList = Object.keys(groupedByYear).sort((a, b) => Number(b) - Number(a))
     setYears(yearsList)
-  }, [selectedTypes, selectedFormats, searchQuery])
+  }, [selectedCategories, selectedModes, selectedYears, searchQuery, allWebinars])
 
-  // Toggle type filter
-  const toggleTypeFilter = (type: string) => {
-    setSelectedTypes((prev) => (prev.includes(type) ? prev.filter((t) => t !== type) : [...prev, type]))
+  // Toggle category filter
+  const toggleCategoryFilter = (category: string) => {
+    setSelectedCategories((prev) =>
+      prev.includes(category) ? prev.filter((t) => t !== category) : [...prev, category],
+    )
   }
 
-  // Toggle format filter
-  const toggleFormatFilter = (format: string) => {
-    setSelectedFormats((prev) => (prev.includes(format) ? prev.filter((f) => f !== format) : [...prev, format]))
+  // Toggle mode filter
+  const toggleModeFilter = (mode: string) => {
+    setSelectedModes((prev) => (prev.includes(mode) ? prev.filter((m) => m !== mode) : [...prev, mode]))
+  }
+
+  // Toggle year filter
+  const toggleYearFilter = (year: string) => {
+    setSelectedYears((prev) => (prev.includes(year) ? prev.filter((y) => y !== year) : [...prev, year]))
   }
 
   // Clear all filters
   const clearFilters = () => {
-    setSelectedTypes([])
-    setSelectedFormats([])
+    setSelectedCategories([])
+    setSelectedModes([])
+    setSelectedYears([])
     setSearchQuery("")
   }
 
@@ -168,7 +202,7 @@ export default function ExpertWebinarsPage() {
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-zinc-400" />
                   <Input
                     type="text"
-                    placeholder="Search webinars, topics, skills..."
+                    placeholder="Search webinars, topics, categories..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className="pl-10"
@@ -176,7 +210,7 @@ export default function ExpertWebinarsPage() {
                 </div>
               </div>
               <div className="flex gap-2">
-                {selectedTypes.length > 0 || selectedFormats.length > 0 ? (
+                {selectedCategories.length > 0 || selectedModes.length > 0 || selectedYears.length > 0 ? (
                   <Button variant="outline" size="sm" onClick={clearFilters} className="whitespace-nowrap">
                     <X className="h-4 w-4 mr-2" />
                     Clear Filters
@@ -189,19 +223,19 @@ export default function ExpertWebinarsPage() {
               <div>
                 <h3 className="text-sm font-medium mb-2 flex items-center">
                   <Filter className="h-4 w-4 mr-2" />
-                  Filter by Type
+                  Filter by Category
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                  {allTypes.map((type) => (
+                  {allCategories.map((category) => (
                     <Badge
-                      key={type}
-                      variant={selectedTypes.includes(type) ? "default" : "outline"}
+                      key={category}
+                      variant={selectedCategories.includes(category) ? "default" : "outline"}
                       className={`cursor-pointer ${
-                        selectedTypes.includes(type) ? "" : "hover:bg-zinc-100 dark:hover:bg-zinc-700"
+                        selectedCategories.includes(category) ? "" : "hover:bg-zinc-100 dark:hover:bg-zinc-700"
                       }`}
-                      onClick={() => toggleTypeFilter(type)}
+                      onClick={() => toggleCategoryFilter(category)}
                     >
-                      {type}
+                      {category}
                     </Badge>
                   ))}
                 </div>
@@ -210,19 +244,40 @@ export default function ExpertWebinarsPage() {
               <div>
                 <h3 className="text-sm font-medium mb-2 flex items-center">
                   <Filter className="h-4 w-4 mr-2" />
-                  Filter by Format
+                  Filter by Mode
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                  {allFormats.map((format) => (
+                  {allModes.map((mode) => (
                     <Badge
-                      key={format}
-                      variant={selectedFormats.includes(format) ? "default" : "outline"}
+                      key={mode}
+                      variant={selectedModes.includes(mode) ? "default" : "outline"}
                       className={`cursor-pointer ${
-                        selectedFormats.includes(format) ? "" : "hover:bg-zinc-100 dark:hover:bg-zinc-700"
+                        selectedModes.includes(mode) ? "" : "hover:bg-zinc-100 dark:hover:bg-zinc-700"
                       }`}
-                      onClick={() => toggleFormatFilter(format)}
+                      onClick={() => toggleModeFilter(mode)}
                     >
-                      {format}
+                      {mode}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-sm font-medium mb-2 flex items-center">
+                  <Calendar className="h-4 w-4 mr-2" />
+                  Filter by Year
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {allYears.map((year) => (
+                    <Badge
+                      key={year}
+                      variant={selectedYears.includes(year) ? "default" : "outline"}
+                      className={`cursor-pointer ${
+                        selectedYears.includes(year) ? "" : "hover:bg-zinc-100 dark:hover:bg-zinc-700"
+                      }`}
+                      onClick={() => toggleYearFilter(year)}
+                    >
+                      {year}
                     </Badge>
                   ))}
                 </div>
@@ -230,15 +285,15 @@ export default function ExpertWebinarsPage() {
             </div>
 
             <div className="mt-4 text-sm text-zinc-500 dark:text-zinc-400">
-              Showing {filteredWebinars.length} of {webinarsData.webinars.length} webinars
+              Showing {filteredWebinars.length} of {allWebinars.length} activities
             </div>
           </div>
 
           {filteredWebinars.length === 0 ? (
             <div className="text-center py-12 bg-zinc-50 dark:bg-zinc-800 rounded-lg">
-              <h3 className="text-xl font-semibold mb-2">No webinars found</h3>
+              <h3 className="text-xl font-semibold mb-2">No activities found</h3>
               <p className="text-zinc-600 dark:text-zinc-400 mb-6">
-                No webinars match your current filters. Try adjusting your search criteria.
+                No webinars or academic activities match your current filters. Try adjusting your search criteria.
               </p>
               <Button onClick={clearFilters}>Clear All Filters</Button>
             </div>
@@ -248,52 +303,33 @@ export default function ExpertWebinarsPage() {
                 <div key={year} id={`year-${year}`} className="scroll-mt-24">
                   <h2 className="text-2xl font-bold border-b border-zinc-200 dark:border-zinc-700 pb-2 mb-8">{year}</h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {webinarsByYear[year].map((webinar) => (
+                    {webinarsByYear[year]?.map((webinar, index) => (
                       <div
-                        key={webinar.id}
+                        key={`${year}-${index}`}
                         className="bg-white dark:bg-zinc-800 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden flex flex-col h-full"
                       >
                         <div className="p-6 flex-1 flex flex-col">
                           <div className="flex justify-between items-start mb-4">
-                            <Badge variant={getBadgeVariant(webinar.type)} className="capitalize">
-                              {webinar.type}
+                            <Badge variant={getBadgeVariant(webinar.category)} className="capitalize">
+                              {webinar.category}
                             </Badge>
                             <span
-                              className={`text-xs font-medium px-2 py-1 rounded-full ${getFormatBadgeClass(webinar.format)}`}
+                              className={`text-xs font-medium px-2 py-1 rounded-full ${getModeBadgeClass(webinar.mode)}`}
                             >
-                              {webinar.format}
+                              {webinar.mode}
                             </span>
                           </div>
 
                           <h3 className="text-xl font-semibold mb-3">{webinar.title}</h3>
 
                           <div className="mb-4 text-zinc-600 dark:text-zinc-400 flex items-center">
-                            <Users className="h-4 w-4 mr-2 flex-shrink-0" />
-                            <span>{webinar.organizer}</span>
+                            <Calendar className="h-4 w-4 mr-2 flex-shrink-0" />
+                            <span>{webinar.year}</span>
                           </div>
 
                           <div className="mb-4 text-zinc-600 dark:text-zinc-400 flex items-center">
-                            <Calendar className="h-4 w-4 mr-2 flex-shrink-0" />
-                            <span>{formatDate(webinar.date)}</span>
-                          </div>
-
-                          <p className="text-zinc-600 dark:text-zinc-400 mb-6 flex-grow">{webinar.description}</p>
-
-                          <div className="mt-auto">
-                            <h4 className="text-sm font-semibold mb-2 flex items-center">
-                              <Tag className="h-4 w-4 mr-2" />
-                              Skills & Topics
-                            </h4>
-                            <div className="flex flex-wrap gap-2">
-                              {webinar.skills.map((skill, index) => (
-                                <span
-                                  key={index}
-                                  className="px-2 py-1 bg-zinc-100 dark:bg-zinc-700 rounded-full text-xs"
-                                >
-                                  {skill}
-                                </span>
-                              ))}
-                            </div>
+                            <MapPin className="h-4 w-4 mr-2 flex-shrink-0" />
+                            <span>{webinar.mode}</span>
                           </div>
                         </div>
                       </div>
