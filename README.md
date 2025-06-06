@@ -15,7 +15,7 @@ Experience the portfolio live: [somenath.biomolecular.space](https://somenath.bi
 
 ## 📁 Project Structure
 
-```
+\`\`\`
 ├── app/               # Application routes and pages
 ├── components/        # Reusable UI components
 ├── data/              # Static data and content
@@ -28,7 +28,7 @@ Experience the portfolio live: [somenath.biomolecular.space](https://somenath.bi
 ├── package.json       # Project metadata and dependencies
 ├── tailwind.config.ts # Tailwind CSS configuration
 └── tsconfig.json      # TypeScript configuration
-```
+\`\`\`
 
 ## 📸 Features
 
@@ -43,22 +43,22 @@ To run this project locally:
 
 1. **Clone the repository:**
 
-   ```bash
+   \`\`\`bash
    git clone https://github.com/isudiptasardar/Soms-portfolio.git
    cd Soms-portfolio
-   ```
+   \`\`\`
 
 2. **Install dependencies:**
 
-   ```bash
+   \`\`\`bash
    pnpm install
-   ```
+   \`\`\`
 
 3. **Start the development server:**
 
-   ```bash
+   \`\`\`bash
    pnpm dev
-   ```
+   \`\`\`
 
 4. **Open in browser:**
 
