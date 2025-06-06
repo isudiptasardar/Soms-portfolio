@@ -7,7 +7,7 @@ export default function ScientificOutreach() {
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center">Scientific Outreach</h2>
 
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto text-justify">
           <div className="bg-white dark:bg-zinc-700 rounded-lg shadow-sm p-8 md:p-10">
             <div className="text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
               In addition to Mr. Dutta's academic and research pursuits, he has actively engaged in various scientific
@@ -57,7 +57,8 @@ export default function ScientificOutreach() {
                 volunteered in many organizations
               </OutreachPreview>{" "}
               for the scientific growth of society. These experiences have broadened his perspective, enhanced his
-              skills, and strengthened his involvement in the wider scientific community.
+              skills, and strengthened his involvement in the wider scientific community. His impactful contributions have also been featured in {" "}
+              <OutreachPreview url="/outreach/dutta-in-news" className="font-bold text-zinc-900 dark:text-zinc-100 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors" title="Dutta in News" description="Mr. Dutta's work and contributions have been recognized in several newspapers, reflecting the broader impact of his scintific engagement and public outreach."> several newspapers </OutreachPreview>, underscoring his growing influence in both academic and publc spheres.
             </div>
           </div>
         </div>
