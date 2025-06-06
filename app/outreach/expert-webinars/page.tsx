@@ -174,13 +174,6 @@ export default function ExpertWebinarsPage() {
         <div className="max-w-6xl mx-auto">
           <div className="mb-8">
             <BreadcrumbNavigation items={breadcrumbItems} />
-            <Link
-              href="/#scientific-outreach"
-              className="inline-flex items-center text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
-            >
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Scientific Outreach
-            </Link>
           </div>
 
           <h1 className="text-3xl md:text-4xl font-bold mb-8">Expert-Led Webinars & Academic Activities</h1>
@@ -353,6 +346,17 @@ export default function ExpertWebinarsPage() {
               the forefront of scientific advancements and incorporate cutting-edge techniques into his research work,
               contributing to his growth as a researcher and professional in the field.
             </p>
+          </div>
+
+          {/* Back to Scientific Outreach Button - Moved to Bottom */}
+          <div className="mt-12 mb-8 flex justify-center">
+            <Link
+              href="/#scientific-outreach"
+              className="inline-flex items-center px-6 py-3 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 rounded-lg transition-colors duration-200 font-medium"
+            >
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Back to Scientific Outreach
+            </Link>
           </div>
         </div>
       </main>
