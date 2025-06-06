@@ -90,6 +90,20 @@
       "organization": "West Bengal, India",
       "year": "2017",
       "description": "Recognized for excellence in research presentation, highlighting the intersection of health sciences and ecological factors."
+    },
+    {
+    "id":14,
+    "title":"SERB Karyashala Grant - Workshop",
+    "organization": "National Institute of Technology, Durgapur, West Bengal, India",
+    "year": "2023",
+    "description": "Got Travel and Accomodation grant from Govt. of India"
+    },
+    { 
+    "id":15,
+    "title":"SERB Karyashala Grant - Workshop",
+    "organization": "National Institute of Technology, Silchar, Assam, India",
+    "year": "2022",
+    "description": "Got Travel and Accomodation grant from Govt. of India"
     }
   ]
 }
