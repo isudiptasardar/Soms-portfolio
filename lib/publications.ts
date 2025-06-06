@@ -42,9 +42,26 @@ export const getPublicationById = cache((id: string | number): Publication | und
   return getAllPublications().find((pub) => pub.id === id)
 })
 
+export const getTotalPublicationsCount = cache((): number => {
+  return getAllPublications().length
+})
+
+export const getPublicationsByType = cache((type: string): Publication[] => {
+  return getAllPublications().filter((pub) => pub.type === type)
+})
+
+export const getPublicationTypes = cache((): string[] => {
+  const types = getAllPublications().map((pub) => pub.type)
+  return [...new Set(types)].sort()
+})
+
 export function formatDate(dateString: string): string {
   const date = new Date(dateString)
-  return date.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  })
 }
 
 export function formatAuthors(authors: string[], short = false): string {
@@ -56,4 +73,8 @@ export function formatAuthors(authors: string[], short = false): string {
   }
 
   return authors.join(", ")
+}
+
+export function getPublicationYear(dateString: string): number {
+  return new Date(dateString).getFullYear()
 }

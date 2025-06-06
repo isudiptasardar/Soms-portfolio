@@ -1,26 +1,52 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useCallback } from "react"
 import Image, { type ImageProps } from "next/image"
-import PlaceholderImage from "./placeholder-image"
+import { cn } from "@/lib/utils"
 
-interface OptimizedImageProps extends Omit<ImageProps, "onError"> {
+interface OptimizedImageProps extends Omit<ImageProps, "onLoad" | "onError"> {
   fallbackSrc?: string
+  showLoader?: boolean
+  className?: string
 }
 
-export default function OptimizedImage({ src, alt, fallbackSrc = "/placeholder.svg", ...props }: OptimizedImageProps) {
-  const [error, setError] = useState(false)
+export default function OptimizedImage({
+  src,
+  alt,
+  fallbackSrc = "/placeholder.svg",
+  showLoader = true,
+  className,
+  ...props
+}: OptimizedImageProps) {
+  const [isLoading, setIsLoading] = useState(true)
+  const [hasError, setHasError] = useState(false)
 
-  const handleError = () => {
-    console.warn(`Failed to load image: ${src}`)
-    setError(true)
-  }
+  const handleLoad = useCallback(() => {
+    setIsLoading(false)
+  }, [])
 
-  // If there's an error loading the image, show a placeholder
-  if (error) {
-    return <PlaceholderImage alt={alt} {...props} />
-  }
+  const handleError = useCallback(() => {
+    setHasError(true)
+    setIsLoading(false)
+  }, [])
 
-  // Otherwise, render the image with error handling
-  return <Image src={src || "/placeholder.svg"} alt={alt} {...props} onError={handleError} />
+  const imageSrc = hasError ? fallbackSrc : src
+
+  return (
+    <div className={cn("relative overflow-hidden", className)}>
+      {isLoading && showLoader && (
+        <div className="absolute inset-0 bg-zinc-100 dark:bg-zinc-800 animate-pulse flex items-center justify-center">
+          <div className="w-8 h-8 border-2 border-zinc-300 border-t-zinc-600 rounded-full animate-spin" />
+        </div>
+      )}
+      <Image
+        src={imageSrc || "/placeholder.svg"}
+        alt={alt}
+        onLoad={handleLoad}
+        onError={handleError}
+        className={cn("transition-opacity duration-300", isLoading ? "opacity-0" : "opacity-100", className)}
+        {...props}
+      />
+    </div>
+  )
 }
