@@ -55,7 +55,7 @@ export default function Publications() {
                   </div>
                   <div className="mt-4 pt-4 border-t border-zinc-100 dark:border-zinc-600">
                     <Link
-                      href={`/publications/${publication.id}`}
+                      href={`https://doi.org/${publication.id}`}
                       className="inline-flex items-center text-zinc-600 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-white transition-colors"
                       aria-label={`Read details about ${publication.title}`}
                     >
