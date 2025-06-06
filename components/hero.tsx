@@ -44,7 +44,7 @@ const HeroContent = memo(function HeroContent() {
         transition={{ duration: 0.5, delay: 0.4 }}
       >
         <Button asChild size="lg">
-          <a href="/Somenath_Dutta_CV.pdf" target="_blank" rel="noopener noreferrer">
+          <a href="https://drive.google.com/uc?export=download&id=1lKLnjcD6GMg2Bmr8FouKoHYeWEeqdFjn" target="_blank" rel="noopener noreferrer">
             Curriculum Vitae
           </a>
         </Button>
